@@ -132,35 +132,84 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2019/09/01/笔记/json/">
-                Untitled
+            <a href="/2019/07/30/Maven/">
+                Maven
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-09-01</span>
+                <span class="date">2019-07-30</span>
             
             
+            
+                <span class="category">
+                    <a href="/categories/javaweb/">javaweb</a>
+                </span>
             
         </div>
     </div>
 
     
         <div class="content">
-            <h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><ul>
-<li>JavaScript object notation（JavaScript对象表示法）</li>
-<li>JSON是轻量级的文本数据交换格式</li>
-<li>JSON独立于语言，具有自我描述性，更易理解</li>
+            <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ul>
+<li>Maven是项目管理工具，对软件项目提供构建与依赖管理</li>
+<li>Maven是Apache下的Java开源项目</li>
+<li>Maven为Java项目提供统一的管理方式，已成为业界标准</li>
 </ul>
-<h2 id="json语法规则"><a href="#json语法规则" class="headerlink" title="json语法规则"></a>json语法规则</h2><ul>
-<li>数据由键（key）/值（value）描述，由逗号分隔</li>
-<li>大括号代表一个完整的对象，拥有多个键/值对</li>
-<li>中括号保存数组，多个对象之间使用逗号分隔</li>
+<h2 id="Maven-的核心特性"><a href="#Maven-的核心特性" class="headerlink" title="Maven 的核心特性"></a>Maven 的核心特性</h2><ul>
+<li>项目设置遵循统一的规则，保证不同开发环境的兼容性</li>
+<li>强大的依赖管理，项目依赖组件自动下载、自动更新</li>
+<li>可扩展的插件机制，使用简单、功能丰富 </li>
 </ul>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"sites"</span>:[</span><br><span class="line">	&#123;<span class="attr">"name"</span>:<span class="string">"百度"</span>,<span class="attr">"url"</span>:<span class="string">"www.baidu.com"</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">"name"</span>:<span class="string">"网易"</span>,<span class="attr">"url"</span>:<span class="string">"www.163.com"</span>&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="js与json"><a href="#js与json" class="headerlink" title="js与json"></a>js与json</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> json =[</span></span><br><span class="line">            &#123;</span><br><span class="line"><span class="javascript">                <span class="string">"empno"</span>: <span class="number">7369</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"ename"</span>: <span class="string">"李宁"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"job"</span>: <span class="string">"软件工程师"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"hiredate"</span>: <span class="string">"2017-05-12"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"salary"</span>: <span class="number">13000</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"dname"</span>: <span class="string">"研发部"</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line"><span class="javascript">                <span class="string">"empno"</span>: <span class="number">7499</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"ename"</span>: <span class="string">"王乐"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"job"</span>: <span class="string">"客户经理"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"hiredate"</span>: <span class="string">"2017-04-22"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"salary"</span>: <span class="number">10000</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"dname"</span>: <span class="string">"市场部"</span>,</span></span><br><span class="line"><span class="javascript">                <span class="string">"customers"</span>: [</span></span><br><span class="line">                    &#123;</span><br><span class="line"><span class="javascript">                        <span class="string">"cname"</span>: <span class="string">"李东"</span></span></span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line"><span class="javascript">                        <span class="string">"cname"</span>: <span class="string">"刘楠"</span></span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ];</span><br><span class="line"><span class="javascript">        <span class="comment">//在浏览器控制台中对json内容进行输出</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(json);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;json.length;i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> emp=json[i];</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(<span class="string">"&lt;h1&gt;"</span>);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(emp.empno);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(emp.ename);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(emp.hiredate);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(emp.salary);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(emp.dname);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.write(<span class="string">"&lt;/h1&gt;"</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">if</span>(emp.customers!=<span class="literal">null</span>)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">document</span>.write(<span class="string">"&lt;h2&gt;---"</span>)</span></span><br><span class="line"><span class="javascript">                <span class="keyword">for</span> (<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;emp.customers.length;j++)&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> customer=emp.customers[j];</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.write(customer.cname+<span class="string">","</span>)</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="掌握Maven的依赖管理"><a href="#掌握Maven的依赖管理" class="headerlink" title="掌握Maven的依赖管理"></a>掌握Maven的依赖管理</h2><ul>
+<li>Maven利用dependency（依赖）自动下载、管理第三方Jar</li>
+<li>在pom.xml文件中配置项目依赖的第三方组建</li>
+<li>maven自动将依赖从远程仓库下载到本地仓库，并在工程中引用</li>
+</ul>
+<h2 id="掌握Maven的打包方式"><a href="#掌握Maven的打包方式" class="headerlink" title="掌握Maven的打包方式"></a>掌握Maven的打包方式</h2><ul>
+<li>Maven可将Java项目打包为jar、war包</li>
+<li>Maven项目打包是通过Plugins（插件）技术实现</li>
+<li>Maven输出Jar插件：maven-assembly-plugin</li>
+</ul>
+<h2 id="Maven的安装与配置"><a href="#Maven的安装与配置" class="headerlink" title="Maven的安装与配置"></a>Maven的安装与配置</h2><h3 id="idea："><a href="#idea：" class="headerlink" title="idea："></a>idea：</h3><ol>
+<li>Maven.apache.org 下载</li>
+<li>解压</li>
+<li>环境配置 path  bin目录</li>
+<li>idea  settings ——》Bulid，Execution，Deployment——》Bulid Tools——》Maven——》Maven home directory设置 文件目录 即 apache-maven 3.6.1</li>
+<li>project——》maven——》勾选 Create from archetype 选择 webapp——》输入项目名——》Add Maven Property    Name：archetypeCatalog  Value：internal</li>
+</ol>
+<h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mvn archetype：generate</td>
+<td>创建Maven工程</td>
+</tr>
+<tr>
+<td>mvn compile</td>
+<td>编译源代码</td>
+</tr>
+<tr>
+<td>mvn test</td>
+<td>执行测试用例</td>
+</tr>
+<tr>
+<td>mvn clean</td>
+<td>清除产生项目</td>
+</tr>
+<tr>
+<td>mvn package</td>
+<td>项目打包</td>
+</tr>
+<tr>
+<td>mvn install</td>
+<td>安装到本地仓库</td>
+</tr>
+</tbody></table>
 
         </div>
     

@@ -132,13 +132,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2019/08/07/MyBatis/">
-                Mybatis
+            <a href="/2019/07/14/XML/">
+                XML
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-08-07</span>
+                <span class="date">2019-07-14</span>
             
             
             
@@ -151,143 +151,187 @@
 
     
         <div class="content">
-            <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="MyBatis概述"><a href="#MyBatis概述" class="headerlink" title="MyBatis概述"></a>MyBatis概述</h2><h3 id="1-ORM模型简介"><a href="#1-ORM模型简介" class="headerlink" title="1. ORM模型简介"></a>1. ORM模型简介</h3><ul>
-<li><p>object relation mapping</p>
+            <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><blockquote>
+<p>五个方面</p>
+<ol>
+<li>XML介绍与用途</li>
+<li>XML的语法规则</li>
+<li>XML语义约束</li>
+<li>Java解析XML</li>
+<li>XPath路径表达式</li>
+</ol>
+</blockquote>
+<h2 id="XML介绍与用途"><a href="#XML介绍与用途" class="headerlink" title="XML介绍与用途"></a>XML介绍与用途</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ol>
+<li><p>全称：E<font color="red">X</font>tensible   <font color="red">M</font>arkup   <font color="red">L</font>anguage</p>
+<p>​            可扩展             标记            语言</p>
+</li>
+<li><p>编写XML就是编写标签，与HTML非常类似，扩展名.xml</p>
+</li>
+<li><p>良好的人机可读性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`<span class="tag">&lt;<span class="name">employee</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">height</span>&gt;</span>1.80<span class="tag">&lt;/<span class="name">height</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">employee</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
+<li>Java程序的配置描述文件（web.xml—web应用配置文件）</li>
+<li>用于保存程序产生的数据</li>
+<li>网络间的数据传输（webservice底层soap协议：）</li>
+</ol>
+<h2 id="语法规则（文档结构）"><a href="#语法规则（文档结构）" class="headerlink" title="语法规则（文档结构）"></a>语法规则（文档结构）</h2><blockquote>
+<ol>
+<li>第一行必须是XML声明</li>
+<li>有且只有一个根节点</li>
+<li>XML标 签的书写规则与HTML相同</li>
+</ol>
+</blockquote>
+<h3 id="XML声明"><a href="#XML声明" class="headerlink" title="XML声明"></a>XML声明</h3><ul>
+<li><p>XML声明说明XML文档的基本信息，包括版本号与字符集，写在XML第一行。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>version 代表版本号1.0  encoding UTF-8设置字符集，用于支持中文</p>
+</li>
+</ul>
+<h3 id="XML标签书写规则"><a href="#XML标签书写规则" class="headerlink" title="XML标签书写规则"></a>XML标签书写规则</h3><ol>
+<li><p>合法的标签名</p>
+<ul>
+<li>标签名要有意义</li>
+<li>建议使用英文，小写字母，单词之间使用 “ - “分割。</li>
+<li>建议多级标签之间不要存在重名情况</li>
+</ul>
+</li>
+<li><p>适当的注释与缩进</p>
+<blockquote>
+<p>适当的注释与缩进可以让XML文档更容易阅读</p>
+</blockquote>
+</li>
+<li><p>合理使用属性</p>
+<ul>
+<li>标签属性用于描述标签不可或缺的信息</li>
+<li>对标签分组或者为标签设置Id时常用属性表示</li>
+</ul>
+</li>
+<li><p>处理特殊字符</p>
+<ul>
+<li><p>标签体中，出现”&lt;”、”&gt;”特殊字符，会破坏文档结构。</p>
+<blockquote>
+<p><strong>解决方案1：</strong>使用实体引用。</p>
+<p>XML支持五种实体引用</p>
 <table>
 <thead>
 <tr>
-<th align="center">object</th>
-<th align="center">Mapping</th>
-<th align="center">Relation</th>
+<th align="center">实体引用</th>
+<th align="center">对应符号</th>
+<th align="center">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">xxx.java</td>
-<td align="center">XML</td>
-<td align="center">dbf</td>
+<td align="center">&amp;It；</td>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&amp;gt；</td>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&amp;amp；</td>
+<td align="center">&amp;</td>
+<td align="center">和号</td>
+</tr>
+<tr>
+<td align="center">&amp;apos；</td>
+<td align="center">‘</td>
+<td align="center">单引号</td>
+</tr>
+<tr>
+<td align="center">&amp;quot；</td>
+<td align="center">“</td>
+<td align="center">双引号</td>
 </tr>
 </tbody></table>
-<blockquote>
-<p>传统JDBCC程序的设计缺陷</p>
+<p><strong>解决方案2：</strong>使用CDATA标签</p>
 <ul>
-<li>大量配置信息硬编码</li>
-<li>大量的无关业务处理的编码</li>
-<li>扩展优化极为不便</li>
+<li>CDATA指的是不应由XML解析器进行解析的文本数据</li>
+<li>“<!--[CDATA[内容]]-->”</li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<h3 id="2-MyBatis概述"><a href="#2-MyBatis概述" class="headerlink" title="2. MyBatis概述"></a>2. MyBatis概述</h3><p><strong>MyBatis是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架</strong></p>
+</li>
+<li><p>有序的子元素</p>
 <ul>
-<li>避免传统JDBC硬编码</li>
-<li>XML配置或者注解</li>
-<li>POJO对象和数据库记录直接映射</li>
-<li>完善的文档支持</li>
-</ul>
-<h3 id="3-MyBatis使用优势及应用场景"><a href="#3-MyBatis使用优势及应用场景" class="headerlink" title="3.MyBatis使用优势及应用场景"></a>3.MyBatis使用优势及应用场景</h3><h4 id="使用优势"><a href="#使用优势" class="headerlink" title="使用优势"></a>使用优势</h4><ul>
-<li>简单易学、快速上手、学习成本低</li>
-<li>数据库交互信息配置化</li>
-<li>动态SQL处理</li>
-</ul>
-<h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><ul>
-<li><p>更加关注SQL优化的项目</p>
-</li>
-<li><p>需求频繁更新改动的项目</p>
-</li>
-</ul>
-<h2 id="MyBatis的环境搭建"><a href="#MyBatis的环境搭建" class="headerlink" title="MyBatis的环境搭建"></a>MyBatis的环境搭建</h2><h3 id="MyBatis的下载"><a href="#MyBatis的下载" class="headerlink" title="MyBatis的下载"></a>MyBatis的下载</h3><p><a href="http://www.mybatis.org/mybatis-3/" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/</a></p>
-<h3 id="项目中引入MyBatis支持"><a href="#项目中引入MyBatis支持" class="headerlink" title="项目中引入MyBatis支持"></a>项目中引入MyBatis支持</h3><p>maven方式引入</p>
-<ul>
-<li>查询配置<ul>
-<li><a href="http://mvnrepositiry.com查询maven依赖配置" target="_blank" rel="noopener">http://mvnrepositiry.com查询maven依赖配置</a></li>
-<li>maven项目的pom.xml中添加配置</li>
-<li>查看项目依赖</li>
-<li>了解maven本地仓库</li>
+<li>在XML多层嵌套的子元素中，标签前后顺序应保持一致</li>
 </ul>
 </li>
-</ul>
-<h3 id="入门程序（MyBatis核心API操作过程）"><a href="#入门程序（MyBatis核心API操作过程）" class="headerlink" title="入门程序（MyBatis核心API操作过程）"></a>入门程序（MyBatis核心API操作过程）</h3><p>mybatis配置</p>
-<ul>
-<li><p>mybatis.xml主配置文件（从文档中获取再更改）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/test1?serverTimezone=Asia/Shanghai"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"mjj666123"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"mapper/usersMapper.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>***Mapper.xml映射配置文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- namespace 命名空间</span></span><br><span class="line"><span class="comment">      通常情况，命名空间的值，就是当前操作实体类的全名称</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"mjj.Users"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"usersList"</span> <span class="attr">resultType</span>=<span class="string">"mjj.Users"</span>&gt;</span></span><br><span class="line">        select * from tb1</span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>实体类Users(重写tostring()方法进行输出)</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> mjj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Users</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String user;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUser</span><span class="params">(String user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.user = user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Users&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">", user='"</span> + user + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", password='"</span> + password + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">teaching-plan</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>大学英语<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>36<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>高等数学<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>70<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>计算机应用基础<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>108<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>上机考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">teaching-plan</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>Testdemo(连接数据库)</li>
+<h2 id="XML语义约束"><a href="#XML语义约束" class="headerlink" title="XML语义约束"></a>XML语义约束</h2><ul>
+<li>XML文档结构正确，但可能不有效。（如员工档案XML中出现“植物品种”）</li>
+<li>XML予以约束有两种定义方式：DTD与XML Schema</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mjj.Users;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStream;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Testdemo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDemo1</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        String resource =<span class="string">"mybatis.xml"</span>;</span><br><span class="line">        InputStream is=Resources.getResourceAsStream(resource);</span><br><span class="line">        <span class="comment">//主配置文件和SqlSessionFactory构建工厂类</span></span><br><span class="line">        SqlSessionFactory factory=</span><br><span class="line">                <span class="keyword">new</span> SqlSessionFactoryBuilder().build(is);</span><br><span class="line">        <span class="comment">//打开和数据库的会话</span></span><br><span class="line">        SqlSession session=factory.openSession();</span><br><span class="line">        List&lt;Users&gt; ulist= session.selectList(<span class="string">"usersList"</span>);</span><br><span class="line">        <span class="keyword">for</span>(Users user:ulist)&#123;</span><br><span class="line">            System.out.println(user.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//关闭会话</span></span><br><span class="line">        session.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><blockquote>
+<p><strong>DTD</strong>  Document Type Definition 文档类型定义</p>
+<ul>
+<li>DTD扩展名.dta</li>
+<li>利用DTD中的&lt;!ELEMENT&gt;标签，定义XML文档中允许出现的节点和数量，举例如下：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">&lt;!--定义hr节点下只允许出现一个employee子节点--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--必须含有以下下四个节点，且按顺序出现--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">employee</span> (<span class="attr">name</span>,<span class="attr">age</span>,<span class="attr">salary</span>,<span class="attr">department</span>)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--定义name标签体只能是文本，#PCDATA代表文本元素&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!ELEMENT name (#PCDATA)&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!--最少出现1个--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>+)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--最多出现1个&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!ELEMENT hr (employee?)&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!--可出现0~n个--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>*)&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><font color="red"><u><strong>XML怎么引用DTD文件？</strong></u></font></p>
+<p><strong>回答：</strong></p>
+<p>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;!DOCTYPE 根节点 SYSTEM &quot;dtd文件路径&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;!DOCTYPE hr SYSTEM &quot;hr.dtd&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>DTD的创建和使用</p>
+<ul>
+<li><p>创建(idea)：1.Tools</p>
+<p>​                      2.XML Actions</p>
+<p>​                      3.generate DTD from XML Files</p>
+</li>
+<li><p><font color="red">注意：父节点之后一定要有空格</font></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="XML-Schema"><a href="#XML-Schema" class="headerlink" title="XML Schema"></a>XML Schema</h3><blockquote>
+<ul>
+<li>XML Schema更复杂提供了更多功能</li>
+<li>XML Schema提供了数据类型、格式限定、数据范围等特性。</li>
+<li>XML Schema是W3C标准。（所以之后通常用XML Schema）</li>
+</ul>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;schema xmlns="http://www.w3.org/2001/XMLSchema"&gt;</span><br><span class="line">  &lt;element name="hr"&gt;</span><br><span class="line">      &lt;complexType&gt;</span><br><span class="line">        &lt;sequence&gt;</span><br><span class="line">          &lt;element name="employee"&gt;</span><br><span class="line">            &lt;complexType&gt;</span><br><span class="line">              &lt;sequence&gt;</span><br><span class="line">                &lt;element name="name" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                &lt;element name="age" type="integer"&gt;</span><br><span class="line">                	&lt;restriction base="integer"&gt;</span><br><span class="line">                    	&lt;minInclusive value="18"&gt;&lt;minInclusive&gt;</span><br><span class="line">                        &lt;maxInclusive value="60"&gt;&lt;maxInclusive&gt;</span><br><span class="line">                    &lt;/restriction&gt;</span><br><span class="line">                &lt;/element&gt;</span><br><span class="line">                &lt;element name="salary" type="integer"&gt;&lt;/element&gt;</span><br><span class="line">                &lt;element name="department"&gt;</span><br><span class="line">                    &lt;complexType&gt;</span><br><span class="line">                      &lt;sequence&gt;</span><br><span class="line">                        &lt;element name="dname" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                        &lt;element name="address" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                      &lt;/sequence&gt;</span><br><span class="line">                    &lt;/complexType&gt;</span><br><span class="line">                &lt;/element&gt;</span><br><span class="line">              &lt;/sequence&gt;</span><br><span class="line">            &lt;/complexType&gt;</span><br><span class="line">          &lt;/element&gt;</span><br><span class="line">        &lt;/sequence&gt;</span><br><span class="line">      &lt;/complexType&gt;</span><br><span class="line">  &lt;/element&gt;</span><br><span class="line">&lt;/schema&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="项目案例演示"><a href="#项目案例演示" class="headerlink" title="项目案例演示"></a>项目案例演示</h3><ul>
-<li><p>项目案列演示</p>
-<p>后台管理系统用户数据维护平台</p>
-<ul>
-<li>所有用户数据查询</li>
-<li>单个用户数据查询</li>
-<li>用户数据修改</li>
-<li>锁定用户账号</li>
-<li>删除用户账号</li>
-<li>彻底删除用户账号</li>
+<p><font color="red"><strong>Tips:</strong>框架和架构都离不开schema</font></p>
+<h2 id="java解析XML"><a href="#java解析XML" class="headerlink" title="java解析XML"></a>java解析XML</h2><h3 id="DOM文档对象模型"><a href="#DOM文档对象模型" class="headerlink" title="DOM文档对象模型"></a>DOM文档对象模型</h3><ul>
+<li>DOM（Document Object Model)定义了访问和操作XML文档的标准方法，DOM把XML文档作为树结构来查看，能够通过DOM树来读写所有元素。</li>
 </ul>
-</li>
-<li><p>数据库数据准备工作</p>
-</li>
-<li><p>界面准备工作</p>
-</li>
-<li><p>MyBatis基础操作</p>
-</li>
+<h3 id="Dom4j"><a href="#Dom4j" class="headerlink" title="Dom4j"></a>Dom4j</h3><ul>
+<li>Dom4j是一个易用的、开源的库，用于解析XML。它应用于Java平台，具有性能优异、功能强大和极其易使用的特点 。</li>
+<li>Dom4j将XML视为Document对象</li>
+<li>XML标签被Dom4j定义为Element对象</li>
 </ul>
-<h3 id="了解MyBatis的工作原理"><a href="#了解MyBatis的工作原理" class="headerlink" title="了解MyBatis的工作原理"></a>了解MyBatis的工作原理</h3><h4 id="基础操作——主配置解析"><a href="#基础操作——主配置解析" class="headerlink" title="基础操作——主配置解析"></a>基础操作——主配置解析</h4><ul>
-<li><p><strong>properties配置加载</strong></p>
-<p>properties配置，用于加载外部的properties配置文件</p>
-</li>
-<li><p><strong>environments环境配置</strong></p>
-<p><strong>environments：</strong>主要用于数据源的配置，可以配置多个数据源</p>
-<p>通过default属性来指定当前项目运行过程中使用的是哪个数据源</p>
-<p><strong>environment：</strong>用于配置一个具体的独立的数据源</p>
-<p>id属性用于给当前数据源定义一个名称，方便我们项目指定</p>
-<p><strong>transactionManager：</strong>用于配置事务管理，默认情况下使用的是JDBC事务管理</p>
-<p><strong>dataSource：</strong>具体数据源的链接信息；type属性用于指定是否使用连接池</p>
-</li>
-<li><p><strong>settings参数设置配置</strong></p>
-</li>
-<li><p><strong>typeAliases别名设置</strong></p>
-</li>
-<li><p><strong>mapper映射加载</strong></p>
-<p><strong>mappers：</strong>主要用于配置我们外部的映射配置文件，在主配置文件中需要引入加载映射配置文件</p>
-</li>
+<h3 id="Dom4j遍历XML"><a href="#Dom4j遍历XML" class="headerlink" title="Dom4j遍历XML"></a>Dom4j遍历XML</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HrReader</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String file =<span class="string">"文件的路径"</span>；</span><br><span class="line">        <span class="comment">//SAXReader类是读取XML文件的核心类，用于将XML解析后以“树”的形式</span></span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            <span class="comment">//获取XML的根节点</span></span><br><span class="line">            Element root=document.getRootElement();</span><br><span class="line">            <span class="comment">//elements方法用于获取指定的标签集合</span></span><br><span class="line">            List&lt;Element&gt; employees=root.elements(<span class="string">"标签名（子节点名）"</span>);</span><br><span class="line">            <span class="keyword">for</span>(Element employee:employ)&#123;</span><br><span class="line">                System.out.println(employee.elementText(<span class="string">"name"</span>));<span class="comment">//获取name节点的文本内容</span></span><br><span class="line">                Attribute att=employee.attribute(<span class="string">"属性名"</span>);</span><br><span class="line">                System.out.println(att.getText());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HrReader reader=<span class="keyword">new</span> HrReader();</span><br><span class="line">        reader.readXml();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用Dom4j更新XML"><a href="#利用Dom4j更新XML" class="headerlink" title="利用Dom4j更新XML"></a>利用Dom4j更新XML</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.Writer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HrWriter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String file=<span class="string">"C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml"</span>;</span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            Element root=document.getRootElement();</span><br><span class="line">            Element employee=root.addElement(<span class="string">"employee"</span>);</span><br><span class="line">            employee.addAttribute(<span class="string">"no"</span>,<span class="string">"3311"</span>);</span><br><span class="line">            Element name=employee.addElement(<span class="string">"name"</span>);</span><br><span class="line">            name.setText(<span class="string">"李铁柱"</span>);</span><br><span class="line">            employee.addElement(<span class="string">"salary"</span>).setText(<span class="string">"3600"</span>);</span><br><span class="line">            Element department=employee.addElement(<span class="string">"department"</span>);</span><br><span class="line">            department.addElement(<span class="string">"dname"</span>).setText(<span class="string">"人事部"</span>);</span><br><span class="line">            department.addElement(<span class="string">"address"</span>).setText(<span class="string">"XX大厦-B105"</span>);</span><br><span class="line">            Writer writer=<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(file),<span class="string">"UTF-8"</span>);</span><br><span class="line">            document.write(writer);</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HrWriter hrWriter=<span class="keyword">new</span> HrWriter();</span><br><span class="line">        hrWriter.writeXml();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="XPath实验室"><a href="#XPath实验室" class="headerlink" title="XPath实验室"></a>XPath实验室</h3><ul>
+<li>利用Dom4j开发”XPath实验室”，一起见证XPath的神奇之处</li>
 </ul>
-<h4 id="基础操作——映射配置文件"><a href="#基础操作——映射配置文件" class="headerlink" title="基础操作——映射配置文件"></a>基础操作——映射配置文件</h4><p>mapper 用于定义一个映射配置文件的根节点</p>
-<p>namespace属性是用来配置命名空间，主要进行session级别的缓存，命名空间默认情况下，使用我们当前操作的实体类全路径</p>
-<h4 id="基础操作——查询数据"><a href="#基础操作——查询数据" class="headerlink" title="基础操作——查询数据"></a>基础操作——查询数据</h4><ul>
-<li>映射配置：sql片段</li>
-<li>映射配置：select配置<ul>
-<li>特殊配置：字段和属性不一致时resultMap配置</li>
+<h4 id="Jaxen介绍"><a href="#Jaxen介绍" class="headerlink" title="Jaxen介绍"></a>Jaxen介绍</h4><ul>
+<li>Jaxen是一个Java编写的开源的XPath库。这是适应多种不同的对象模型，包括DOM，XOM，dom4j和JDOM。</li>
+<li>Dom4j底层依赖Jaxen实现XPath查询</li>
+<li>下载地址:jaxen.codehaus.org</li>
 </ul>
-</li>
-</ul>
-<h2 id="Mybatis四大对象"><a href="#Mybatis四大对象" class="headerlink" title="Mybatis四大对象"></a>Mybatis四大对象</h2><h3 id="Mybatis核心对象"><a href="#Mybatis核心对象" class="headerlink" title="Mybatis核心对象"></a>Mybatis核心对象</h3><ul>
-<li>ParameterHandler：处理SQL的参数对象</li>
-<li>ResultSetHandler：处理SQL的返回结果集</li>
-<li>StatementHandler：数据库的处理对象，用于执行SQL语句</li>
-<li>Executor：Mybatis的执行器， 用于执行增删改查操作</li>
-</ul>
-<h3 id="Mybatis插件原理"><a href="#Mybatis插件原理" class="headerlink" title="Mybatis插件原理"></a>Mybatis插件原理</h3><ul>
-<li>Mybatis的插件借助于责任链的模式进行对拦截的处理</li>
-<li>使用动态代理对目标对象进行包装，达到拦截的目的</li>
-<li>作用于Mybatis的作用域对象之上</li>
-</ul>
-<h2 id="Mybatis插件开发"><a href="#Mybatis插件开发" class="headerlink" title="Mybatis插件开发"></a>Mybatis插件开发</h2><h4 id="Mybatis插件借口-Interceptor"><a href="#Mybatis插件借口-Interceptor" class="headerlink" title="Mybatis插件借口-Interceptor"></a>Mybatis插件借口-Interceptor</h4><ul>
-<li>Intercept方法，插件的核心方法</li>
-<li>使用plugin方法，生成target的代理对象</li>
-<li>setProperties方法，配置所有参数</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Node;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XPathTestor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">xpath</span><span class="params">(String xpathExp)</span></span>&#123;</span><br><span class="line">        String file=<span class="string">"C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml"</span>;</span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            List&lt;Node&gt; nodes=document.selectNodes(xpathExp);</span><br><span class="line">            <span class="keyword">for</span>(Node node:nodes)&#123;</span><br><span class="line">                Element emp=(Element) node;</span><br><span class="line">                System.out.println(emp.attributeValue(<span class="string">"no"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"name"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"age"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"salary"</span>));</span><br><span class="line">                System.out.println(<span class="string">"============================="</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        XPathTestor testor=<span class="keyword">new</span> XPathTestor();</span><br><span class="line">        testor.xpath(<span class="string">"/hr/employee"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[salary&lt;4000]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[name='李铁柱']"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[@no=3304]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[1]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[last()]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"employee[postion()&lt;6]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[3]|//employee[8]"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         </div>
     
@@ -306,7 +350,7 @@
                 <a class="" href="/page/18/">
                     <i class="fa fa-chevron-left" aria-hidden="true"></i>
                 </a>
-                <a class="" href="/page/20/">
+                <a class="disabled" href="/">
                     <i class="fa fa-chevron-right" aria-hidden="true"></i>
                 </a>
             </div>

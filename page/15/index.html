@@ -132,29 +132,104 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2019/09/01/笔记/linux服务器部署javaweb/">
-                Untitled
+            <a href="/2019/07/30/Servlet/">
+                Servlet
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-09-01</span>
+                <span class="date">2019-07-30</span>
             
             
+            
+                <span class="category">
+                    <a href="/categories/javaweb/">javaweb</a>
+                </span>
             
         </div>
     </div>
 
     
         <div class="content">
-            <h1 id="Linux部署javaweb项目"><a href="#Linux部署javaweb项目" class="headerlink" title="Linux部署javaweb项目"></a>Linux部署javaweb项目</h1><h2 id="操作环境准备"><a href="#操作环境准备" class="headerlink" title="操作环境准备"></a>操作环境准备</h2><ul>
-<li>操作系统  windows  CentOS</li>
-<li>JDK：jdk8-linux-x64.tar.gz</li>
-<li>Web服务器:tomcat</li>
-<li>FTP工具:FlashFXP</li>
-<li>终端工具：XShell</li>
+            <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><ul>
+<li>了解Browser-Server（B/S）模式</li>
+<li>掌握Servlet开发技巧</li>
+<li>掌握Servlet执行原理</li>
 </ul>
-<h2 id="软件-amp-项目"><a href="#软件-amp-项目" class="headerlink" title="软件&amp;项目"></a>软件&amp;项目</h2><h2 id="项目环境配置"><a href="#项目环境配置" class="headerlink" title="项目环境配置"></a>项目环境配置</h2><h2 id="项目部署发布"><a href="#项目部署发布" class="headerlink" title="项目部署发布"></a>项目部署发布</h2>
+<blockquote>
+<p>软件结构发展史</p>
+<ul>
+<li>单机时代-桌面应用（word）<ul>
+<li>桌面应用俗称单机应用，软件所有数据都保存在电脑本地硬盘中</li>
+<li>优点：易于使用，结构简单</li>
+<li>缺点：数据难以共享、安全性差、更新不及时</li>
+</ul>
+</li>
+<li>联网时代（Client-Server模式）(QQ\WX)<ul>
+<li>Client/Server结构（C/S结构）是指客户端和服务器结构</li>
+<li>优点：数据方便共享、安全性高</li>
+<li>缺点：必须安装客户端、升级与维护困难</li>
+</ul>
+</li>
+<li>互联网时代（Browser-Server模式）<ul>
+<li>broswer-server（B/S）模式即浏览器和服务器架构模式</li>
+<li>优点：开发简单，无需安装客户端，数据易于共享</li>
+<li>缺点：相较于C/S模式，执行速度与用户体验相对较弱</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="Servlet开发步骤"><a href="#Servlet开发步骤" class="headerlink" title="Servlet开发步骤"></a>Servlet开发步骤</h2><ol>
+<li>创建Servlet类，继承HttpServlet</li>
+<li>重写service方法，编写程序代码</li>
+<li>配置web.xml，绑定URL</li>
+</ol>
+<h2 id="Servlet访问方法"><a href="#Servlet访问方法" class="headerlink" title="Servlet访问方法"></a>Servlet访问方法</h2><ul>
+<li><a href="http://IP地址:端口/context-path/url-mapping" target="_blank" rel="noopener">http://IP地址:端口/context-path/url-mapping</a></li>
+<li>远程访问使用IP地址，本地访问localhost(127.0.0.1)</li>
+<li>context-path成为“上下文路径”</li>
+</ul>
+<h2 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h2><ul>
+<li>请求参数是指浏览器通过请求向Tomcat提交的数据</li>
+<li>请求参数通常是用户输入的数据，待Servlet进行处理</li>
+<li>参数名1=值1&amp;参数名2=值2&amp;参数名n=…</li>
+</ul>
+<h3 id="Get与Post请求方法"><a href="#Get与Post请求方法" class="headerlink" title="Get与Post请求方法"></a>Get与Post请求方法</h3><ul>
+<li>Get方式是将数据通过URL附加数据显性向服务器发送数据。（默认）<ul>
+<li><a href="http://localhost:8080/FirstServlet/sample?name=zhangsan" target="_blank" rel="noopener">http://localhost:8080/FirstServlet/sample?name=zhangsan</a></li>
+</ul>
+</li>
+<li>Post方式会将数据存放在“请求体”中隐形向服务器发送数据<ul>
+<li><a href="http://localhost:8080/FirstServlet/sample" target="_blank" rel="noopener">http://localhost:8080/FirstServlet/sample</a></li>
+<li>请求体：name=zhangsan</li>
+</ul>
+</li>
+</ul>
+<h3 id="Get与Post处理方式"><a href="#Get与Post处理方式" class="headerlink" title="Get与Post处理方式"></a>Get与Post处理方式</h3><ul>
+<li>所有请求-service()方法</li>
+<li>Get请求-doGet()方法</li>
+<li>Post请求-daPost()方法</li>
+</ul>
+<h3 id="Get与Post应用场景"><a href="#Get与Post应用场景" class="headerlink" title="Get与Post应用场景"></a>Get与Post应用场景</h3><ul>
+<li>Get常用于不包含敏感信息的查询功能<ul>
+<li>例如：<a href="https://www.baidu.com/s?wd=imooc&amp;rsv_spt=1" target="_blank" rel="noopener">https://www.baidu.com/s?wd=imooc&amp;rsv_spt=1</a></li>
+</ul>
+</li>
+<li>Post用于安全性要求较高的功能或者服务器的“写”操作<ul>
+<li>用户登录</li>
+<li>用户注册</li>
+<li>更新公司账目</li>
+</ul>
+</li>
+</ul>
+<h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><ul>
+<li>装载 -web.xml</li>
+<li>创建-构造函数</li>
+<li>初始化-init()</li>
+<li>提供服务-servIce()</li>
+<li>销毁-destory()</li>
+</ul>
+
         </div>
     
 
