@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="ES6简介ECMAScript6.0（简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。
+ECMAScript和JavaScript的关系ECMAScript和JavaScr">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Aubreyii">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="ES6">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Deep Playing">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary">
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>ES6 - Deep Playing</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/09/21/ES6/">
+                ES6
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-09-21</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/前端/">前端</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ECMAScript6.0（简称ES6）是JavaScript语言的下一代标准，已经在2015年6月正式发布了。它的目标，是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言。</p>
+<h2 id="ECMAScript和JavaScript的关系"><a href="#ECMAScript和JavaScript的关系" class="headerlink" title="ECMAScript和JavaScript的关系"></a>ECMAScript和JavaScript的关系</h2><p>ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现。日常场合，这两个词可以互换。</p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="CMAScript-6-是什么？"><a href="#CMAScript-6-是什么？" class="headerlink" title="CMAScript 6 是什么？"></a>CMAScript 6 是什么？</h2><p>ECMAScript 6 也称为 ES6 和 ECMAScript 2015。</p>
+<p>一些人把它称作 JavaScript 6。</p>
+<p>本章介绍 ES6 中的一些新特性。</p>
+<ul>
+<li>JavaScript let</li>
+<li>JavaScript const</li>
+<li>幂 (**)</li>
+<li>默认参数值</li>
+<li>Array.find()</li>
+<li>Array.findIndex()</li>
+</ul>
+<h2 id="对-ES6（ECMAScript-2015）的浏览器支持"><a href="#对-ES6（ECMAScript-2015）的浏览器支持" class="headerlink" title="对 ES6（ECMAScript 2015）的浏览器支持"></a>对 ES6（ECMAScript 2015）的浏览器支持</h2><p>Safari 10 和 Edge 14 是首先完全支持 ES6 的浏览器：</p>
+<table>
+<thead>
+<tr>
+<th>Chrome 58</th>
+<th>Edge 14</th>
+<th>Firefox 54</th>
+<th>Safari 10</th>
+<th>Opera 55</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Jan 2017</td>
+<td>Aug 2016</td>
+<td>Mar 2017</td>
+<td>Jul 2016</td>
+<td>Aug 2018</td>
+</tr>
+</tbody></table>
+<h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><h2 id="JavaScript-let"><a href="#JavaScript-let" class="headerlink" title="JavaScript let"></a>JavaScript let</h2><ul>
+<li>let语句允许使用块作用域声明变量</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// Here x is 10</span></span><br><span class="line">&#123; </span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// Here x is 2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Here x is 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="JavaScript-const"><a href="#JavaScript-const" class="headerlink" title="JavaScript const"></a>JavaScript const</h2><p>const 语句允许您声明常量（具有常量值的 JavaScript 变量）。</p>
+<p>常量类似于 let 变量，但不能更改值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// Here x is 10</span></span><br><span class="line">&#123; </span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// Here x is 2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Here x is 10</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指数运算符"><a href="#指数运算符" class="headerlink" title="指数运算符"></a>指数运算符</h2><p>取幂运算符（**）将第一个操作数提升到第二个操作数的幂。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> z = x ** <span class="number">2</span>;          <span class="comment">// 结果是 25</span></span><br></pre></td></tr></table></figure>
+
+<p>x ** y 的结果与 Math.pow(x,y) 相同：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> z = <span class="built_in">Math</span>.pow(x,<span class="number">2</span>);   <span class="comment">// 结果是 25</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="默认参数值"><a href="#默认参数值" class="headerlink" title="默认参数值"></a>默认参数值</h2><p>ES6允许函数参数具有默认值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">x,y=<span class="number">10</span></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//y is 10 if not passed or undefined</span></span><br><span class="line">    <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;</span><br><span class="line">myFunction(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Array-find"><a href="#Array-find" class="headerlink" title="Array.find()"></a>Array.find()</h2><p>find()方法返回通过测试函数的第一个数组元素的值。</p>
+<p>此例查找（返回）第一个大于18的元素（的值）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">29</span>];</span><br><span class="line"><span class="keyword">var</span> first = numbers.find(myFunction);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">value, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">18</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>请注意次函数接受3个参数</p>
+<ul>
+<li>项目值</li>
+<li>项目索引</li>
+<li>数组本身</li>
+</ul>
+<h2 id="Array-findIndex"><a href="#Array-findIndex" class="headerlink" title="Array.findIndex()"></a>Array.findIndex()</h2><p>findIndex()方法返回通过测试函数的第一个数组元素的索引。</p>
+<p>此例确定大于18的第一个元素的索引：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">29</span>];</span><br><span class="line"><span class="keyword">var</span> first = numbers.findIndex(myFunction);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">value, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value &gt; <span class="number">18</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//return 3</span></span><br></pre></td></tr></table></figure>
+
+<p>请注意此函数接受 3 个参数：</p>
+<ul>
+<li>项目值</li>
+<li>项目索引</li>
+<li>数组本身</li>
+</ul>
+<h2 id="新的数字属性"><a href="#新的数字属性" class="headerlink" title="新的数字属性"></a>新的数字属性</h2><p>ES6 将以下属性添加到 Number 对象：</p>
+<ul>
+<li>EPSILON</li>
+<li>MIN_SAFE_INTEGER</li>
+<li>MAX_SAFE_INTEGER</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = Number.EPSILON;</span><br></pre></td></tr></table></figure>
+
+<p>x=2.220446049250313e-16</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = Number.MIN_SAFE_INTEGER;</span><br></pre></td></tr></table></figure>
+
+<p>x=-9007199254740991</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var x = Number.MAX_SAFE_INTEGER;</span><br></pre></td></tr></table></figure>
+
+<p>x=9007199254740991</p>
+<h2 id="新的数字方法"><a href="#新的数字方法" class="headerlink" title="新的数字方法"></a>新的数字方法</h2><p>ES6为Number对象添加了2个新方法：</p>
+<ul>
+<li>Number,isInteger()</li>
+<li>Number.isSafeInteger()</li>
+</ul>
+<h2 id="Number-isInteger-方法"><a href="#Number-isInteger-方法" class="headerlink" title="Number.isInteger() 方法"></a>Number.isInteger() 方法</h2><p>如果参数是整数，则 Number.isInteger() 方法返回 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.isInteger(10);        // 返回 true</span><br><span class="line">Number.isInteger(10.5);      // 返回 false</span><br></pre></td></tr></table></figure>
+
+<h2 id="Number-isSafeInteger-方法"><a href="#Number-isSafeInteger-方法" class="headerlink" title="Number.isSafeInteger() 方法"></a>Number.isSafeInteger() 方法</h2><p>安全整数是可以精确表示为双精度数的整数。</p>
+<p>如果参数是安全整数，则 Number.isSafeInteger() 方法返回 true。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number.isSafeInteger(10);    // 返回 true</span><br><span class="line">Number.isSafeInteger(12345678901234567890);  // 返回 false</span><br></pre></td></tr></table></figure>
+
+<p>安全整数指的是从 -(253 - 1) 到 +(253 - 1) 的所有整数。</p>
+<p>这是安全的：9007199254740991。这是不安全的：9007199254740992。</p>
+<h2 id="新的全局方法"><a href="#新的全局方法" class="headerlink" title="新的全局方法"></a>新的全局方法</h2><p>ES6 还增加了 2 个新的全局数字方法：</p>
+<ul>
+<li>isFinite()</li>
+<li>isNaN()</li>
+</ul>
+<h2 id="isFinite-方法"><a href="#isFinite-方法" class="headerlink" title="isFinite() 方法"></a>isFinite() 方法</h2><p>如果参数为 Infinity 或 NaN，则全局 isFinite() 方法返回 false。</p>
+<p>否则返回 true：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">isFinite(10/0);       // 返回 false</span><br><span class="line">isFinite(10/1);       // 返回 true</span><br></pre></td></tr></table></figure>
+
+<h2 id="isNaN-方法"><a href="#isNaN-方法" class="headerlink" title="isNaN() 方法"></a>isNaN() 方法</h2><p>如果参数是 NaN，则全局 isNaN() 方法返回 true。否则返回 false：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isNaN(&quot;Hello&quot;);       // 返回 true</span><br></pre></td></tr></table></figure>
+
+<h2 id="箭头函数（Arrow-Function）"><a href="#箭头函数（Arrow-Function）" class="headerlink" title="箭头函数（Arrow Function）"></a>箭头函数（Arrow Function）</h2><p>箭头函数允许使用简短的语法来编写函数表达式。</p>
+<p>您不需要 function 关键字、return 关键字以及<em>花括号</em>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// ES5</span><br><span class="line">var x = function(x, y) &#123;</span><br><span class="line">   return x * y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// ES6</span><br><span class="line">const x = (x, y) =&gt; x * y;</span><br></pre></td></tr></table></figure>
+
+<p>箭头功能没有自己的 this。它们不适合定义<em>对象方法</em>。</p>
+<p>箭头功能未被提升。它们必须在使用<em>前</em>进行定义。</p>
+<p>使用 const 比使用 var 更安全，因为函数表达式始终是常量值。</p>
+<p>如果函数是单个语句，则只能省略 return 关键字和花括号。因此，保留它们可能是一个好习惯：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const x = (x, y) =&gt; &#123; return x * y &#125;;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/12/为终端配置代理/">为终端配置代理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/02/LightGBM-gridsearchcv/">LightGBM+gridsearchcv</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/02/04/数据可视化/">数据可视化</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/01/27/决策树/">决策树</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/散装知识/">散装知识</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/前端/">前端</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Machine-Learning/">Machine Learning</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/javaweb/">javaweb</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

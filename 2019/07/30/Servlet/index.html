@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Servlet
+了解Browser-Server（B/S）模式
+掌握Servlet开发技巧
+掌握Servlet执行原理
+
+
+软件结构发展史
+
+单机时代-桌面应用（word）
+桌面应用俗称单机应用，软件所有数据都保存在电脑本地硬盘中
+优点：易于使用，结构简单
+缺点：数据难以共享、安全性差、更新不及时
+">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Aubreyii">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Servlet">
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Deep Playing">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary">
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Servlet - Deep Playing</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2019/07/30/Servlet/">
+                Servlet
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2019-07-30</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/javaweb/">javaweb</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h1><ul>
+<li>了解Browser-Server（B/S）模式</li>
+<li>掌握Servlet开发技巧</li>
+<li>掌握Servlet执行原理</li>
+</ul>
+<blockquote>
+<p>软件结构发展史</p>
+<ul>
+<li>单机时代-桌面应用（word）<ul>
+<li>桌面应用俗称单机应用，软件所有数据都保存在电脑本地硬盘中</li>
+<li>优点：易于使用，结构简单</li>
+<li>缺点：数据难以共享、安全性差、更新不及时</li>
+</ul>
+</li>
+<li>联网时代（Client-Server模式）(QQ\WX)<ul>
+<li>Client/Server结构（C/S结构）是指客户端和服务器结构</li>
+<li>优点：数据方便共享、安全性高</li>
+<li>缺点：必须安装客户端、升级与维护困难</li>
+</ul>
+</li>
+<li>互联网时代（Browser-Server模式）<ul>
+<li>broswer-server（B/S）模式即浏览器和服务器架构模式</li>
+<li>优点：开发简单，无需安装客户端，数据易于共享</li>
+<li>缺点：相较于C/S模式，执行速度与用户体验相对较弱</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="Servlet开发步骤"><a href="#Servlet开发步骤" class="headerlink" title="Servlet开发步骤"></a>Servlet开发步骤</h2><ol>
+<li>创建Servlet类，继承HttpServlet</li>
+<li>重写service方法，编写程序代码</li>
+<li>配置web.xml，绑定URL</li>
+</ol>
+<h2 id="Servlet访问方法"><a href="#Servlet访问方法" class="headerlink" title="Servlet访问方法"></a>Servlet访问方法</h2><ul>
+<li><a href="http://IP地址:端口/context-path/url-mapping" target="_blank" rel="noopener">http://IP地址:端口/context-path/url-mapping</a></li>
+<li>远程访问使用IP地址，本地访问localhost(127.0.0.1)</li>
+<li>context-path成为“上下文路径”</li>
+</ul>
+<h2 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h2><ul>
+<li>请求参数是指浏览器通过请求向Tomcat提交的数据</li>
+<li>请求参数通常是用户输入的数据，待Servlet进行处理</li>
+<li>参数名1=值1&amp;参数名2=值2&amp;参数名n=…</li>
+</ul>
+<h3 id="Get与Post请求方法"><a href="#Get与Post请求方法" class="headerlink" title="Get与Post请求方法"></a>Get与Post请求方法</h3><ul>
+<li>Get方式是将数据通过URL附加数据显性向服务器发送数据。（默认）<ul>
+<li><a href="http://localhost:8080/FirstServlet/sample?name=zhangsan" target="_blank" rel="noopener">http://localhost:8080/FirstServlet/sample?name=zhangsan</a></li>
+</ul>
+</li>
+<li>Post方式会将数据存放在“请求体”中隐形向服务器发送数据<ul>
+<li><a href="http://localhost:8080/FirstServlet/sample" target="_blank" rel="noopener">http://localhost:8080/FirstServlet/sample</a></li>
+<li>请求体：name=zhangsan</li>
+</ul>
+</li>
+</ul>
+<h3 id="Get与Post处理方式"><a href="#Get与Post处理方式" class="headerlink" title="Get与Post处理方式"></a>Get与Post处理方式</h3><ul>
+<li>所有请求-service()方法</li>
+<li>Get请求-doGet()方法</li>
+<li>Post请求-daPost()方法</li>
+</ul>
+<h3 id="Get与Post应用场景"><a href="#Get与Post应用场景" class="headerlink" title="Get与Post应用场景"></a>Get与Post应用场景</h3><ul>
+<li>Get常用于不包含敏感信息的查询功能<ul>
+<li>例如：<a href="https://www.baidu.com/s?wd=imooc&amp;rsv_spt=1" target="_blank" rel="noopener">https://www.baidu.com/s?wd=imooc&amp;rsv_spt=1</a></li>
+</ul>
+</li>
+<li>Post用于安全性要求较高的功能或者服务器的“写”操作<ul>
+<li>用户登录</li>
+<li>用户注册</li>
+<li>更新公司账目</li>
+</ul>
+</li>
+</ul>
+<h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><ul>
+<li>装载 -web.xml</li>
+<li>创建-构造函数</li>
+<li>初始化-init()</li>
+<li>提供服务-servIce()</li>
+<li>销毁-destory()</li>
+</ul>
+
+    </div>
+
+    
+
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/12/为终端配置代理/">为终端配置代理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/03/02/LightGBM-gridsearchcv/">LightGBM+gridsearchcv</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/02/04/数据可视化/">数据可视化</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/01/27/决策树/">决策树</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/散装知识/">散装知识</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/前端/">前端</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Machine-Learning/">Machine Learning</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/javaweb/">javaweb</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
