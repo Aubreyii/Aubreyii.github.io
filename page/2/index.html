@@ -107,7 +107,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/background.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -145,23 +145,23 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/12/DC小分子赛/">
-        <p class="h4 index-header">DC小分子赛</p>
+      <a href="/2020/02/04/数据可视化/">
+        <p class="h4 index-header">数据可视化</p>
       </a>
 
-      <a href="/2020/03/12/DC小分子赛/">
+      <a href="/2020/02/04/数据可视化/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">赛题</div>
+          <div class="index-text mb-1">Matploylib导入</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -174,11 +174,163 @@
     </div>
   </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/01/27/决策树/">
+        <p class="h4 index-header">决策树</p>
+      </a>
+
+      <a href="/2020/01/27/决策树/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">决策树理解划分选择
+
+
+算法分类
+划分选择
+公式
+说明
+
+
+
+ID3（Iterative Dichotomiser）
+信息增益
+Gain(D,a)=Ent(D)-Σ(|D^v|/|D|)*Ent(D^v)
+信息增益越大，由属性a划分而来的集合D的纯度越高，则优先将属性a作为该结点的划分依据
+
+
+C4.5
+增益率
+Gain_ratio(D,a)=Gain(D,a)/IV(a)
+信息增益除以属性a的固有值，找出增益率最高的，属性a可取数目越多，固有值越大。需要注意的是，增益率准则对可取数目较少的属性有所偏好。
+
+
+CART
+基尼指数
+Gini(D)=1-Σpk^2
+Gini(D)反映了从数据集D种</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/11/29/NCCCU比赛/">
+        <p class="h4 index-header">NCCCU比赛</p>
+      </a>
+
+      <a href="/2019/11/29/NCCCU比赛/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">数据挖掘标准流程了解课题背景和目标→了解评估标准→认识数据→分析与预处理→特征工程→基于模型测试与优化（数据决定了上限）→ 是否达到预期效果（否的话回到特征工程）→记录模型和结果
+预处理
+如何处理缺失值与重复值
+
+​    缺失值：删除，或填充
+import pandas as pd
+import numpy as np
+df=pd.DateFrame([[1,np.nan,3],[4,5,np.nan],[7,8,9]])
+df.dropna() #默认以行删除
+df.dropna(axis=1,inplace=True) #注意inplace
+
+特征缩放
+
+min-max normaliz</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/10/22/SpringBootProject/">
+        <p class="h4 index-header">SpringBootProject</p>
+      </a>
+
+      <a href="/2019/10/22/SpringBootProject/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBootProject一  建表二  mvn环境
+pom.xml  maven jar包
+
+jdbc.properties 数据库连接方式
+
+mybatis-config.xml 
+
+spring-dao.xml 将jdbc.properties mybatis.xml 加载进去  创建了datasource连接池
+配置好了mybatis和数据库交互的方式
+
+spring-service.xml  事务管理
+
+spring-web.xml  定义dispatcher servlet  controller 行为
+
+
+三 验证环境是否有问题</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/javaweb/">javaweb</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
@@ -304,7 +456,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "&nbsp;",
+        "我不祝你一帆风顺 我祝你乘风破浪&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
