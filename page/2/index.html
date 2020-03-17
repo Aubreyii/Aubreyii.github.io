@@ -1,427 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
-<!-- Head tag -->
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content>
+  <meta name="author" content="Aubreyii">
+  <meta name="keywords" content>
+  <title>Deep Playing</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-    <!--Description-->
-    
 
-    <!--Author-->
-    
-        <meta name="author" content="Aubreyii">
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Deep Playing">
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <!--Open Graph Description-->
-    
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Deep Playing">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="website">
-    
 
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary">
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>page - Deep Playing</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics -->
-    
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
 
 
 <body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Deep Playing</strong>&nbsp;</a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-        </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">Deep Playing</h1>
-        
-    </div>
-</header>
-
-        <section class="main">
             
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
                 
-<div class="post">
 
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2020/03/02/LightGBM-gridsearchcv/">
-                LightGBM+gridsearchcv
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2020-03-02</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/Machine-Learning/">Machine Learning</a>
-                </span>
-            
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/12/DC小分子赛/">
+        <p class="h4 index-header">DC小分子赛</p>
+      </a>
+
+      <a href="/2020/03/12/DC小分子赛/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">赛题</div>
         </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
     </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-        <div class="content">
-            <h1 id="一-LightGBM核心参数"><a href="#一-LightGBM核心参数" class="headerlink" title="一 LightGBM核心参数"></a>一 LightGBM核心参数</h1><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>中文含义</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>learning_rate</td>
-<td>学习率，默认值0.1</td>
-<td>控制模型迭代速度，越大模型迭代越快，但容易错过最优点；越小模型迭代越慢，容易找到最优点</td>
-</tr>
-<tr>
-<td>num_iterations</td>
-<td>迭代次数</td>
-<td>控制迭代次数</td>
-</tr>
-<tr>
-<td>max_depth</td>
-<td>树的深度</td>
-<td>设置树深度，深度越大越有可能过拟合</td>
-</tr>
-<tr>
-<td>num_leaves</td>
-<td>叶子节点数</td>
-<td>调节树的复杂程度</td>
-</tr>
-<tr>
-<td>min_data_in_leaf</td>
-<td>叶子具有最小节点数</td>
-<td>设置的较大可以避免生成一个过深的树，但有可能导致欠拟合</td>
-</tr>
-<tr>
-<td>min_sum_hessian_in_leaf</td>
-<td>结点分裂的最小海森值之和</td>
-<td>也叫min_child_weight，使一个节点分裂的最小海森值之和</td>
-</tr>
-<tr>
-<td>feature_fraction</td>
-<td>特征子抽样</td>
-<td>可以用来防止过拟合及提高训练速度</td>
-</tr>
-<tr>
-<td>bagging_fraction</td>
-<td>降采样</td>
-<td>相当于subsample样本采样，可以使bagging更快的运行，同时也可以降拟合</td>
-</tr>
-<tr>
-<td>bagging_freq</td>
-<td>降采样频率</td>
-<td>表示bagging的频率，0意味着没有使用bagging，k意味着每k轮迭代进行一次bagging</td>
-</tr>
-<tr>
-<td>reg_alpha</td>
-<td>L1正则化</td>
-<td>降低过拟合</td>
-</tr>
-<tr>
-<td>reg_lambda</td>
-<td>L2正则化</td>
-<td>降低过拟合</td>
-</tr>
-<tr>
-<td>cat_smooth</td>
-<td>类别平滑</td>
-<td>设置每个类别需要有的最小个数</td>
-</tr>
-</tbody></table>
-<h1 id="二gridsearchcv工作机制"><a href="#二gridsearchcv工作机制" class="headerlink" title="二gridsearchcv工作机制"></a>二gridsearchcv工作机制</h1><p>GridSearchCV=GridSearch+CV     即网格搜索和交叉验证</p>
-<p>网格搜索，搜索的使参数，即在指定的参数范围内，按步长依次调整参数，利用调整的参数训练学习器，从所有的参数中找到在验证集上精度最高的参数，这其实是一个循环和比较的过程</p>
-<p>GridSearchCV可以保证在指定的参数范围内找到精度最高的参数，但是这也是网格搜索的缺陷所在，它要求遍历所有可能参数的组合，在面对大数据集和多参数的情况下，非常耗时。</p>
-<p>交叉验证的概念：</p>
-<ul>
-<li>将训练数据集划分为K份，K一般为10（也有取3~5）</li>
-<li>依次取其中一份为验证集，其余为训练集训练分类器，测试分类器在验证集上的精度；</li>
-<li>取K次实验的平均精度为该分类器的平均精度</li>
-</ul>
-<p>参数名称及含义如下：</p>
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th align="left">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>estimator</td>
-<td align="left">所使用的分类器</td>
-</tr>
-<tr>
-<td>param_grid</td>
-<td align="left">值为字典或者列表，即需要最优化的参数的取值</td>
-</tr>
-<tr>
-<td>scoring</td>
-<td align="left">准确度评价标准</td>
-</tr>
-<tr>
-<td>cv</td>
-<td align="left">交叉验证参数，没人None，使用三折交叉验证。指定fold数量，默认为3</td>
-</tr>
-<tr>
-<td>refit</td>
-<td align="left">默认为True，程序会以交叉验证数据集得到的最佳参数，重新对所有可用的训练集与开发集进行，作为最终用于性能评估的最佳模型参数。即在搜索参数结束后，用最佳参数结果再次fit一遍全部数据集</td>
-</tr>
-<tr>
-<td>iid</td>
-<td align="left">默认True，为True时，默认为各个样本fold概率分布一致，误差估计为所有样本之和，而非各个fold的平均</td>
-</tr>
-<tr>
-<td>verbose</td>
-<td align="left">日志冗长度，int：冗长度，0：不输出训练过程，1：偶尔输出   &gt;1：对每个子模型都输出</td>
-</tr>
-<tr>
-<td>n_jobs</td>
-<td align="left">并行数 int：个数   -1：跟CPU核数一致    默认值为1</td>
-</tr>
-<tr>
-<td>pre_dispatch</td>
-<td align="left">指定总共分发的并行任务数。当n_jobs大于1时，数据将在每个运行点进行复制，这颗呢我那个导致OOM，而设置pre_dispatch参数，则可以预先划分总共的job数量，使数据最多被赋值pre_dispatch次</td>
-</tr>
-</tbody></table>
-<h2 id="三-使用gridsearchcv对lightgbm调参"><a href="#三-使用gridsearchcv对lightgbm调参" class="headerlink" title="三 使用gridsearchcv对lightgbm调参"></a>三 使用gridsearchcv对lightgbm调参</h2><p>对于基于决策树的模型，调参的方法都是大同小异。一般都需要如下步骤：</p>
-<ol>
-<li>首先选择较高的学习率  0.1附近    加快收敛速度</li>
-<li>对决策树基本参数调参</li>
-<li>正则化参数调参</li>
-<li>最后降低学习率，这里是为了最后提高准确率</li>
-</ol>
-<p>我使用的默认参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">objective = &apos;binary&apos;,</span><br><span class="line">is_unbalance = True,</span><br><span class="line">metric = &apos;binary_logloss,auc&apos;,</span><br><span class="line">max_depth = 6,</span><br><span class="line">num_leaves = 40,</span><br><span class="line">learning_rate = 0.1,</span><br><span class="line">feature_fraction = 0.7,</span><br><span class="line">min_child_samples=21,</span><br><span class="line">min_child_weight=0.001,</span><br><span class="line">bagging_fraction = 1,</span><br><span class="line">bagging_freq = 2,</span><br><span class="line">reg_alpha = 0.001,</span><br><span class="line">reg_lambda = 8,</span><br><span class="line">cat_smooth = 0,</span><br><span class="line">num_iterations = 200,</span><br></pre></td></tr></table></figure>
 
-<p>开始时，需要把学习率和迭代次数调整到一个比较大的值。本人一般刚开始时设置learning_rate=0.1，num_iterations = 200。</p>
-
-        </div>
     
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="wrap-pagination">
-                <a class="" href="/">
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                </a>
-                <a class="" href="/page/3/">
-                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/12/为终端配置代理/">为终端配置代理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/02/LightGBM-gridsearchcv/">LightGBM+gridsearchcv</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/02/04/数据可视化/">数据可视化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/01/27/决策树/">决策树</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/散装知识/">散装知识</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/前端/">前端</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Machine-Learning/">Machine Learning</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/javaweb/">javaweb</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-<!-- After footer scripts -->
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+  <script  src="/js/lazyload.js" ></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
 
-<!-- Disqus Comments -->
+
+
+
+
+  <script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
 
 
 
 </body>
-
 </html>

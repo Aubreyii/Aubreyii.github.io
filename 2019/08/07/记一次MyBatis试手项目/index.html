@@ -1,169 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
-<!-- Head tag -->
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content>
+  <meta name="author" content="Aubreyii">
+  <meta name="keywords" content>
+  <title>记一次MyBatis试手项目 - Deep Playing</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-    <!--Description-->
-    
-        <meta name="description" content="记一次MyBatis试手项目▲我踩的坑▲一.
-12345&amp;lt;dependency&amp;gt;            &amp;lt;groupId&amp;gt;javax.servlet&amp;lt;/groupId&amp;gt;            &amp;lt;artifactId&amp;gt;javax.servlet-api&amp;">
-    
 
-    <!--Author-->
-    
-        <meta name="author" content="Aubreyii">
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="记一次MyBatis试手项目">
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <!--Open Graph Description-->
-    
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Deep Playing">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="article">
-    
 
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary">
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>记一次MyBatis试手项目 - Deep Playing</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics -->
-    
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
 
 
 <body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Deep Playing</strong>&nbsp;</a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-        </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期三, 八月 7日 2019, 10:57 晚上
+                </p>
+              
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    6.4k 字
+                  </span>
+                
 
-        <section class="main">
-            
-<div class="post">
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      35 分钟
+                  </span>
+                
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2019/08/07/记一次MyBatis试手项目/">
-                记一次MyBatis试手项目
-            </a>
-        </h1>
-        <div class="post-info">
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
             
-                <span class="date">2019-08-07</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/javaweb/">javaweb</a>
-                </span>
-            
+          </div>
+
+          
         </div>
+      </div>
     </div>
+  </header>
 
-    <div class="content">
+  <main>
+    
+      
 
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h1 id="记一次MyBatis试手项目"><a href="#记一次MyBatis试手项目" class="headerlink" title="记一次MyBatis试手项目"></a>记一次MyBatis试手项目</h1><h2 id="▲我踩的坑▲"><a href="#▲我踩的坑▲" class="headerlink" title="▲我踩的坑▲"></a><font color="red">▲我踩的坑▲</font></h2><p>一.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="记一次MyBatis试手项目"><a href="#记一次MyBatis试手项目" class="headerlink" title="记一次MyBatis试手项目"></a>记一次MyBatis试手项目</h1><h2 id="▲我踩的坑▲"><a href="#▲我踩的坑▲" class="headerlink" title="▲我踩的坑▲"></a><font color="red">▲我踩的坑▲</font></h2><p>一.</p>
+<pre><code class="XML">&lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
 <p>artifactId一开始写成了servlet-api  这样子是下载不到新版本的</p>
 <p>二. </p>
 <p>mybatis.xml中url：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
-<p>增加?serverTimezone=Asia/Shanghai的原因：</p>
+<pre><code>url=jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Shanghai</code></pre><p>增加?serverTimezone=Asia/Shanghai的原因：</p>
 <p>当JDBC与Mysql服务器建立连接时，如果我们没有给JDBC指定时区，JDBC就会取Mysql服务器的默认时区，也就是CST，而它又把CST理解成了美国中部时间，结果就使用了美国中部时间的时区，而不是后端系统服务器的时区。</p>
 <ul>
 <li>解决办法</li>
@@ -193,51 +211,179 @@
 <blockquote>
 <p>先进行测试（project structure中加入web Arfifacts）//deploy能同步信息</p>
 <p>引入bootstrap和jQuery（导入到webapp\lib）</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"lib/bootstrap-3.3.7/dist/css/bootstrap.min.css"</span>&gt;</span><br><span class="line">&gt; &lt;script src="lib/2.2.4/jquery-1.12.4.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&gt; &lt;script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre><code class="jsp">&lt;link rel=&quot;stylesheet&quot; href=&quot;lib/bootstrap-3.3.7/dist/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;lib/2.2.4/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;lib/bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</code></pre>
 <p>创建结果如下：</p>
 </blockquote>
 </li>
 </ol>
 <p>5.创建数据库xiaoben→表：thing</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE thing(</span><br><span class="line">	id INT AUTO_INCREMENT PRIMARY KEY COMMENT &apos;记录编号&apos;,</span><br><span class="line">	me VARCHAR(20) NOT NULL COMMENT &apos;记录人物&apos;,</span><br><span class="line">	others VARCHAR(20) NOT NULL COMMENT &apos;相关对象&apos;,</span><br><span class="line">	gob VARCHAR(100) COMMENT   &apos;事情好坏&apos;,</span><br><span class="line">	Rtime DATETIME COMMENT   &apos;记录时间&apos;,</span><br><span class="line">	Dtime VARCHAR(40)   COMMENT   &apos;代办时间&apos;,</span><br><span class="line">	place VARCHAR(100)  COMMENT   &apos;发生地点&apos;,</span><br><span class="line">	content VARCHAR(1000) COMMENT &apos;内容&apos;</span><br><span class="line">) DEFAULT CHARSET &quot;utf8&quot;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">CREATE TABLE thing(
+    id INT AUTO_INCREMENT PRIMARY KEY COMMENT &#39;记录编号&#39;,
+    me VARCHAR(20) NOT NULL COMMENT &#39;记录人物&#39;,
+    others VARCHAR(20) NOT NULL COMMENT &#39;相关对象&#39;,
+    gob VARCHAR(100) COMMENT   &#39;事情好坏&#39;,
+    Rtime DATETIME COMMENT   &#39;记录时间&#39;,
+    Dtime VARCHAR(40)   COMMENT   &#39;代办时间&#39;,
+    place VARCHAR(100)  COMMENT   &#39;发生地点&#39;,
+    content VARCHAR(1000) COMMENT &#39;内容&#39;
+) DEFAULT CHARSET &quot;utf8&quot;;</code></pre>
 <p>6.pom.xml中增加依赖</p>
 <ul>
 <li><p>mybatis和mysql连接驱动</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.4.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.4.3&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;8.0.17&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
 </li>
 </ul>
 <p>7.增加mybatis配置文件</p>
 <p>resources中创建mybatis-config.xml → 从mybatis官方文档中复制结构（ctrl+alt+l可以格式化代码）→</p>
 <p>创建db.properties(以value形式存在，且在mybatis-config.xml中引用)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"db.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"$&#123;driver&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;url&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;username&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;password&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"mapper/usersMapper.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这是mybatis官方文档给的结构--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;properties resource=&quot;db.properties&quot;&gt;&lt;/properties&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;/&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;mapper/usersMapper.xml&quot;/&gt;
+    &lt;/mappers&gt;
+    &lt;!--这是mybatis官方文档给的结构--&gt;
+&lt;/configuration&gt;</code></pre>
 <p>db.properties：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">driver=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Shanghai</span><br><span class="line">username=root</span><br><span class="line">password=mjj666123</span><br></pre></td></tr></table></figure>
-
+<pre><code class="properties">driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/mydb?serverTimezone=Asia/Shanghai
+username=root
+password=mjj666123</code></pre>
 <ol start="8">
 <li>创建映射配置文件（resources/mapper/userMapper.xml）</li>
 </ol>
 <p>参考官方文档复制</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">mapper 用于定义一个映射配置文件的根节点</span></span><br><span class="line"><span class="comment">namespace属性是用来配置命名空间，主要进行session级别的缓存管理</span></span><br><span class="line"><span class="comment">命名空间默认情况下，使用我们当前操作的实体类的全路径</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.mjj.entity.thing"</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+mapper 用于定义一个映射配置文件的根节点
+namespace属性是用来配置命名空间，主要进行session级别的缓存管理
+命名空间默认情况下，使用我们当前操作的实体类的全路径
+--&gt;
+&lt;mapper namespace=&quot;com.mjj.entity.thing&quot;&gt;
 
+&lt;/mapper&gt;</code></pre>
 <ol start="9">
 <li><p>创建实体类（java/com.mjj.entity/thing）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mjj.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thing</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;<span class="comment">//事件编号</span></span><br><span class="line">    <span class="keyword">private</span> String me;<span class="comment">//主人</span></span><br><span class="line">    <span class="keyword">private</span> String others;<span class="comment">//被记录人</span></span><br><span class="line">    <span class="keyword">private</span> String gob;<span class="comment">//事件好坏</span></span><br><span class="line">    <span class="keyword">private</span> Date Rtime;<span class="comment">//创建时间</span></span><br><span class="line">    <span class="keyword">private</span> String Dtime;<span class="comment">//代办时间</span></span><br><span class="line">    <span class="keyword">private</span> String place;<span class="comment">//发生地点</span></span><br><span class="line">    <span class="keyword">private</span> String content;<span class="comment">//详细内容</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> me;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMe</span><span class="params">(String me)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.me = me;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getOthers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> others;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOthers</span><span class="params">(String others)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.others = others;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getGob</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> gob;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGob</span><span class="params">(String gob)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.gob = gob;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getRtime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Rtime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRtime</span><span class="params">(Date rtime)</span> </span>&#123;</span><br><span class="line">        Rtime = rtime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDtime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Dtime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDtime</span><span class="params">(String dtime)</span> </span>&#123;</span><br><span class="line">        Dtime = dtime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPlace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> place;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPlace</span><span class="params">(String place)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.place = place;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContent</span><span class="params">(String content)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.content = content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.mjj.entity;
+
+import java.util.Date;
+
+public class thing {
+    private Integer id;//事件编号
+    private String me;//主人
+    private String others;//被记录人
+    private String gob;//事件好坏
+    private Date Rtime;//创建时间
+    private String Dtime;//代办时间
+    private String place;//发生地点
+    private String content;//详细内容
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMe() {
+        return me;
+    }
+
+    public void setMe(String me) {
+        this.me = me;
+    }
+
+    public String getOthers() {
+        return others;
+    }
+
+    public void setOthers(String others) {
+        this.others = others;
+    }
+
+    public String getGob() {
+        return gob;
+    }
+
+    public void setGob(String gob) {
+        this.gob = gob;
+    }
+
+    public Date getRtime() {
+        return Rtime;
+    }
+
+    public void setRtime(Date rtime) {
+        Rtime = rtime;
+    }
+
+    public String getDtime() {
+        return Dtime;
+    }
+
+    public void setDtime(String dtime) {
+        Dtime = dtime;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+}</code></pre>
 </li>
 <li><p>然后再uesrMapper.xml中的namespace添加实体类的路径如下</p>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.mjj.entity.thing"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;mapper namespace=&quot;com.mjj.entity.thing&quot;&gt;
 
+&lt;/mapper&gt;</code></pre>
 <ol start="11">
 <li>主配置文件引入映射文件</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"mapper/usersMapper.xml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;mappers&gt;   
+    &lt;mapper resource=&quot;mapper/usersMapper.xml&quot;/&gt;
+&lt;/mappers&gt;</code></pre>
 <blockquote>
 <p>resource:mybatis-config.xml</p>
 <p>InputStream</p>
@@ -248,41 +394,242 @@
 <ol start="12">
 <li>创建（com.mjj.utils/SqlSessionFactoryUtils）</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mjj.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SqlSessionFactoryUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String RESOURCE=<span class="string">"mybatis-config.xml"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;SqlSession&gt; threadLocal=<span class="keyword">new</span> ThreadLocal&lt;SqlSession&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 创建一个初始化SqlSessionFactory方法</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initSqlSessionFactory</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InputStream inputStream= Resources.getResourceAsStream(RESOURCE);</span><br><span class="line">            sqlSessionFactory=<span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 获取工厂对象的方法</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">getSqlSessionFactory</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqlSessionFactory;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    关闭SqlSession的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span></span>&#123;</span><br><span class="line">        SqlSession session=threadLocal.get();</span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            session.close();</span><br><span class="line">            threadLocal.set(<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.mjj.utils;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+
+public class SqlSessionFactoryUtils {
+    private static String RESOURCE=&quot;mybatis-config.xml&quot;;
+
+    private static SqlSessionFactory sqlSessionFactory;
+
+    private static ThreadLocal&lt;SqlSession&gt; threadLocal=new ThreadLocal&lt;SqlSession&gt;();
+
+    /*
+    * 创建一个初始化SqlSessionFactory方法
+    * */
+    public static void initSqlSessionFactory(){
+        try {
+            InputStream inputStream= Resources.getResourceAsStream(RESOURCE);
+            sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+    * 获取工厂对象的方法
+    *
+    * */
+    public SqlSessionFactory getSqlSessionFactory(){
+        return sqlSessionFactory;
+    }
+//    关闭SqlSession的方法
+    public static void close(){
+        SqlSession session=threadLocal.get();
+        if(session!=null){
+            session.close();
+            threadLocal.set(null);
+        }
+    }
+}</code></pre>
 <ol start="13">
 <li>创建（com.mjj.listener/InitSqlSessionListener.java）</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mjj.listener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mjj.utils.SqlSessionFactoryUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebListener;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InitSqlSessionListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent servletContextEvent)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"容器加载中"</span>);</span><br><span class="line">        <span class="comment">//初始化我们的SqlSessionFactory对象</span></span><br><span class="line">        SqlSessionFactoryUtils.initSqlSessionFactory();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent servletContextEvent)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"容器销毁中"</span>);</span><br><span class="line">        <span class="comment">//关闭SqlSession对象</span></span><br><span class="line">        SqlSessionFactoryUtils.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.mjj.listener;
 
+import com.mjj.utils.SqlSessionFactoryUtils;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+@WebListener
+public class InitSqlSessionListener implements ServletContextListener {
+
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+        System.out.println(&quot;容器加载中&quot;);
+        //初始化我们的SqlSessionFactory对象
+        SqlSessionFactoryUtils.initSqlSessionFactory();
+    }
+
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {
+        System.out.println(&quot;容器销毁中&quot;);
+        //关闭SqlSession对象
+        SqlSessionFactoryUtils.close();
+    }
+}</code></pre>
 <p>14.创建（com.mjj.dao/thingDao）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mjj.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mjj.entity.thing;</span><br><span class="line"><span class="keyword">import</span> com.mjj.utils.SqlSessionFactoryUtils;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();</span><br><span class="line">    <span class="keyword">private</span> List&lt;thing&gt; list;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;thing&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            list=sqlSession.selectList(<span class="string">"findAll"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.mjj.dao;
 
+import com.mjj.entity.thing;
+import com.mjj.utils.SqlSessionFactoryUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import java.util.List;
+
+public class thingDao {
+    private SqlSession sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();
+    private List&lt;thing&gt; list;
+    public List&lt;thing&gt; findAll(){
+        try {
+            list=sqlSession.selectList(&quot;findAll&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return list;
+    }
+}</code></pre>
 <p>关于findAll配置，在resources/mapper/usersMapper.xml中进行配置</p>
 <p>select标签中进行配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.mjj.entity.thing"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findAll"</span> <span class="attr">resultType</span>=<span class="string">"com.mjj.entity.thing"</span>&gt;</span></span><br><span class="line">        select * from thing</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.mjj.entity.thing&quot;&gt;
 
+    &lt;select id=&quot;findAll&quot; resultType=&quot;com.mjj.entity.thing&quot;&gt;
+        select * from thing
+    &lt;/select&gt;
+
+&lt;/mapper&gt;</code></pre>
 <ol start="15">
 <li>引入jstl</li>
 </ol>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="jsp">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;</code></pre>
+<pre><code class="xml">&lt;dependency&gt;    
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;    
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;    
+    &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
 <p>16.创建Servlet/NoteFindServlet</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Dao.thingDao;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/index"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteFindServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> thingDao thDao= <span class="keyword">new</span> thingDao();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        List&lt;thing&gt; list=thDao.findAll();</span><br><span class="line">        req.setAttribute(<span class="string">"thingList"</span>,list);</span><br><span class="line">        req.getRequestDispatcher(<span class="string">"index.jsp"</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package servlet;
 
+import Dao.thingDao;
+import entity.thing;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+@WebServlet(&quot;/index&quot;)
+public class NoteFindServlet extends HttpServlet {
+    private thingDao thDao= new thingDao();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List&lt;thing&gt; list=thDao.findAll();
+        req.setAttribute(&quot;thingList&quot;,list);
+        req.getRequestDispatcher(&quot;index.jsp&quot;).forward(req,resp);
+    }
+}</code></pre>
 <ol start="17">
 <li><p>创建home.jsp 将请求转发至index.jsp  同时修改web.xml的<welcome-file></welcome-file></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: Lenovo</span><br><span class="line">  Date: <span class="number">2019</span>/<span class="number">8</span>/<span class="number">11</span></span><br><span class="line">  Time: <span class="number">11</span>:<span class="number">47</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        response.sendRedirect(<span class="string">"index"</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: Lenovo
+  Date: 2019/8/11
+  Time: 11:47
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;%
+        response.sendRedirect(&quot;index&quot;);
+    %&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 </li>
 <li><p>对index.jsp进行修改</p>
 <ul>
 <li>引入jstl标签以及依赖</li>
 <li>foreach循环</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: Lenovo</span><br><span class="line">  Date: <span class="number">2019</span>/<span class="number">8</span>/<span class="number">7</span></span><br><span class="line">  Time: <span class="number">12</span>:<span class="number">15</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"lib/bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span><br><span class="line">    &lt;script src="lib/2.2.4/jquery-1.12.4.min.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"page-header"</span>&gt;</span><br><span class="line">            &lt;h1&gt;&lt;span class="glyphicon glyphicon-heart"&gt;&lt;/span&gt;</span><br><span class="line">                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"jumbotron"</span>&gt;</span><br><span class="line">            &lt;h1&gt;记录点滴&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;&lt;a class="btn btn-primary btn-lg" href="#" role="button"&gt;获取更多&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;table <span class="class"><span class="keyword">class</span></span>=<span class="string">"table table-hover table-striped"</span>&gt;</span><br><span class="line">            &lt;tr&gt;</span><br><span class="line">                &lt;th&gt;记录编号&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;记录人物&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;相关对象&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;事物好坏&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;记录时间&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;代办时间&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;发生地点&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;详细内容&lt;/th&gt;</span><br><span class="line">                &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">            &lt;/tr&gt;</span><br><span class="line">            &lt;c:forEach <span class="keyword">var</span>=<span class="string">"thing"</span> items=<span class="string">"$&#123;thingList&#125;"</span>&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.id&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.me&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.others&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.gob&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.rtime&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.dotime&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.place&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;$&#123;thing.content&#125;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;</span><br><span class="line">                        &lt;a href=""&gt;查看&lt;/a&gt;</span><br><span class="line">                        &lt;a href=""&gt;修改&lt;/a&gt;</span><br><span class="line">                        &lt;a href=""&gt;删除&lt;/a&gt;</span><br><span class="line">                    &lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/c:forEach&gt;</span><br><span class="line">        &lt;/table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: Lenovo
+  Date: 2019/8/7
+  Time: 12:15
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;lib/bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&gt;
+    &lt;script src=&quot;lib/2.2.4/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;lib/bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;page-header&quot;&gt;
+            &lt;h1&gt;&lt;span class=&quot;glyphicon glyphicon-heart&quot;&gt;&lt;/span&gt;
+                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;jumbotron&quot;&gt;
+            &lt;h1&gt;记录点滴&lt;/h1&gt;
+            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;
+            &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;获取更多&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;table class=&quot;table table-hover table-striped&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;记录编号&lt;/th&gt;
+                &lt;th&gt;记录人物&lt;/th&gt;
+                &lt;th&gt;相关对象&lt;/th&gt;
+                &lt;th&gt;事物好坏&lt;/th&gt;
+                &lt;th&gt;记录时间&lt;/th&gt;
+                &lt;th&gt;代办时间&lt;/th&gt;
+                &lt;th&gt;发生地点&lt;/th&gt;
+                &lt;th&gt;详细内容&lt;/th&gt;
+                &lt;th&gt;操作&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;c:forEach var=&quot;thing&quot; items=&quot;${thingList}&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;${thing.id}&lt;/td&gt;
+                    &lt;td&gt;${thing.me}&lt;/td&gt;
+                    &lt;td&gt;${thing.others}&lt;/td&gt;
+                    &lt;td&gt;${thing.gob}&lt;/td&gt;
+                    &lt;td&gt;${thing.rtime}&lt;/td&gt;
+                    &lt;td&gt;${thing.dotime}&lt;/td&gt;
+                    &lt;td&gt;${thing.place}&lt;/td&gt;
+                    &lt;td&gt;${thing.content}&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;a href=&quot;&quot;&gt;查看&lt;/a&gt;
+                        &lt;a href=&quot;&quot;&gt;修改&lt;/a&gt;
+                        &lt;a href=&quot;&quot;&gt;删除&lt;/a&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:forEach&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 <p><font color="red">这边要特别注意一下 ：在json形式传回的数据 中  类中的属性首字母是默认小写的  （即使在类中属性的首个字母是大写 传过来都是小写的形式）</font></p>
 <p><font color="red"><strong>所以返回属性必须全部是小写 如${thing.rtime}</strong></font></p>
 </li>
@@ -293,211 +640,895 @@
 <ol start="19">
 <li>thingDao中添加findById</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.SqlSessionFactoryUtils;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> List&lt;thing&gt; list;</span><br><span class="line">    <span class="keyword">private</span> thing thi;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> SqlSession <span class="title">getSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();</span><br><span class="line">        <span class="keyword">return</span> sqlSession;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;thing&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            list=getSession().selectList(<span class="string">"findAll"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//添加部分</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">findById</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            thi=getSession().selectOne(<span class="string">"findById"</span>, id);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package Dao;
 
+import utils.SqlSessionFactoryUtils;
+import entity.thing;
+import org.apache.ibatis.session.SqlSession;
+import java.util.List;
+
+public class thingDao {
+    private SqlSession sqlSession;
+    private List&lt;thing&gt; list;
+    private thing thi;
+
+    private SqlSession getSession(){
+        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();
+        return sqlSession;
+    }
+    public List&lt;thing&gt; findAll(){
+        try {
+            list=getSession().selectList(&quot;findAll&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return list;
+    }
+    //添加部分
+    public thing findById(Integer id){
+        try {
+            thi=getSession().selectOne(&quot;findById&quot;, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+}</code></pre>
 <ol start="21">
 <li>usersMapper.xml中添加findById的sql语句</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;findById&quot; resultType=&quot;entity.thing&quot;&gt;</span><br><span class="line">        select * from thing where id=#&#123;id&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">&lt;select id=&quot;findById&quot; resultType=&quot;entity.thing&quot;&gt;
+        select * from thing where id=#{id}
+&lt;/select&gt;</code></pre>
 <ol start="22">
 <li>创建Servlet/thingFindServlet.java</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> servlet;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">import</span> Dao.thingDao;</span><br><span class="line">        <span class="keyword">import</span> entity.thing;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line">        <span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line">        <span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line">        <span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line">        <span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line">        <span class="keyword">import</span> java.io.IOException;</span><br><span class="line">        <span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/index"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NoteFindServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> thingDao thDao= <span class="keyword">new</span> thingDao();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        List&lt;thing&gt; list=thDao.findAll();</span><br><span class="line">        req.setAttribute(<span class="string">"thingList"</span>,list);</span><br><span class="line">        req.getRequestDispatcher(<span class="string">"index.jsp"</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package servlet;
 
+        import Dao.thingDao;
+        import entity.thing;
+
+        import javax.servlet.ServletException;
+        import javax.servlet.annotation.WebServlet;
+        import javax.servlet.http.HttpServlet;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        import java.io.IOException;
+        import java.util.List;
+@WebServlet(&quot;/index&quot;)
+public class NoteFindServlet extends HttpServlet {
+    private thingDao thDao= new thingDao();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List&lt;thing&gt; list=thDao.findAll();
+        req.setAttribute(&quot;thingList&quot;,list);
+        req.getRequestDispatcher(&quot;index.jsp&quot;).forward(req,resp);
+    }
+}</code></pre>
 <ol start="23">
 <li>查看页面的编写detail.jsp</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"fmt"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/fmt"</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: Lenovo</span><br><span class="line">  Date: <span class="number">2019</span>/<span class="number">8</span>/<span class="number">14</span></span><br><span class="line">  Time: <span class="number">15</span>:<span class="number">19</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"lib/bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span><br><span class="line">    &lt;script src="lib/2.2.4/jquery-1.12.4.min.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"page-header"</span>&gt;</span><br><span class="line">            &lt;h1&gt;&lt;span class="glyphicon glyphicon-heart"&gt;&lt;/span&gt;</span><br><span class="line">                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"jumbotron"</span>&gt;</span><br><span class="line">            &lt;h1&gt;记录点滴&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;&lt;a class="btn btn-primary btn-lg" href="#" role="button"&gt;获取更多&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;c:set var="thing" value="$&#123;thing&#125;"&gt;&lt;/c:set&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-8 col col-md-offset-2"</span>&gt;</span><br><span class="line">            &lt;form <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-horizontal"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label class="col-sm-2 control-label"&gt;记录编号&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;p class="form-control-static"&gt;$&#123;thing.id&#125;&lt;/p&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="me" class="col-sm-2 control-label"&gt;记录人物&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"me"</span> value=<span class="string">"$&#123;thing.me&#125;"</span> name=<span class="string">"me"</span> placeholder=<span class="string">"请输入记录人物"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="others" class="col-sm-2 control-label"&gt;相关对象&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"others"</span> value=<span class="string">"$&#123;thing.others&#125;"</span> name=<span class="string">"others"</span> placeholder=<span class="string">"请输入相关对象"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="gob" class="col-sm-2 control-label"&gt;&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"gob"</span> value=<span class="string">"$&#123;thing.gob&#125;"</span> name=<span class="string">"gob"</span> placeholder=<span class="string">"请输入事情好坏"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label class="col-sm-2 control-label"&gt;记录时间&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control-static"</span>&gt;</span><br><span class="line">                            &lt;fmt:formatDate value="$&#123;thing.rtime&#125;" &gt;&lt;/fmt:formatDate&gt;</span><br><span class="line">                        &lt;/p&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="dotime" class="col-sm-2 control-label"&gt;&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"dotime"</span> value=<span class="string">"$&#123;thing.dotime&#125;"</span> name=<span class="string">"dotime"</span> placeholder=<span class="string">"请输入代办时间"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="place" class="col-sm-2 control-label"&gt;&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"place"</span> value=<span class="string">"$&#123;thing.place&#125;"</span> name=<span class="string">"place"</span> placeholder=<span class="string">"请输入事情发生地点"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="content" class="col-sm-2 control-label"&gt;&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"content"</span> value=<span class="string">"$&#123;thing.content&#125;"</span> name=<span class="string">"content"</span> placeholder=<span class="string">"请输入事情详细内容"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交数据更新"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary"</span>&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="jsp">&lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Lenovo
+  Date: 2019/8/14
+  Time: 15:19
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;lib/bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&gt;
+    &lt;script src=&quot;lib/2.2.4/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;lib/bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;page-header&quot;&gt;
+            &lt;h1&gt;&lt;span class=&quot;glyphicon glyphicon-heart&quot;&gt;&lt;/span&gt;
+                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;jumbotron&quot;&gt;
+            &lt;h1&gt;记录点滴&lt;/h1&gt;
+            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;
+            &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;获取更多&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;c:set var=&quot;thing&quot; value=&quot;${thing}&quot;&gt;&lt;/c:set&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-8 col col-md-offset-2&quot;&gt;
+            &lt;form class=&quot;form-horizontal&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label class=&quot;col-sm-2 control-label&quot;&gt;记录编号&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;p class=&quot;form-control-static&quot;&gt;${thing.id}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;me&quot; class=&quot;col-sm-2 control-label&quot;&gt;记录人物&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;me&quot; value=&quot;${thing.me}&quot; name=&quot;me&quot; placeholder=&quot;请输入记录人物&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;others&quot; class=&quot;col-sm-2 control-label&quot;&gt;相关对象&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;others&quot; value=&quot;${thing.others}&quot; name=&quot;others&quot; placeholder=&quot;请输入相关对象&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;gob&quot; class=&quot;col-sm-2 control-label&quot;&gt;&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;gob&quot; value=&quot;${thing.gob}&quot; name=&quot;gob&quot; placeholder=&quot;请输入事情好坏&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label class=&quot;col-sm-2 control-label&quot;&gt;记录时间&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;p class=&quot;form-control-static&quot;&gt;
+                            &lt;fmt:formatDate value=&quot;${thing.rtime}&quot; &gt;&lt;/fmt:formatDate&gt;
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;dotime&quot; class=&quot;col-sm-2 control-label&quot;&gt;&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;dotime&quot; value=&quot;${thing.dotime}&quot; name=&quot;dotime&quot; placeholder=&quot;请输入代办时间&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;place&quot; class=&quot;col-sm-2 control-label&quot;&gt;&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;place&quot; value=&quot;${thing.place}&quot; name=&quot;place&quot; placeholder=&quot;请输入事情发生地点&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;content&quot; class=&quot;col-sm-2 control-label&quot;&gt;&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;content&quot; value=&quot;${thing.content}&quot; name=&quot;content&quot; placeholder=&quot;请输入事情详细内容&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;提交数据更新&quot; class=&quot;btn btn-primary&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 <ol start="24">
 <li><p>sql动态语句查询</p>
 <p>usersMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">mapper 用于定义一个映射配置文件的根节点</span></span><br><span class="line"><span class="comment">namespace属性是用来配置命名空间，主要进行session级别的缓存管理</span></span><br><span class="line"><span class="comment">命名空间默认情况下，使用我们当前操作的实体类的全路径</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findThing"</span> <span class="attr">resultType</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">        select * from thing</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null"</span>&gt;</span></span><br><span class="line">          where id=#&#123;id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+mapper 用于定义一个映射配置文件的根节点
+namespace属性是用来配置命名空间，主要进行session级别的缓存管理
+命名空间默认情况下，使用我们当前操作的实体类的全路径
+--&gt;
+&lt;mapper namespace=&quot;entity.thing&quot;&gt;
+    &lt;select id=&quot;findThing&quot; resultType=&quot;entity.thing&quot;&gt;
+        select * from thing
+        &lt;if test=&quot;id!=null&quot;&gt;
+          where id=#{id}
+        &lt;/if&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;</code></pre>
 <p>实体类中thing添加构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">thing</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">thing</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">    public thing(){
 
+    }
+    public thing(Integer id) {
+        this.id = id;
+    }</code></pre>
 <p>Dao中改变函数名，以及参数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.SqlSessionFactoryUtils;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> List&lt;thing&gt; list;</span><br><span class="line">    <span class="keyword">private</span> thing thi;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> SqlSession <span class="title">getSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();</span><br><span class="line">        <span class="keyword">return</span> sqlSession;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;thing&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            list=getSession().selectList(<span class="string">"findThing"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">findById</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            thi=getSession().selectOne(<span class="string">"findThing"</span>,<span class="keyword">new</span> thing(id));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package Dao;
+
+import utils.SqlSessionFactoryUtils;
+import entity.thing;
+import org.apache.ibatis.session.SqlSession;
+import java.util.List;
+
+public class thingDao {
+    private SqlSession sqlSession;
+    private List&lt;thing&gt; list;
+    private thing thi;
+
+    private SqlSession getSession(){
+        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();
+        return sqlSession;
+    }
+    public List&lt;thing&gt; findAll(){
+        try {
+            list=getSession().selectList(&quot;findThing&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return list;
+    }
+    public thing findById(Integer id){
+        try {
+            thi=getSession().selectOne(&quot;findThing&quot;,new thing(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+}</code></pre>
 </li>
 <li><p>自定义映射关系集合：主要包含对于一些自定义操作的配置，如不一致的属性和字段</p>
 <p>usersMapper.xml（result配置，主要配置普通属性，column表示配置的是数据库字段名称 property配置的是实体类的属性名称）</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">mapper 用于定义一个映射配置文件的根节点</span></span><br><span class="line"><span class="comment">namespace属性是用来配置命名空间，主要进行session级别的缓存管理</span></span><br><span class="line"><span class="comment">命名空间默认情况下，使用我们当前操作的实体类的全路径</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;select id="findThing" resultType="entity.thing"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findThing"</span> <span class="attr">resultMap</span>=<span class="string">"findthing"</span>&gt;</span></span><br><span class="line">        select * from thing</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null"</span>&gt;</span></span><br><span class="line">          where id=#&#123;id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"findthing"</span> <span class="attr">type</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"me"</span> <span class="attr">property</span>=<span class="string">"wo"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+mapper 用于定义一个映射配置文件的根节点
+namespace属性是用来配置命名空间，主要进行session级别的缓存管理
+命名空间默认情况下，使用我们当前操作的实体类的全路径
+--&gt;
+&lt;mapper namespace=&quot;entity.thing&quot;&gt;
+    &lt;!--&lt;select id=&quot;findThing&quot; resultType=&quot;entity.thing&quot;&gt;--&gt;
+    &lt;select id=&quot;findThing&quot; resultMap=&quot;findthing&quot;&gt;
+        select * from thing
+        &lt;if test=&quot;id!=null&quot;&gt;
+          where id=#{id}
+        &lt;/if&gt;
+    &lt;/select&gt;
+    &lt;resultMap id=&quot;findthing&quot; type=&quot;entity.thing&quot;&gt;
+        &lt;result column=&quot;me&quot; property=&quot;wo&quot;&gt;&lt;/result&gt;
+    &lt;/resultMap&gt;
+&lt;/mapper&gt;</code></pre>
 </li>
 <li><p>log4j的使用</p>
 </li>
 </ol>
 <p>引入依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml"> &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;1.2.17&lt;/version&gt;
+ &lt;/dependency&gt;</code></pre>
 <p>创建resources/log4j.properties</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger=DEBUG, A1</span><br><span class="line">log4j.appender.A1=org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.A1.layout=org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n</span><br></pre></td></tr></table></figure>
-
+<pre><code class="properties">log4j.rootLogger=DEBUG, A1
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%-4r %-5p [%t] %37c %3x - %m%n</code></pre>
 <p>在servlet中使用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Logger log=loggger.getlogger(thingFindServlet.class); </span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        String id=req.getParameter(<span class="string">"id"</span>);</span><br><span class="line"></span><br><span class="line">        log.info(<span class="string">"获取到查询参数id→→"</span>+id);</span><br><span class="line"></span><br><span class="line">        thing thi= tDao.findById(Integer.parseInt(id));</span><br><span class="line"></span><br><span class="line">        log.info(<span class="string">"查询数完成，查询到的数据："</span>+thi.toString());</span><br><span class="line"></span><br><span class="line">        req.setAttribute(<span class="string">"thing"</span>,thi);</span><br><span class="line"></span><br><span class="line">        req.getRequestDispatcher(<span class="string">"detail.jsp"</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">private Logger log=loggger.getlogger(thingFindServlet.class); 
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id=req.getParameter(&quot;id&quot;);
 
+        log.info(&quot;获取到查询参数id→→&quot;+id);
+
+        thing thi= tDao.findById(Integer.parseInt(id));
+
+        log.info(&quot;查询数完成，查询到的数据：&quot;+thi.toString());
+
+        req.setAttribute(&quot;thing&quot;,thi);
+
+        req.getRequestDispatcher(&quot;detail.jsp&quot;).forward(req,resp);
+    }</code></pre>
 <p>log.info便会在日志记录中输出</p>
 <p><font color="red">27.添加语句</font></p>
 <p>userMapper</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">mapper 用于定义一个映射配置文件的根节点</span></span><br><span class="line"><span class="comment">namespace属性是用来配置命名空间，主要进行session级别的缓存管理</span></span><br><span class="line"><span class="comment">命名空间默认情况下，使用我们当前操作的实体类的全路径</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;select id="findThing" resultType="entity.thing"&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findThing"</span> <span class="attr">resultMap</span>=<span class="string">"findthing"</span>&gt;</span></span><br><span class="line">        select * from thing</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"id!=null"</span>&gt;</span></span><br><span class="line">          where id=#&#123;id&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">"findthing"</span> <span class="attr">type</span>=<span class="string">"entity.thing"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"me"</span> <span class="attr">property</span>=<span class="string">"wo"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"Dtime"</span> <span class="attr">property</span>=<span class="string">"dotime"</span>&gt;</span><span class="tag">&lt;/<span class="name">result</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"thing_fields"</span>&gt;</span></span><br><span class="line">        me,others,gob,Rtime,Dtime,place,content</span><br><span class="line">    <span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addThing"</span> <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">        insert into thing(<span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"thing_fields"</span>&gt;</span><span class="tag">&lt;/<span class="name">include</span>&gt;</span>)</span><br><span class="line">        value(#&#123;wo&#125;,#&#123;others&#125;,#&#123;gob&#125;,#&#123;rtime&#125;,#&#123;dotime&#125;,#&#123;place&#125;,#&#123;content&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updatething"</span>&gt;</span></span><br><span class="line">        update thing set me=#&#123;wo&#125;,</span><br><span class="line">        others=#&#123;others&#125;,</span><br><span class="line">        gob=#&#123;gob&#125;,</span><br><span class="line">        Rtime=#&#123;Rtime&#125;,</span><br><span class="line">        Dtime=#&#123;Dtime&#125;,</span><br><span class="line">        place=#&#123;place&#125;,</span><br><span class="line">        content=#&#123;content&#125;,</span><br><span class="line">        ach=#&#123;ach&#125;</span><br><span class="line">        where id=#&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper  PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;!--
+mapper 用于定义一个映射配置文件的根节点
+namespace属性是用来配置命名空间，主要进行session级别的缓存管理
+命名空间默认情况下，使用我们当前操作的实体类的全路径
+--&gt;
+&lt;mapper namespace=&quot;entity.thing&quot;&gt;
+    &lt;!--&lt;select id=&quot;findThing&quot; resultType=&quot;entity.thing&quot;&gt;--&gt;
+    &lt;select id=&quot;findThing&quot; resultMap=&quot;findthing&quot;&gt;
+        select * from thing
+        &lt;if test=&quot;id!=null&quot;&gt;
+          where id=#{id}
+        &lt;/if&gt;
+    &lt;/select&gt;
 
+    &lt;resultMap id=&quot;findthing&quot; type=&quot;entity.thing&quot;&gt;
+        &lt;result column=&quot;me&quot; property=&quot;wo&quot;&gt;&lt;/result&gt;
+        &lt;result column=&quot;Dtime&quot; property=&quot;dotime&quot;&gt;&lt;/result&gt;
+    &lt;/resultMap&gt;
+
+    &lt;sql id=&quot;thing_fields&quot;&gt;
+        me,others,gob,Rtime,Dtime,place,content
+    &lt;/sql&gt;
+
+    &lt;insert id=&quot;addThing&quot; useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;&gt;
+        insert into thing(&lt;include refid=&quot;thing_fields&quot;&gt;&lt;/include&gt;)
+        value(#{wo},#{others},#{gob},#{rtime},#{dotime},#{place},#{content})
+    &lt;/insert&gt;
+    &lt;update id=&quot;updatething&quot;&gt;
+        update thing set me=#{wo},
+        others=#{others},
+        gob=#{gob},
+        Rtime=#{Rtime},
+        Dtime=#{Dtime},
+        place=#{place},
+        content=#{content},
+        ach=#{ach}
+        where id=#{id}
+    &lt;/update&gt;
+&lt;/mapper&gt;</code></pre>
 <p>addThing.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"fmt"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/fmt"</span> %&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span><br><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: Lenovo</span><br><span class="line">  Date: <span class="number">2019</span>/<span class="number">8</span>/<span class="number">14</span></span><br><span class="line">  Time: <span class="number">15</span>:<span class="number">19</span></span><br><span class="line">  To change <span class="keyword">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">"text/html;charset=UTF-8"</span> language=<span class="string">"java"</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"lib/bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span><br><span class="line">    &lt;script src="lib/2.2.4/jquery-1.12.4.min.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"container"</span>&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"page-header"</span>&gt;</span><br><span class="line">            &lt;h1&gt;&lt;span class="glyphicon glyphicon-heart"&gt;&lt;/span&gt;</span><br><span class="line">                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"jumbotron"</span>&gt;</span><br><span class="line">            &lt;h1&gt;记录点滴&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;&lt;a class="btn btn-primary btn-lg" href="#" role="button"&gt;获取更多&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"row"</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-md-8 col col-md-offset-2"</span>&gt;</span><br><span class="line">            &lt;form <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-horizontal"</span> action=<span class="string">"$&#123;pageContext.request.contextPath&#125;/addThing"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="me" class="col-sm-2 control-label"&gt;记录人物&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"me"</span>  name=<span class="string">"me"</span> placeholder=<span class="string">"请输入记录人物"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="others" class="col-sm-2 control-label"&gt;相关对象&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"others"</span>  name=<span class="string">"others"</span> placeholder=<span class="string">"请输入相关对象"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="gob" class="col-sm-2 control-label"&gt;事情好坏&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"gob"</span>  name=<span class="string">"gob"</span> placeholder=<span class="string">"请输入事情好坏"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="dotime" class="col-sm-2 control-label"&gt;代办时间&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"dotime"</span> name=<span class="string">"dotime"</span> placeholder=<span class="string">"请输入代办时间"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="place" class="col-sm-2 control-label"&gt;发生地点&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"place"</span> name=<span class="string">"place"</span> placeholder=<span class="string">"请输入事情发生地点"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;label for="content" class="col-sm-2 control-label"&gt;详细内容&lt;/label&gt;</span><br><span class="line">                    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"col-sm-10"</span>&gt;</span><br><span class="line">                        &lt;input type=<span class="string">"text"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> id=<span class="string">"content"</span> name=<span class="string">"content"</span> placeholder=<span class="string">"请输入事情详细内容"</span>&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-group"</span>&gt;</span><br><span class="line">                    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交数据更新"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-primary"</span>&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="jsp">&lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Lenovo
+  Date: 2019/8/14
+  Time: 15:19
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;马嘉骏的小本本&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;lib/bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&gt;
+    &lt;script src=&quot;lib/2.2.4/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;lib/bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;page-header&quot;&gt;
+            &lt;h1&gt;&lt;span class=&quot;glyphicon glyphicon-heart&quot;&gt;&lt;/span&gt;
+                马嘉骏的小本本           &lt;small&gt;            记录每件事&lt;/small&gt;&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;jumbotron&quot;&gt;
+            &lt;h1&gt;记录点滴&lt;/h1&gt;
+            &lt;p&gt;当他回首往事的时候，他不会因为虚度年华而悔恨，也不会因为碌碌无为而羞耻&lt;/p&gt;
+            &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;获取更多&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-8 col col-md-offset-2&quot;&gt;
+            &lt;form class=&quot;form-horizontal&quot; action=&quot;${pageContext.request.contextPath}/addThing&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;me&quot; class=&quot;col-sm-2 control-label&quot;&gt;记录人物&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;me&quot;  name=&quot;me&quot; placeholder=&quot;请输入记录人物&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;others&quot; class=&quot;col-sm-2 control-label&quot;&gt;相关对象&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;others&quot;  name=&quot;others&quot; placeholder=&quot;请输入相关对象&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;gob&quot; class=&quot;col-sm-2 control-label&quot;&gt;事情好坏&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;gob&quot;  name=&quot;gob&quot; placeholder=&quot;请输入事情好坏&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
 
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;dotime&quot; class=&quot;col-sm-2 control-label&quot;&gt;代办时间&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;dotime&quot; name=&quot;dotime&quot; placeholder=&quot;请输入代办时间&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;place&quot; class=&quot;col-sm-2 control-label&quot;&gt;发生地点&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;place&quot; name=&quot;place&quot; placeholder=&quot;请输入事情发生地点&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;content&quot; class=&quot;col-sm-2 control-label&quot;&gt;详细内容&lt;/label&gt;
+                    &lt;div class=&quot;col-sm-10&quot;&gt;
+                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;content&quot; name=&quot;content&quot; placeholder=&quot;请输入事情详细内容&quot;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;submit&quot; value=&quot;提交数据更新&quot; class=&quot;btn btn-primary&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 <p>thingDao</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.SqlSessionFactoryUtils;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> List&lt;thing&gt; list;</span><br><span class="line">    <span class="keyword">private</span> thing thi;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> SqlSession <span class="title">getSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();</span><br><span class="line">        <span class="keyword">return</span> sqlSession;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;thing&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            list=getSession().selectList(<span class="string">"findThing"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">findById</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            thi=getSession().selectOne(<span class="string">"findThing"</span>,<span class="keyword">new</span> thing(id));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    增加一个新用户数据到数据库的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">addThing</span><span class="params">(thing thi)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//返回值：是insert执行过程中影响的行数</span></span><br><span class="line">            getSession().insert(<span class="string">"addThing"</span>,thi);</span><br><span class="line">            sqlSession.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    用于修改事件的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">updateThing</span><span class="params">(thing thi)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            getSession().update(<span class="string">"updatething"</span>,thi);</span><br><span class="line">            sqlSession.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package Dao;
 
+import utils.SqlSessionFactoryUtils;
+import entity.thing;
+import org.apache.ibatis.session.SqlSession;
+import java.util.List;
+
+public class thingDao {
+    private SqlSession sqlSession;
+    private List&lt;thing&gt; list;
+    private thing thi;
+
+    private SqlSession getSession(){
+        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();
+        return sqlSession;
+    }
+    public List&lt;thing&gt; findAll(){
+        try {
+            list=getSession().selectList(&quot;findThing&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return list;
+    }
+    public thing findById(Integer id){
+        try {
+            thi=getSession().selectOne(&quot;findThing&quot;,new thing(id));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+//    增加一个新用户数据到数据库的方法
+    public thing addThing(thing thi){
+        try {
+            //返回值：是insert执行过程中影响的行数
+            getSession().insert(&quot;addThing&quot;,thi);
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+//    用于修改事件的方法
+    public thing updateThing(thing thi){
+        try {
+
+            getSession().update(&quot;updatething&quot;,thi);
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+}</code></pre>
 <p>thingAddServlet</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Dao.thingDao;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/addThing"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingAddServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> thingDao thingdao=<span class="keyword">new</span> thingDao();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//获取要添加的用户数据</span></span><br><span class="line">        String me=req.getParameter(<span class="string">"me"</span>);</span><br><span class="line">        String others=req.getParameter(<span class="string">"others"</span>);</span><br><span class="line">        String gob=req.getParameter(<span class="string">"gob"</span>);</span><br><span class="line">        String dotime=req.getParameter(<span class="string">"dotime"</span>);</span><br><span class="line">        String place=req.getParameter(<span class="string">"place"</span>);</span><br><span class="line">        String content=req.getParameter(<span class="string">"content"</span>);</span><br><span class="line">        <span class="comment">//根据用户数据创建一个用户对象</span></span><br><span class="line">        thing thi=<span class="keyword">new</span> thing(me,others,gob,<span class="keyword">new</span> Date(),dotime,place,content);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将对象用户添加到数据库中</span></span><br><span class="line">        thi=thingdao.addThing(thi);</span><br><span class="line">        <span class="comment">//查看刚新增的用户数据</span></span><br><span class="line">        resp.sendRedirect(<span class="string">"detail?id="</span> + thi.getId());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package servlet;
 
+import Dao.thingDao;
+import entity.thing;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Date;
+
+@WebServlet(&quot;/addThing&quot;)
+public class thingAddServlet extends HttpServlet {
+    private thingDao thingdao=new thingDao();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       this.doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //获取要添加的用户数据
+        String me=req.getParameter(&quot;me&quot;);
+        String others=req.getParameter(&quot;others&quot;);
+        String gob=req.getParameter(&quot;gob&quot;);
+        String dotime=req.getParameter(&quot;dotime&quot;);
+        String place=req.getParameter(&quot;place&quot;);
+        String content=req.getParameter(&quot;content&quot;);
+        //根据用户数据创建一个用户对象
+        thing thi=new thing(me,others,gob,new Date(),dotime,place,content);
+
+        //将对象用户添加到数据库中
+        thi=thingdao.addThing(thi);
+        //查看刚新增的用户数据
+        resp.sendRedirect(&quot;detail?id=&quot; + thi.getId());
+    }
+}</code></pre>
 <p><font color="red">28.修改语句</font></p>
 <p>映射配置文件 usersMapper</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updatething"</span>&gt;</span></span><br><span class="line">        update thing set me=#&#123;wo&#125;,</span><br><span class="line">        others=#&#123;others&#125;,</span><br><span class="line">        gob=#&#123;gob&#125;,</span><br><span class="line">        Rtime=#&#123;Rtime&#125;,</span><br><span class="line">        Dtime=#&#123;Dtime&#125;,</span><br><span class="line">        place=#&#123;place&#125;,</span><br><span class="line">        content=#&#123;content&#125;,</span><br><span class="line">        ach=#&#123;ach&#125;</span><br><span class="line">        where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;update id=&quot;updatething&quot;&gt;
+        update thing set me=#{wo},
+        others=#{others},
+        gob=#{gob},
+        Rtime=#{Rtime},
+        Dtime=#{Dtime},
+        place=#{place},
+        content=#{content},
+        ach=#{ach}
+        where id=#{id}
+&lt;/update&gt;</code></pre>
 <p>dao/thingDao</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> utils.SqlSessionFactoryUtils;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSession sqlSession;</span><br><span class="line">    <span class="keyword">private</span> List&lt;thing&gt; list;</span><br><span class="line">    <span class="keyword">private</span> thing thi;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> SqlSession <span class="title">getSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();</span><br><span class="line">        <span class="keyword">return</span> sqlSession;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    用于修改事件的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> thing <span class="title">updateThing</span><span class="params">(thing thi)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            getSession().update(<span class="string">"updatething"</span>,thi);</span><br><span class="line">            sqlSession.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> thi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package Dao;
 
+import utils.SqlSessionFactoryUtils;
+import entity.thing;
+import org.apache.ibatis.session.SqlSession;
+import java.util.List;
+
+public class thingDao {
+    private SqlSession sqlSession;
+    private List&lt;thing&gt; list;
+    private thing thi;
+
+    private SqlSession getSession(){
+        sqlSession= SqlSessionFactoryUtils.getSqlSessionFactory().openSession();
+        return sqlSession;
+    }
+    //    用于修改事件的方法
+    public thing updateThing(thing thi){
+        try {
+
+            getSession().update(&quot;updatething&quot;,thi);
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+        return thi;
+    }
+}</code></pre>
 <p>servlet/thingUpdataServlet</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Dao.thingDao;</span><br><span class="line"><span class="keyword">import</span> entity.thing;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/updatething"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">thingUpdataServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> thingDao thingdao=<span class="keyword">new</span> thingDao();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//获取用户要更新的数据</span></span><br><span class="line">        String id=req.getParameter(<span class="string">"id"</span>);</span><br><span class="line">        String me=req.getParameter(<span class="string">"me"</span>);</span><br><span class="line">        String others=req.getParameter(<span class="string">"others"</span>);</span><br><span class="line">        String gob=req.getParameter(<span class="string">"gob"</span>);</span><br><span class="line">        String dotime=req.getParameter(<span class="string">"dotime"</span>);</span><br><span class="line">        String place=req.getParameter(<span class="string">"place"</span>);</span><br><span class="line">        String content=req.getParameter(<span class="string">"content"</span>);</span><br><span class="line">        <span class="comment">//创建事件对象</span></span><br><span class="line">        thing thi=<span class="keyword">new</span> thing(Integer.parseInt(id),me,others,gob,dotime,place,content);</span><br><span class="line">        <span class="comment">//提交更新</span></span><br><span class="line">        thingdao.updateThing(thi);</span><br><span class="line">        <span class="comment">//查看更新后的数据</span></span><br><span class="line">        resp.sendRedirect(<span class="string">"detail?id="</span>+thi.getId());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package servlet;
 
+import Dao.thingDao;
+import entity.thing;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+@WebServlet(&quot;/updatething&quot;)
+public class thingUpdataServlet extends HttpServlet {
+    private thingDao thingdao=new thingDao();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //获取用户要更新的数据
+        String id=req.getParameter(&quot;id&quot;);
+        String me=req.getParameter(&quot;me&quot;);
+        String others=req.getParameter(&quot;others&quot;);
+        String gob=req.getParameter(&quot;gob&quot;);
+        String dotime=req.getParameter(&quot;dotime&quot;);
+        String place=req.getParameter(&quot;place&quot;);
+        String content=req.getParameter(&quot;content&quot;);
+        //创建事件对象
+        thing thi=new thing(Integer.parseInt(id),me,others,gob,dotime,place,content);
+        //提交更新
+        thingdao.updateThing(thi);
+        //查看更新后的数据
+        resp.sendRedirect(&quot;detail?id=&quot;+thi.getId());
+    }
+}</code></pre>
 <p><font color="red">29.删除语句</font></p>
 <p>usersMapper.xml</p>
 <p>mapper标签中添加</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"delthing"</span>&gt;</span></span><br><span class="line">     delete from thing where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;delete id=&quot;delthing&quot;&gt;
+     delete from thing where id=#{id}
+&lt;/delete&gt;</code></pre>
 <p>Dao/thingDao.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deletething</span><span class="params">(Integer id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            getSession().delete(<span class="string">"delthing"</span>,id);</span><br><span class="line">            sqlSession.commit();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            sqlSession.close();</span><br><span class="line">        &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public void deletething(Integer id){
+        try {
+            getSession().delete(&quot;delthing&quot;,id);
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+ }</code></pre>
 <p>servlet/thingDeleteServlet</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code></code></pre>
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/javaweb/">javaweb</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
 
-
+            
+          </div>
+        </div>
+      </div>
     </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
 
     
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
-    </div>
-</div>
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/12/为终端配置代理/">为终端配置代理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/02/LightGBM-gridsearchcv/">LightGBM+gridsearchcv</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/02/04/数据可视化/">数据可视化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/01/27/决策树/">决策树</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/散装知识/">散装知识</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/前端/">前端</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Machine-Learning/">Machine Learning</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/javaweb/">javaweb</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-<!-- After footer scripts -->
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+  <script  src="/js/lazyload.js" ></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
 
-<!-- Disqus Comments -->
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+  <script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "记一次MyBatis试手项目&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
 
 
 
 </body>
-
 </html>

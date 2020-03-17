@@ -1,173 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
-<!-- Head tag -->
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content>
+  <meta name="author" content="Aubreyii">
+  <meta name="keywords" content>
+  <title>XML - Deep Playing</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
-    
-        <meta name="description" content="XML
-五个方面
-
-XML介绍与用途
-XML的语法规则
-XML语义约束
-Java解析XML
-XPath路径表达式
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
-XML介绍与用途介绍
-全称：EXtensible   Markup   Language
-​            可扩展             标记            语言
-">
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    <!--Author-->
-    
-        <meta name="author" content="Aubreyii">
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="XML">
-    
 
-    <!--Open Graph Description-->
-    
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Deep Playing">
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="article">
-    
-
-    <!--Page Cover-->
-    
-
-    
-        <meta name="twitter:card" content="summary">
-    
-    
-    
-
-    <!-- Title -->
-    
-    <title>XML - Deep Playing</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics -->
-    
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
 
 
 <body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Deep Playing</strong>&nbsp;</a>
 
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-        </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
+  </div>
 </nav>
 
-<div class="container">
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期日, 七月 14日 2019, 11:53 晚上
+                </p>
+              
 
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-    </div>
-</header>
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.9k 字
+                  </span>
+                
 
-        <section class="main">
-            
-<div class="post">
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      9 分钟
+                  </span>
+                
 
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2019/07/14/XML/">
-                XML
-            </a>
-        </h1>
-        <div class="post-info">
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
             
-                <span class="date">2019-07-14</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/javaweb/">javaweb</a>
-                </span>
-            
+          </div>
+
+          
         </div>
+      </div>
     </div>
+  </header>
 
-    <div class="content">
+  <main>
+    
+      
 
-        <!-- Gallery -->
-        
-
-        <!-- Post Content -->
-        <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><blockquote>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h1><blockquote>
 <p>五个方面</p>
 <ol>
 <li>XML介绍与用途</li>
@@ -184,8 +189,11 @@ XML介绍与用途介绍
 <li><p>编写XML就是编写标签，与HTML非常类似，扩展名.xml</p>
 </li>
 <li><p>良好的人机可读性</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`<span class="tag">&lt;<span class="name">employee</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">height</span>&gt;</span>1.80<span class="tag">&lt;/<span class="name">height</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">employee</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">`&lt;employee&gt;
+    &lt;name&gt;张三&lt;/name&gt;
+    &lt;age&gt;20&lt;/age&gt;
+    &lt;height&gt;1.80&lt;/height&gt;
+&lt;/employee&gt;</code></pre>
 </li>
 </ol>
 <h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
@@ -202,8 +210,7 @@ XML介绍与用途介绍
 </blockquote>
 <h3 id="XML声明"><a href="#XML声明" class="headerlink" title="XML声明"></a>XML声明</h3><ul>
 <li><p>XML声明说明XML文档的基本信息，包括版本号与字符集，写在XML第一行。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></pre>
 <p>version 代表版本号1.0  encoding UTF-8设置字符集，用于支持中文</p>
 </li>
 </ul>
@@ -281,8 +288,24 @@ XML介绍与用途介绍
 </ul>
 </li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">teaching-plan</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>大学英语<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>36<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>高等数学<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>70<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">course</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">course-name</span>&gt;</span>计算机应用基础<span class="tag">&lt;/<span class="name">course-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">class-hour</span>&gt;</span>108<span class="tag">&lt;/<span class="name">class-hour</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exam-form</span>&gt;</span>上机考试<span class="tag">&lt;/<span class="name">exam-form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">course</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">teaching-plan</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;teaching-plan&gt;
+    &lt;course&gt;
+        &lt;course-name&gt;大学英语&lt;/course-name&gt;
+        &lt;class-hour&gt;36&lt;/class-hour&gt;
+        &lt;exam-form&gt;考试&lt;/exam-form&gt;
+    &lt;/course&gt;
+    &lt;course&gt;
+        &lt;course-name&gt;高等数学&lt;/course-name&gt;
+        &lt;class-hour&gt;70&lt;/class-hour&gt;
+        &lt;exam-form&gt;考试&lt;/exam-form&gt;
+    &lt;/course&gt;
+    &lt;course&gt;
+        &lt;course-name&gt;计算机应用基础&lt;/course-name&gt;
+        &lt;class-hour&gt;108&lt;/class-hour&gt;
+        &lt;exam-form&gt;上机考试&lt;/exam-form&gt;
+    &lt;/course&gt;
+&lt;/teaching-plan&gt;</code></pre>
 <h2 id="XML语义约束"><a href="#XML语义约束" class="headerlink" title="XML语义约束"></a>XML语义约束</h2><ul>
 <li>XML文档结构正确，但可能不有效。（如员工档案XML中出现“植物品种”）</li>
 <li>XML予以约束有两种定义方式：DTD与XML Schema</li>
@@ -293,20 +316,23 @@ XML介绍与用途介绍
 <li>DTD扩展名.dta</li>
 <li>利用DTD中的&lt;!ELEMENT&gt;标签，定义XML文档中允许出现的节点和数量，举例如下：</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">&lt;!--定义hr节点下只允许出现一个employee子节点--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--必须含有以下下四个节点，且按顺序出现--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">employee</span> (<span class="attr">name</span>,<span class="attr">age</span>,<span class="attr">salary</span>,<span class="attr">department</span>)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--定义name标签体只能是文本，#PCDATA代表文本元素&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!ELEMENT name (#PCDATA)&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!--最少出现1个--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>+)&gt;</span></span><br><span class="line">&gt; <span class="comment">&lt;!--最多出现1个&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!ELEMENT hr (employee?)&gt;</span></span><br><span class="line"><span class="comment">&gt; &lt;!--可出现0~n个--&gt;</span></span><br><span class="line">&gt; <span class="tag">&lt;<span class="name">!ELEMENT</span> <span class="attr">hr</span> (<span class="attr">employee</span>*)&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
+<pre><code class="xml">&lt;!--定义hr节点下只允许出现一个employee子节点--&gt;
+&lt;!ELEMENT hr (employee)&gt;
+&lt;!--必须含有以下下四个节点，且按顺序出现--&gt;
+&lt;!ELEMENT employee (name,age,salary,department)&gt;
+&lt;!--定义name标签体只能是文本，#PCDATA代表文本元素&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!--最少出现1个--&gt;
+&lt;!ELEMENT hr (employee+)&gt;
+&lt;!--最多出现1个&gt;
+&lt;!ELEMENT hr (employee?)&gt;
+&lt;!--可出现0~n个--&gt;
+&lt;!ELEMENT hr (employee*)&gt;</code></pre>
 <p><font color="red"><u><strong>XML怎么引用DTD文件？</strong></u></font></p>
 <p><strong>回答：</strong></p>
 <p>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;!DOCTYPE 根节点 SYSTEM &quot;dtd文件路径&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;!DOCTYPE hr SYSTEM &quot;hr.dtd&quot;&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>DTD的创建和使用</p>
+<pre><code>&lt;!DOCTYPE 根节点 SYSTEM &quot;dtd文件路径&quot;&gt;</code></pre><p>示例：</p>
+<pre><code>&lt;!DOCTYPE hr SYSTEM &quot;hr.dtd&quot;&gt;</code></pre><p>DTD的创建和使用</p>
 <ul>
 <li><p>创建(idea)：1.Tools</p>
 <p>​                      2.XML Actions</p>
@@ -323,8 +349,37 @@ XML介绍与用途介绍
 <li>XML Schema是W3C标准。（所以之后通常用XML Schema）</li>
 </ul>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line">&lt;schema xmlns="http://www.w3.org/2001/XMLSchema"&gt;</span><br><span class="line">  &lt;element name="hr"&gt;</span><br><span class="line">      &lt;complexType&gt;</span><br><span class="line">        &lt;sequence&gt;</span><br><span class="line">          &lt;element name="employee"&gt;</span><br><span class="line">            &lt;complexType&gt;</span><br><span class="line">              &lt;sequence&gt;</span><br><span class="line">                &lt;element name="name" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                &lt;element name="age" type="integer"&gt;</span><br><span class="line">                	&lt;restriction base="integer"&gt;</span><br><span class="line">                    	&lt;minInclusive value="18"&gt;&lt;minInclusive&gt;</span><br><span class="line">                        &lt;maxInclusive value="60"&gt;&lt;maxInclusive&gt;</span><br><span class="line">                    &lt;/restriction&gt;</span><br><span class="line">                &lt;/element&gt;</span><br><span class="line">                &lt;element name="salary" type="integer"&gt;&lt;/element&gt;</span><br><span class="line">                &lt;element name="department"&gt;</span><br><span class="line">                    &lt;complexType&gt;</span><br><span class="line">                      &lt;sequence&gt;</span><br><span class="line">                        &lt;element name="dname" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                        &lt;element name="address" type="string"&gt;&lt;/element&gt;</span><br><span class="line">                      &lt;/sequence&gt;</span><br><span class="line">                    &lt;/complexType&gt;</span><br><span class="line">                &lt;/element&gt;</span><br><span class="line">              &lt;/sequence&gt;</span><br><span class="line">            &lt;/complexType&gt;</span><br><span class="line">          &lt;/element&gt;</span><br><span class="line">        &lt;/sequence&gt;</span><br><span class="line">      &lt;/complexType&gt;</span><br><span class="line">  &lt;/element&gt;</span><br><span class="line">&lt;/schema&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="scheme">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;schema xmlns=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+  &lt;element name=&quot;hr&quot;&gt;
+      &lt;complexType&gt;
+        &lt;sequence&gt;
+          &lt;element name=&quot;employee&quot;&gt;
+            &lt;complexType&gt;
+              &lt;sequence&gt;
+                &lt;element name=&quot;name&quot; type=&quot;string&quot;&gt;&lt;/element&gt;
+                &lt;element name=&quot;age&quot; type=&quot;integer&quot;&gt;
+                    &lt;restriction base=&quot;integer&quot;&gt;
+                        &lt;minInclusive value=&quot;18&quot;&gt;&lt;minInclusive&gt;
+                        &lt;maxInclusive value=&quot;60&quot;&gt;&lt;maxInclusive&gt;
+                    &lt;/restriction&gt;
+                &lt;/element&gt;
+                &lt;element name=&quot;salary&quot; type=&quot;integer&quot;&gt;&lt;/element&gt;
+                &lt;element name=&quot;department&quot;&gt;
+                    &lt;complexType&gt;
+                      &lt;sequence&gt;
+                        &lt;element name=&quot;dname&quot; type=&quot;string&quot;&gt;&lt;/element&gt;
+                        &lt;element name=&quot;address&quot; type=&quot;string&quot;&gt;&lt;/element&gt;
+                      &lt;/sequence&gt;
+                    &lt;/complexType&gt;
+                &lt;/element&gt;
+              &lt;/sequence&gt;
+            &lt;/complexType&gt;
+          &lt;/element&gt;
+        &lt;/sequence&gt;
+      &lt;/complexType&gt;
+  &lt;/element&gt;
+&lt;/schema&gt;</code></pre>
 <p><font color="red"><strong>Tips:</strong>框架和架构都离不开schema</font></p>
 <h2 id="java解析XML"><a href="#java解析XML" class="headerlink" title="java解析XML"></a>java解析XML</h2><h3 id="DOM文档对象模型"><a href="#DOM文档对象模型" class="headerlink" title="DOM文档对象模型"></a>DOM文档对象模型</h3><ul>
 <li>DOM（Document Object Model)定义了访问和操作XML文档的标准方法，DOM把XML文档作为树结构来查看，能够通过DOM树来读写所有元素。</li>
@@ -334,10 +389,79 @@ XML介绍与用途介绍
 <li>Dom4j将XML视为Document对象</li>
 <li>XML标签被Dom4j定义为Element对象</li>
 </ul>
-<h3 id="Dom4j遍历XML"><a href="#Dom4j遍历XML" class="headerlink" title="Dom4j遍历XML"></a>Dom4j遍历XML</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HrReader</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String file =<span class="string">"文件的路径"</span>；</span><br><span class="line">        <span class="comment">//SAXReader类是读取XML文件的核心类，用于将XML解析后以“树”的形式</span></span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            <span class="comment">//获取XML的根节点</span></span><br><span class="line">            Element root=document.getRootElement();</span><br><span class="line">            <span class="comment">//elements方法用于获取指定的标签集合</span></span><br><span class="line">            List&lt;Element&gt; employees=root.elements(<span class="string">"标签名（子节点名）"</span>);</span><br><span class="line">            <span class="keyword">for</span>(Element employee:employ)&#123;</span><br><span class="line">                System.out.println(employee.elementText(<span class="string">"name"</span>));<span class="comment">//获取name节点的文本内容</span></span><br><span class="line">                Attribute att=employee.attribute(<span class="string">"属性名"</span>);</span><br><span class="line">                System.out.println(att.getText());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HrReader reader=<span class="keyword">new</span> HrReader();</span><br><span class="line">        reader.readXml();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Dom4j遍历XML"><a href="#Dom4j遍历XML" class="headerlink" title="Dom4j遍历XML"></a>Dom4j遍历XML</h3><pre><code class="java">package com.imooc.dom4j;
 
-<h3 id="利用Dom4j更新XML"><a href="#利用Dom4j更新XML" class="headerlink" title="利用Dom4j更新XML"></a>利用Dom4j更新XML</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.Writer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HrWriter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeXml</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String file=<span class="string">"C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml"</span>;</span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            Element root=document.getRootElement();</span><br><span class="line">            Element employee=root.addElement(<span class="string">"employee"</span>);</span><br><span class="line">            employee.addAttribute(<span class="string">"no"</span>,<span class="string">"3311"</span>);</span><br><span class="line">            Element name=employee.addElement(<span class="string">"name"</span>);</span><br><span class="line">            name.setText(<span class="string">"李铁柱"</span>);</span><br><span class="line">            employee.addElement(<span class="string">"salary"</span>).setText(<span class="string">"3600"</span>);</span><br><span class="line">            Element department=employee.addElement(<span class="string">"department"</span>);</span><br><span class="line">            department.addElement(<span class="string">"dname"</span>).setText(<span class="string">"人事部"</span>);</span><br><span class="line">            department.addElement(<span class="string">"address"</span>).setText(<span class="string">"XX大厦-B105"</span>);</span><br><span class="line">            Writer writer=<span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(file),<span class="string">"UTF-8"</span>);</span><br><span class="line">            document.write(writer);</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HrWriter hrWriter=<span class="keyword">new</span> HrWriter();</span><br><span class="line">        hrWriter.writeXml();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 
+import java.util.List;
+public class HrReader{
+    public void readXml(){
+        String file =&quot;文件的路径&quot;；
+        //SAXReader类是读取XML文件的核心类，用于将XML解析后以“树”的形式
+        SAXReader reader=new SAXReader();
+        try{
+            Document document=reader.read(file);
+            //获取XML的根节点
+            Element root=document.getRootElement();
+            //elements方法用于获取指定的标签集合
+            List&lt;Element&gt; employees=root.elements(&quot;标签名（子节点名）&quot;);
+            for(Element employee:employ){
+                System.out.println(employee.elementText(&quot;name&quot;));//获取name节点的文本内容
+                Attribute att=employee.attribute(&quot;属性名&quot;);
+                System.out.println(att.getText());
+            }
+        }
+        catch (DocumentException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        HrReader reader=new HrReader();
+        reader.readXml();
+    }
+}</code></pre>
+<h3 id="利用Dom4j更新XML"><a href="#利用Dom4j更新XML" class="headerlink" title="利用Dom4j更新XML"></a>利用Dom4j更新XML</h3><pre><code class="java">package com.imooc.dom4j;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
+public class HrWriter {
+    public void writeXml(){
+        String file=&quot;C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml&quot;;
+        SAXReader reader=new SAXReader();
+        try {
+            Document document=reader.read(file);
+            Element root=document.getRootElement();
+            Element employee=root.addElement(&quot;employee&quot;);
+            employee.addAttribute(&quot;no&quot;,&quot;3311&quot;);
+            Element name=employee.addElement(&quot;name&quot;);
+            name.setText(&quot;李铁柱&quot;);
+            employee.addElement(&quot;salary&quot;).setText(&quot;3600&quot;);
+            Element department=employee.addElement(&quot;department&quot;);
+            department.addElement(&quot;dname&quot;).setText(&quot;人事部&quot;);
+            department.addElement(&quot;address&quot;).setText(&quot;XX大厦-B105&quot;);
+            Writer writer=new OutputStreamWriter(new FileOutputStream(file),&quot;UTF-8&quot;);
+            document.write(writer);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        HrWriter hrWriter=new HrWriter();
+        hrWriter.writeXml();
+    }
+}</code></pre>
 <h3 id="XPath实验室"><a href="#XPath实验室" class="headerlink" title="XPath实验室"></a>XPath实验室</h3><ul>
 <li>利用Dom4j开发”XPath实验室”，一起见证XPath的神奇之处</li>
 </ul>
@@ -346,134 +470,319 @@ XML介绍与用途介绍
 <li>Dom4j底层依赖Jaxen实现XPath查询</li>
 <li>下载地址:jaxen.codehaus.org</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dom4j;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.dom4j.Document;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.DocumentException;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Element;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.Node;</span><br><span class="line"><span class="keyword">import</span> org.dom4j.io.SAXReader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XPathTestor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">xpath</span><span class="params">(String xpathExp)</span></span>&#123;</span><br><span class="line">        String file=<span class="string">"C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml"</span>;</span><br><span class="line">        SAXReader reader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Document document=reader.read(file);</span><br><span class="line">            List&lt;Node&gt; nodes=document.selectNodes(xpathExp);</span><br><span class="line">            <span class="keyword">for</span>(Node node:nodes)&#123;</span><br><span class="line">                Element emp=(Element) node;</span><br><span class="line">                System.out.println(emp.attributeValue(<span class="string">"no"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"name"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"age"</span>));</span><br><span class="line">                System.out.println(emp.elementText(<span class="string">"salary"</span>));</span><br><span class="line">                System.out.println(<span class="string">"============================="</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (DocumentException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        XPathTestor testor=<span class="keyword">new</span> XPathTestor();</span><br><span class="line">        testor.xpath(<span class="string">"/hr/employee"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[salary&lt;4000]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[name='李铁柱']"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[@no=3304]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[1]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[last()]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"employee[postion()&lt;6]"</span>);</span><br><span class="line">        testor.xpath(<span class="string">"//employee[3]|//employee[8]"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package com.imooc.dom4j;
 
 
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.Node;
+import org.dom4j.io.SAXReader;
+
+import java.util.List;
+
+public class XPathTestor {
+    public void xpath(String xpathExp){
+        String file=&quot;C:\\Users\\Lenovo\\Desktop\\xml\\src\\haha.xml&quot;;
+        SAXReader reader=new SAXReader();
+        try {
+            Document document=reader.read(file);
+            List&lt;Node&gt; nodes=document.selectNodes(xpathExp);
+            for(Node node:nodes){
+                Element emp=(Element) node;
+                System.out.println(emp.attributeValue(&quot;no&quot;));
+                System.out.println(emp.elementText(&quot;name&quot;));
+                System.out.println(emp.elementText(&quot;age&quot;));
+                System.out.println(emp.elementText(&quot;salary&quot;));
+                System.out.println(&quot;=============================&quot;);
+            }
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        XPathTestor testor=new XPathTestor();
+        testor.xpath(&quot;/hr/employee&quot;);
+        testor.xpath(&quot;//employee&quot;);
+        testor.xpath(&quot;//employee[salary&lt;4000]&quot;);
+        testor.xpath(&quot;//employee[name=&#39;李铁柱&#39;]&quot;);
+        testor.xpath(&quot;//employee[@no=3304]&quot;);
+        testor.xpath(&quot;//employee[1]&quot;);
+        testor.xpath(&quot;//employee[last()]&quot;);
+        testor.xpath(&quot;employee[postion()&lt;6]&quot;);
+        testor.xpath(&quot;//employee[3]|//employee[8]&quot;);
+    }
+}</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/javaweb/">javaweb</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
     </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
 
     
-
-    <!-- Comments -->
-    
-
-</div>
-        </section>
-
-    </div>
-</div>
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    
-                </p>
-            </div>
-            
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/12/为终端配置代理/">为终端配置代理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/02/LightGBM-gridsearchcv/">LightGBM+gridsearchcv</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/02/04/数据可视化/">数据可视化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/01/27/决策树/">决策树</a>
-            </li>
-            
-        </ul>
-    </div>
-
-
-
-            
-<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
-    <h2>Categories</h2>
-    <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/散装知识/">散装知识</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/前端/">前端</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/Machine-Learning/">Machine Learning</a>
-        </li>
-        
-        <li>
-            <a class="footer-post" href="/categories/javaweb/">javaweb</a>
-        </li>
-        
-    </ul>
-</div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-<!-- After footer scripts -->
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+  <script  src="/js/lazyload.js" ></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
 
-<!-- Disqus Comments -->
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+  <script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "XML&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
 
 
 
 </body>
-
 </html>
