@@ -128,7 +128,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    2 字
+                    1k 字
                   </span>
                 
 
@@ -136,7 +136,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      5 分钟
                   </span>
                 
 
@@ -175,7 +175,452 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="赛题"><a href="#赛题" class="headerlink" title="赛题"></a>赛题</h1>
+              <h1 id="赛题"><a href="#赛题" class="headerlink" title="赛题"></a>赛题</h1><h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>根据小分子的属性特征，预测小分子在人体内清除率指标（即数据中的Label字段）。</p>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ID</td>
+<td>整型</td>
+<td>样本编号</td>
+</tr>
+<tr>
+<td>Molecule_max_phase</td>
+<td>整型</td>
+<td>分子的最长位相</td>
+</tr>
+<tr>
+<td>Molecular weight</td>
+<td>浮点型</td>
+<td>分子量</td>
+</tr>
+<tr>
+<td>RO5_violations</td>
+<td>整型</td>
+<td>违反新药5规则（RO5）的数量</td>
+</tr>
+<tr>
+<td>AlogP</td>
+<td>浮点型</td>
+<td>由ACD软件计算化合物的脂分配系数（该数据来自ChemBL）</td>
+</tr>
+<tr>
+<td>Features</td>
+<td>向量</td>
+<td>小分子的矢量化表示</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>枚举/浮点型</td>
+<td>单位时间内单位机体能将多少容积体液中的药物清除</td>
+</tr>
+</tbody></table>
+<p><strong>注：本比赛id列不能算做有效特征。</strong></p>
+<h2 id="评分标准"><a href="#评分标准" class="headerlink" title="评分标准"></a>评分标准</h2><p>评分算法</p>
+<p>采用<strong>RMSE</strong>，参考代码如下：</p>
+<pre><code>import numpy as np
+def calc_rmse(y_pred, y_true):
+    return np.sqrt(((y_pred - y_true) ** 2).mean())
+
+y_pred = np.array([1, 2, 1, 2, 3])
+y_true = np.array([1, 1, 2, 2, 2])
+rmse = calc_rmse(y_pred, y_true)</code></pre><h2 id="分数记录"><a href="#分数记录" class="headerlink" title="分数记录"></a>分数记录</h2><table>
+<thead>
+<tr>
+<th align="center">编号</th>
+<th align="center">处理</th>
+<th align="center">线下</th>
+<th>线上</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0323_1</td>
+<td align="center">原始特征</td>
+<td align="center">2.191179019653608</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0323_2</td>
+<td align="center">features模</td>
+<td align="center">2.196203627935492</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">0323_3</td>
+<td align="center">对Molecular_weight和AlogP进行exp</td>
+<td align="center">2.1995688573340924</td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="0323-1"><a href="#0323-1" class="headerlink" title="0323_1"></a>0323_1</h3><h4 id="进行的操作"><a href="#进行的操作" class="headerlink" title="进行的操作"></a>进行的操作</h4><p>无，即为原始特征</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import pandas as pd
+import lightgbm as lgb
+from tqdm import tqdm
+import gc
+import time
+from numpy import nan
+import category_encoders as ce
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import train_test_split,cross_val_score
+pd.set_option(&#39;max_columns&#39;, None)
+pd.set_option(&#39;max_rows&#39;, None)
+pd.set_option(&#39;float_format&#39;, lambda x: &#39;%.6f&#39; % x)
+from tqdm import tqdm
+from sklearn.model_selection import GroupKFold
+from sklearn.preprocessing import LabelEncoder
+from sklearn import feature_selection
+from sklearn.model_selection import KFold, StratifiedKFold
+from scipy import stats
+import datetime
+import time
+from scipy.stats import entropy, kurtosis
+import multiprocessing
+from gensim.models.word2vec import LineSentence
+from gensim.corpora import WikiCorpus
+from gensim.models import Word2Vec
+from sklearn.metrics import f1_score, classification_report, mean_squared_error
+import category_encoders as ce
+
+seed = 2020
+n_fold = 5
+
+#读入
+train=pd.read_csv(&#39;data/train_0312.csv&#39;)
+test=pd.read_csv(&#39;data/test_noLabel_0312.csv&#39;)
+
+#将Features 拆开
+for i in tqdm(range(6924)):
+ train[&#39;Features&#39;][i]=eval(train[&#39;Features&#39;][i])
+for i in tqdm(range(1731)):
+ test[&#39;Features&#39;][i]=eval(test[&#39;Features&#39;][i])
+test=pd.concat([test,pd.DataFrame(test[&#39;Features&#39;].tolist())],axis=1)
+train=pd.concat([train,pd.DataFrame(train[&#39;Features&#39;].tolist())],axis=1)
+
+#确定使用的特征
+ycol = &#39;Label&#39;
+feature_names = list(
+    filter(lambda x: x not in [ycol,&#39;ID&#39;,&#39;Features&#39;], train.columns))
+model = lgb.LGBMRegressor(num_leaves=70,
+                          max_depth=-1,
+                          learning_rate=0.01,
+                          n_estimators=10000,
+                          subsample=0.9,
+                          colsample_bytree=0.4,
+                          random_state=seed,
+                          metric=None
+                          )
+
+oof = []
+prediction = test[[&#39;ID&#39;]]
+prediction[&#39;Label&#39;] = 0
+df_importance_list = []
+#开始训练
+kfold = KFold(n_splits=n_fold, shuffle=False, random_state=seed)
+for fold_id, (trn_idx, val_idx) in enumerate(kfold.split(train[feature_names])):
+    X_train = train.iloc[trn_idx][feature_names]
+    Y_train = train.iloc[trn_idx][ycol]
+
+    X_val = train.iloc[val_idx][feature_names]
+    Y_val = train.iloc[val_idx][ycol]
+
+    print(&#39;\nFold_{} Training ================================\n&#39;.format(fold_id+1))
+
+    lgb_model = model.fit(X_train,
+                          Y_train,
+                          eval_names=[&#39;train&#39;, &#39;valid&#39;],
+                          eval_set=[(X_train, Y_train), (X_val, Y_val)],
+                          verbose=300,
+                          eval_metric=&#39;rmse&#39;,
+                          early_stopping_rounds=100
+                          )
+
+    pred_val = lgb_model.predict(X_val, num_iteration=lgb_model.best_iteration_)
+    df_oof = train.iloc[val_idx][[&#39;ID&#39;, ycol]].copy()
+    df_oof[&#39;pred&#39;] = pred_val
+    oof.append(df_oof)
+
+    pred_test = lgb_model.predict(test[feature_names], num_iteration=lgb_model.best_iteration_)
+    prediction[&#39;Label&#39;] += pred_test / n_fold
+    df_importance = pd.DataFrame({
+        &#39;column&#39;: feature_names,
+        &#39;importance&#39;: lgb_model.feature_importances_,
+    })
+    df_importance_list.append(df_importance)
+
+    del lgb_model, pred_val, pred_test, X_train, Y_train, X_val, Y_val
+    gc.collect()
+
+df_importance = pd.concat(df_importance_list)
+df_importance = df_importance.groupby([&#39;column&#39;])[&#39;importance&#39;].agg(
+    &#39;mean&#39;).sort_values(ascending=False).reset_index()
+df_importance
+
+df_oof = pd.concat(oof)
+rmse = np.sqrt(mean_squared_error(df_oof[ycol], df_oof[&#39;pred&#39;]))
+print(&#39;rmse:&#39;, rmse)
+
+df_sub = pd.read_csv(&#39;data/submit_examp_0312.csv&#39;)
+sub = prediction.copy(deep=True)
+sub.to_csv(&#39;submission/{}.csv&#39;.format(rmse), index=False, encoding=&#39;utf-8&#39;)</code></pre>
+<h4 id="特征重要性"><a href="#特征重要性" class="headerlink" title="特征重要性"></a>特征重要性</h4><table>
+<thead>
+<tr>
+<th align="right">column</th>
+<th align="right">importance</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">AlogP</td>
+<td>4111.000000</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">3153</td>
+<td>3345.200000</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">3154</td>
+<td>3232.400000</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">3152</td>
+<td>3205.800000</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">3163</td>
+<td>2966.400000</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">3166</td>
+<td>2814.800000</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">3157</td>
+<td>2793.400000</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">3156</td>
+<td>2685.000000</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">Molecular weight</td>
+<td>2589.400000</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">3159</td>
+<td>2526.600000</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">3161</td>
+<td>2197.000000</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">3155</td>
+<td>2146.400000</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">3158</td>
+<td>2116.600000</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">3151</td>
+<td>1794.200000</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">11</td>
+<td>1408.200000</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">8</td>
+<td>1264.400000</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="right">3167</td>
+<td>1181.400000</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td align="right">3162</td>
+<td>1080.200000</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td align="right">6</td>
+<td>1042.400000</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td align="right">16</td>
+<td>903.800000</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="right">3164</td>
+<td>887.400000</td>
+</tr>
+</tbody></table>
+<p><strong>注：仅展示前20</strong></p>
+<h3 id="0323-2"><a href="#0323-2" class="headerlink" title="0323_2"></a>0323_2</h3><h4 id="进行的操作-1"><a href="#进行的操作-1" class="headerlink" title="进行的操作"></a>进行的操作</h4><ol>
+<li>features向量的模</li>
+</ol>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre><code class="python">train.fillna(method=&#39;ffill&#39;,inplace=True)
+test.fillna(method=&#39;ffill&#39;,inplace=True)
+
+train[&#39;mo&#39;]=0
+test[&#39;mo&#39;]=0
+
+a=lambda x:np.array(x)
+for i in range(6924):
+    train[&#39;mo&#39;][i]=np.linalg.norm(a(train[&#39;Features&#39;][i]))
+
+for i in range(1731):
+    test[&#39;mo&#39;][i]=np.linalg.norm(a(test[&#39;Features&#39;][i]))</code></pre>
+<h4 id="特征重要性-1"><a href="#特征重要性-1" class="headerlink" title="特征重要性"></a>特征重要性</h4><table>
+<thead>
+<tr>
+<th align="right">column</th>
+<th align="right">importance</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="right">AlogP</td>
+<td>4235.400000</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">3153</td>
+<td>3073.400000</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">3152</td>
+<td>2963.800000</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">3154</td>
+<td>2950.400000</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">3163</td>
+<td>2847.400000</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">3166</td>
+<td>2749.000000</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">mo</td>
+<td>2670.200000</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">3157</td>
+<td>2623.400000</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">3156</td>
+<td>2566.800000</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">3159</td>
+<td>2467.200000</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">Molecular weight</td>
+<td>2212.200000</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">3158</td>
+<td>1990.600000</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">3161</td>
+<td>1979.400000</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">3155</td>
+<td>1951.000000</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">3151</td>
+<td>1489.800000</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">11</td>
+<td>1315.200000</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="right">3167</td>
+<td>1147.000000</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td align="right">8</td>
+<td>1122.200000</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td align="right">6</td>
+<td>968.400000</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td align="right">3162</td>
+<td>931.400000</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="right">16</td>
+<td>929.800000</td>
+</tr>
+</tbody></table>
+<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2>
             </div>
             <hr>
             <div>

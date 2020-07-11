@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="Aubreyii">
   <meta name="keywords" content>
-  <title>蓝桥悲卑 - Deep Playing</title>
+  <title>推荐算法 - Deep Playing</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -119,7 +119,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期四, 三月 19日 2020, 4:47 下午
+                  星期五, 七月 10日 2020, 5:10 下午
                 </p>
               
 
@@ -128,7 +128,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    522 字
+                    565 字
                   </span>
                 
 
@@ -175,68 +175,119 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="动态策划"><a href="#动态策划" class="headerlink" title="动态策划"></a>动态策划</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>棋盘上 A<em>A</em> 点有一个过河卒，需要走到目标 B<em>B</em> 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 C<em>C</em> 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
-<p>棋盘用坐标表示，A<em>A</em> 点 (0, 0)(0,0)、B<em>B</em> 点 (n, m)(<em>n</em>,<em>m</em>)，同样马的位置坐标是需要给出的。</p>
-<p><img src="https://s1.ax1x.com/2020/03/18/8we5VO.png" srcset="/img/loading.gif" alt="img"></p>
-<p>现在要求你计算出卒从 A<em>A</em> 点能够到达 B<em>B</em> 点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行四个正整数，分别表示 B<em>B</em> 点坐标和马的坐标。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，表示所有的路径条数。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p><strong>输入 #1</strong>复制</p>
-<pre><code>6 6 3 3</code></pre><p><strong>输出 #1</strong>复制</p>
-<pre><code>6</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于 100% 的数据，1 ≤ n, m ≤ 20，0 ≤ 马的坐标 ≤20。</p>
-<h2 id="再给几组测试数据"><a href="#再给几组测试数据" class="headerlink" title="再给几组测试数据"></a>再给几组测试数据</h2><p><strong>输入 #1</strong>复制</p>
-<pre><code>12 20 5 7</code></pre><p><strong>输出 #1</strong>复制</p>
-<pre><code>24357120</code></pre><p><strong>输入 #1</strong>复制</p>
-<pre><code>20 20 10 10</code></pre><p><strong>输出 #1</strong>复制</p>
-<pre><code>21388094780</code></pre><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre><code class="c++">#include&lt;iostream&gt;
-using namespace std;
-long long fun(long long n,long long m,long long x,long long y){
-    long long a[21][21];
+              <h1 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h1><p>Apriori关联分析算法</p>
+<ul>
+<li>无监督</li>
+<li>挖掘关联</li>
+<li>数据集很大时，运行效率低（故用FP-Growth优化）</li>
+</ul>
+<p>Apriori（支持度） 组合购买数不大于 支持度 就被淘汰</p>
+<img src="/2020/07/10/推荐算法/image-20200710171215225.png" srcset="/img/loading.gif" alt="image-20200710171215225" style="zoom:50%;">
 
-    int dx[9] = {0,2,2,1,1,-2,-2,-1,-1};
-    int dy[9] = {0,1,-1,2,-2,1,-1,2,-2};
+<p>下图购买人数全部大于<em>支持度*</em>2，故都不淘汰</p>
+<img src="/2020/07/10/推荐算法/image-20200710171603664.png" srcset="/img/loading.gif" alt="image-20200710171603664" style="zoom:50%;">
 
-    bool g1[21][21];
-    fill(g1[0],g1[0]+21*21,true);
-    int i,g,h;
-    for(i=0;i&lt;=8;i++){
-        int xx=x+dx[i],yy=y+dy[i];
-        if(xx&gt;=0&amp;&amp;xx&lt;=n&amp;&amp;yy&gt;=0&amp;&amp;yy&lt;=m){
-            g1[xx][yy]=false;
-        }
-    }
-    fill(a[0],a[0]+21*21,0);
-    a[0][0]=1LL;
 
-    for(g=0; g&lt;=n; g++)
-    {
-        for(h=0;h&lt;=m;h++)
-        {
-            if(g1[g][h]){
-                if(g==0&amp;&amp;h&gt;=1){
-                    a[0][h]=a[0][h-1]; 
-                }
-                if(h==0&amp;&amp;g&gt;=1){
-                    a[g][0]=a[g-1][0]; 
-                }
-                if(g&gt;=1&amp;&amp;h&gt;=1){   
-                    a[g][h] = a[g-1][h]+a[g][h-1];
-                } 
-            }
-        }
-    }
-    return a[n][m];
 
-}
-int main(){
+<img src="/2020/07/10/推荐算法/blog\AubreyiiBlog\source\_posts\推荐算法.assets\image-20200710171915364.png" srcset="/img/loading.gif" alt="image-20200710171915364" style="zoom: 50%;">
 
-    long long n,m,x,y;
-    cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
-    cout&lt;&lt;fun(n,m,x,y)&lt;&lt;endl;
+<img src="/2020/07/10/推荐算法/image-20200710172746753.png" srcset="/img/loading.gif" alt="image-20200710172746753" style="zoom:33%;">
 
-    return 0;
-}</code></pre>
-<h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1>
+<img src="/2020/07/10/推荐算法/image-20200710172930999.png" srcset="/img/loading.gif" alt="image-20200710172930999" style="zoom: 33%;">
+
+<ul>
+<li>缺点<ul>
+<li>数据稀疏性和冷启动问题</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>挖掘用户的潜在兴趣</li>
+<li>仅仅需要评分矩阵来训练矩阵分解模型</li>
+</ul>
+</li>
+</ul>
+<img src="/2020/07/10/推荐算法/image-20200710173159077.png" srcset="/img/loading.gif" alt="image-20200710173159077" style="zoom: 33%;">
+
+
+
+<h2 id="推荐系统常见的问题"><a href="#推荐系统常见的问题" class="headerlink" title="推荐系统常见的问题"></a>推荐系统常见的问题</h2><ul>
+<li><p>冷启动（数据问题）</p>
+<ul>
+<li>用户冷启动→新用户</li>
+<li>物品冷启动→新物品</li>
+<li>系统冷启动→新系统</li>
+<li>根据注册信息 进行分类（邮箱  性别  手机号码）</li>
+<li>推荐热门的排行榜</li>
+<li>基于深度学习的语义理解模型</li>
+<li>引导用户把属性表达出来</li>
+<li>利用用户在社交媒体的信息</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>数据稀疏（算法优化的问题）</p>
+</li>
+<li><p>不断变化的用户喜好</p>
+</li>
+<li><p>不可预知的事项（千人千面）</p>
+</li>
+</ul>
+<p>物品冷启动：</p>
+<img src="/2020/07/10/推荐算法/image-20200710174356337.png" srcset="/img/loading.gif" alt="image-20200710174356337" style="zoom:33%;">
+
+<p>离线实验：数据集上完成试验</p>
+<p>A/B Test在线实验  分几组  每组进入不同模型</p>
+<p>用户调研和反馈</p>
+<h3 id="A-B-Test在线实验"><a href="#A-B-Test在线实验" class="headerlink" title="A/B Test在线实验"></a>A/B Test在线实验</h3><ul>
+<li>A/B Test 在线实验是以正交分桶为基础（随机将用户划分几组）</li>
+<li>根据分桶执行不同的算法得出差异化的指标</li>
+<li>取其中较优的算法</li>
+</ul>
+<img src="/2020/07/10/推荐算法/image-20200710182636242.png" srcset="/img/loading.gif" alt="image-20200710182636242" style="zoom: 33%;">
+
+<h3 id="评测指标"><a href="#评测指标" class="headerlink" title="评测指标"></a>评测指标</h3><img src="/2020/07/10/推荐算法/image-20200710183853321.png" srcset="/img/loading.gif" alt="image-20200710183853321" style="zoom: 33%;">
+
+<img src="/2020/07/10/推荐算法/image-20200710183931312.png" srcset="/img/loading.gif" alt="image-20200710183931312" style="zoom: 50%;">
+
+<img src="/2020/07/10/推荐算法/blog\AubreyiiBlog\source\_posts\推荐算法.assets\image-20200710184106335.png" srcset="/img/loading.gif" alt="image-20200710184106335" style="zoom: 50%;">
+
+<img src="/2020/07/10/推荐算法/image-20200711120707348.png" srcset="/img/loading.gif" alt="image-20200711120707348" style="zoom:67%;">
+
+<img src="/2020/07/10/推荐算法/image-20200711120752003.png" srcset="/img/loading.gif" alt="image-20200711120752003" style="zoom:50%;">
+
+
+
+<h3 id="关于scipy下leastsq-的一个问题"><a href="#关于scipy下leastsq-的一个问题" class="headerlink" title="关于scipy下leastsq()的一个问题"></a>关于scipy下leastsq()的一个问题</h3><p>leastsq是scipy库下求通过最小二乘法求函数系数的一个函数</p>
+<pre><code class="python">scipy.optimize.leastsq(func,x0,args=())  #常用形式</code></pre>
+<p>func 是 指误差函数，如下</p>
+<pre><code class="python">def errors(p,x,y):
+    _y = function(p,x)
+    return y-_y</code></pre>
+<p>而上面errors函数中的function指的是要拟合的函数曲线：</p>
+<pre><code>def function(p,x):
+    a,b=p
+    y=a*x+b
+    return y</code></pre><p>在leastsq()的使用过程中需要注意一个问题</p>
+<p>如下函数</p>
+<pre><code class="python">def function(x,p):
+    a,b=p
+    y=a*x+b
+    return y
+def errors(x,y,p):
+    _y = function(x,p)
+    return y-_y
+leastsq(errors,[1,1],args=[x,y])</code></pre>
+<p>会使得errors(x=[1,1],y=leastsq中的x,p=leastsq中的y)</p>
+<p>因此会报错 <strong>too many values to unpack (expected 2)</strong></p>
+<p>因此顺序问题应该注意，正确写法如下</p>
+<pre><code class="python">def errors(p,x,y):
+    _y = function(p,x)
+    return y-_y
+def function(p,x):
+    a,b=p
+    y=a*x+b
+    return y</code></pre>
+
             </div>
             <hr>
             <div>
@@ -245,7 +296,7 @@ int main(){
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="/categories/蓝桥杯/">蓝桥杯</a>
+                      <a class="hover-with-bg" href="/categories/Machine-Learning/">Machine Learning</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
@@ -458,7 +509,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "蓝桥悲卑&nbsp;",
+        "推荐算法&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 40,
