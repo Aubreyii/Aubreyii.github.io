@@ -145,39 +145,25 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/07/30/Maven/">
-        <p class="h4 index-header">Maven</p>
+      <a href="/2019/09/01/重定向和请求转发/">
+        <p class="h4 index-header">重定向和请求转发</p>
       </a>
 
-      <a href="/2019/07/30/Maven/">
+      <a href="/2019/09/01/重定向和请求转发/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Maven
-Maven是项目管理工具，对软件项目提供构建与依赖管理
-Maven是Apache下的Java开源项目
-Maven为Java项目提供统一的管理方式，已成为业界标准
-
-Maven 的核心特性
-项目设置遵循统一的规则，保证不同开发环境的兼容性
-强大的依赖管理，项目依赖组件自动下载、自动更新
-可扩展的插件机制，使用简单、功能丰富 
-
-掌握Maven的依赖管理
-Maven利用dependency（依赖）自动下载、管理第三方Jar
-在pom.xml文件中配置项目依赖的第三方组建
-maven自动将依赖从远程仓库下载到本地仓库，并在工程中引用
-
-掌握Maven的打包方式
-Maven可将Java项目</div>
+          <div class="index-text mb-1">javaweb中重定向（response.sendRedirect(url)）和请求转发(request.getRequestDispatcher(url).forward(req,resop))的区别![image](重定向和请求转发\1003414-20170724194124918-1066381530 (1).png)
+​    可以看出，重定向时，是服务器向游览器重新发送了一个response命令,让游览器再次向url2发送请求，以获取url2的资源
+​    而请求转发时，类似于是服务器自己向自己发了一个跳转，然后将结果直接给游览器，这也是问什么游览器会不改变url地址。下面是具体</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-30&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-01&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -195,59 +181,32 @@ Maven可将Java项目</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/07/30/深入浅出MySQL数据库/">
-        <p class="h4 index-header">深入浅出MySQL数据库</p>
+      <a href="/2019/08/07/记一次MyBatis试手项目/">
+        <p class="h4 index-header">记一次MyBatis试手项目</p>
       </a>
 
-      <a href="/2019/07/30/深入浅出MySQL数据库/">
+      <a href="/2019/08/07/记一次MyBatis试手项目/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">深入浅出MySQL数据库1.什么是数据库？数据库(Database)是按照数据结构来组织、存储和管理数据的仓库常见数据库
-Oracle
-DB2
-SQL Server
-Postgre SQL
-MySQL
-
-相关术语
-数据库系统(Database System):DBS
-数据库(Database)
-数据库管理系统(Database Management System):DBMS
-应用开发工具
-管理员及用户
-
-
-SQL语言
-Structured Query Language：结构化查询语言
-DDL
-数据定义语言
-
-
-DML
-数据操作语言
-
-
-DQL
-数据查询语言
-
-
-DCL
-数据控制语言
-
-
-
-
-
-</div>
+          <div class="index-text mb-1">记一次MyBatis试手项目▲我踩的坑▲一.
+&lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+artifactId一开始写成了servlet-api  这样子是下载不到新版本的
+二. 
+mybatis.xml中url：
+ur</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-30&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -265,43 +224,113 @@ DCL
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/07/14/XML/">
-        <p class="h4 index-header">XML</p>
+      <a href="/2019/08/07/MyBatis/">
+        <p class="h4 index-header">Mybatis</p>
       </a>
 
-      <a href="/2019/07/14/XML/">
+      <a href="/2019/08/07/MyBatis/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">XML
-五个方面
-
-XML介绍与用途
-XML的语法规则
-XML语义约束
-Java解析XML
-XPath路径表达式
+          <div class="index-text mb-1">MyBatisMyBatis概述1. ORM模型简介
+object relation mapping
 
 
-XML介绍与用途介绍
-全称：EXtensible   Markup   Language
-​            可扩展             标记            语言
 
-编写XML就是编写标签，与HTML非常类似，扩展名.xml
+object
+Mapping
+Relation
 
-良好的人机可读性
-`&lt;employee&gt;
-    &lt;name&gt;张三&lt;/name&gt;
-    &lt;age&gt;20&lt;/age&gt;
-    &lt;height&gt;1.80&lt;/he</div>
+
+
+xxx.java
+XML
+dbf
+
+
+
+传统JDBCC程序的设计缺陷
+
+大量配置信息硬编码
+大量的无关业务处理的编码
+扩展优化极为不便
+
+
+
+
+2. MyBatis概述MyBatis是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架
+
+避免传统JDBC硬编码
+XML配置或者注解
+POJO对象和数据库记录直接映射
+完善的文档支持
+
+3.MyBatis使用优势及应用场景使用优势
+简单易学、快速上手、学习成本低
+数据库交互信息配置化</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-14&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/javaweb/">javaweb</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/07/30/Servlet/">
+        <p class="h4 index-header">Servlet</p>
+      </a>
+
+      <a href="/2019/07/30/Servlet/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Servlet
+了解Browser-Server（B/S）模式
+掌握Servlet开发技巧
+掌握Servlet执行原理
+
+
+软件结构发展史
+
+单机时代-桌面应用（word）
+桌面应用俗称单机应用，软件所有数据都保存在电脑本地硬盘中
+优点：易于使用，结构简单
+缺点：数据难以共享、安全性差、更新不及时
+
+
+联网时代（Client-Server模式）(QQ\WX)
+Client/Server结构（C/S结构）是指客户端和服务器结构
+优点：数据方便共享、安全性高
+缺点：必须安装客户端、升级与维护困难
+
+
+互联网时代（Browser-Server模式）
+broswer-server（B/S）模式即浏览器</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-30&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -318,7 +347,7 @@ XML介绍与用途介绍
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

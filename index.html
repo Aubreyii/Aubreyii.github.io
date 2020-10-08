@@ -145,75 +145,44 @@
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/07/10/推荐算法/" target="_self">
-          <img src="https://s1.ax1x.com/2020/07/11/UlC0yD.jpg" srcset="/img/loading.gif" alt="推荐算法"
+        <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/" target="_self">
+          <img src="https://s1.ax1x.com/2020/07/11/UlC0yD.jpg" srcset="/img/loading.gif" alt="Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/07/10/推荐算法/">
-        <p class="h4 index-header">推荐算法</p>
+      <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/">
+        <p class="h4 index-header">Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0</p>
       </a>
 
-      <a href="/2020/07/10/推荐算法/">
+      <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">推荐系统Apriori关联分析算法
+          <div class="index-text mb-1">Ubuntu18.04安装tenforflow-gpu==1.14.0我的环境
+Ubuntu18.04
+显卡NVIDA 1050Ti
 
-无监督
-挖掘关联
-数据集很大时，运行效率低（故用FP-Growth优化）
+1. 安装显卡驱动新鲜装好的ubuntu是不带有显卡的，所以第一步是选择自己合适的显卡驱动
 
-Apriori（支持度） 组合购买数不大于 支持度 就被淘汰
-
-
-下图购买人数全部大于支持度*2，故都不淘汰
+打开显示应用程序中的软件和更新
 
 
+我选择435，因为之前安装450体验并不好，带来了很多bug，例如调用GPU时报 kernal版本与CUDA要求版本错误（好像是这个）
 
+然后点击应用更改
 
-
-
-
-
-
-
-
-缺点
-数据稀疏性和冷启动问题
-
-
-优点
-挖掘用户的潜在兴趣
-仅仅需要评分矩阵来训练矩阵分解模型
-
-
-
-
-
-
-
-推荐系统常见的问题
-冷启动（数据问题）
-
-用户冷启动→新用户
-物品冷启动→新物品
-系统冷启动→新系统
-根据注册信息 进行分类（邮箱  性别  手机号码）
-推荐热门的排行榜
-基于深度学习的语义理解模型
-引导用户把属性表达出来
-利用用户在社交媒体的</div>
+2. 安装cuda10.0为什么安装10.0呢？因为如下
+你可以在https://tensorflow.google.cn/install/source查看自己想要tf版本对应</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-07-10&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
@@ -231,176 +200,175 @@ Apriori（支持度） 组合购买数不大于 支持度 就被淘汰
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/03/19/动态策划/" target="_self">
-          <img src="https://s1.ax1x.com/2020/07/11/UlJO9x.jpg" srcset="/img/loading.gif" alt="蓝桥杯"
+        <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-14-0/" target="_self">
+          <img src="https://s1.ax1x.com/2020/07/11/UlC0yD.jpg" srcset="/img/loading.gif" alt="Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/19/动态策划/">
-        <p class="h4 index-header">蓝桥杯</p>
+      <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-14-0/">
+        <p class="h4 index-header">Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0</p>
       </a>
 
-      <a href="/2020/03/19/动态策划/">
+      <a href="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-14-0/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">动态策划题目描述棋盘上 AA 点有一个过河卒，需要走到目标 BB 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 CC 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。
-棋盘用坐标表示，AA 点 (0, 0)(0,0)、BB 点 (n, m)(n,m)，同样马的位置坐标是需要给出的。
+          <div class="index-text mb-1">Ubuntu18.04安装tenforflow-gpu==1.14.0我的环境
+Ubuntu18.04
+显卡NVIDA GeForce GTX 1050 Ti
 
-现在要求你计算出卒从 AA 点能够到达 BB 点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。
-输入格式一行四个正整数，分别表示 BB 点坐标和马的坐标。
-输出格式一个整数，表示所有的路径条数。
-输入输出样例输入 #1复制
-6 6 3 3输</div>
+1. 安装显卡驱动新鲜装好的ubuntu是不带有显卡的，所以第一步是选择自己合适的显卡驱动
+
+打开显示应用程序中的软件和更新
+
+
+我选择435，因为之前安装450体验并不好，带来了很多bug，例如调用GPU时报 kernal版本与CUDA要求版本错误（好像是这个）
+
+然后点击应用更改、
+
+重启
+打开 设置-&gt;详细信息：
+
+
+
+图形变成了你的GPU型号，而且你发现你可以连接显示器了，那么显卡驱动就安装成功了
+2. 安装cuda10</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/蓝桥杯/">蓝桥杯</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/03/15/蓝桥杯杯杯杯/" target="_self">
-          <img src="https://s1.ax1x.com/2020/07/11/UlJX36.png" srcset="/img/loading.gif" alt="蓝桥杯杯杯"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/15/蓝桥杯杯杯杯/">
-        <p class="h4 index-header">蓝桥杯杯杯</p>
-      </a>
-
-      <a href="/2020/03/15/蓝桥杯杯杯杯/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1.读题
-不要放过任何一个细节  这对规避一些问题以及寻找思路有很大的帮助
-
-例题：作为篮球队教练，你需要从名单中选出 1 号位至 5 号位各一名球员， 组成球队的首发阵容。每位球员担任 1 号位至 5 号位时的评分如下表所示。请你计算首发阵容 1 号位至 5 号位的评分之和最大可能是多少?
-编号1~20为球员，后面紧跟的5个数值是其在5个位置的表现，一个球员只能担任一个位置，所以在选取该球员时应该综合考虑，如17号很出色在1 3 4 号位都为最高分，但综合考虑 应该让其担任3号位，因为17号3号位分数最好。
-此题可以通过观察与口算得出：  
-97(1)+99(10/20) + 99(17)+</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/蓝桥杯/">蓝桥杯</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/03/12/DC小分子赛/" target="_self">
-          <img src="/img/jiqi.jpg" srcset="/img/loading.gif" alt="DC小分子赛"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/12/DC小分子赛/">
-        <p class="h4 index-header">DC小分子赛</p>
-      </a>
-
-      <a href="/2020/03/12/DC小分子赛/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">赛题任务根据小分子的属性特征，预测小分子在人体内清除率指标（即数据中的Label字段）。
-数据
-
-
-字段名
-类型
-说明
-
-
-
-ID
-整型
-样本编号
-
-
-Molecule_max_phase
-整型
-分子的最长位相
-
-
-Molecular weight
-浮点型
-分子量
-
-
-RO5_violations
-整型
-违反新药5规则（RO5）的数量
-
-
-AlogP
-浮点型
-由ACD软件计算化合物的脂分配系数（该数据来自ChemBL）
-
-
-Features
-向量
-小分子的矢量化表示
-
-
-Label
-枚举/浮点型
-单位时间内单位机体能将多少容积体液中的药物清除
-
-
-注：本比赛id列不能算做有效特征。
-评分标准评</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-10-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/09/10/目标检测/" target="_self">
+          <img src="/目标检测.assets/image-20200910122228024.png" srcset="/img/loading.gif" alt="目标检测"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/09/10/目标检测/">
+        <p class="h4 index-header">目标检测</p>
+      </a>
+
+      <a href="/2020/09/10/目标检测/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">文本检测文本检测算法：
+针对文本检测问题专门设计的框架
+Top-down 和 bottom-up
+CTPN、Textboxes、Textboxes++  Pixellink
+
+
+Top-down: 先检测文本区域，再找出文本线
+Bottom-up:先检测出字符，再串成文本线
+bottom-up缺点：
+没有考虑上下文
+不够鲁棒
+太多子模块
+太复杂且误差逐步积累
+性能受限
+
+
+
+文本检测算法改进方向：
+特征提取
+区域建议网络（RPB）
+多目标协同训练
+Loss改进
+非极大值抑制（NMS）
+半监督学习
+等等
+
+CTPN模型
+模型介绍
+可以检测水平或微斜的文本行
+文本行可以被看成一个字符序列，文本字符</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/计算机视觉/">计算机视觉</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/09/06/PyTorch/" target="_self">
+          <img src="https://imgchr.com/i/wmAYDA" srcset="/img/loading.gif" alt="PyTorch"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/09/06/PyTorch/">
+        <p class="h4 index-header">PyTorch</p>
+      </a>
+
+      <a href="/2020/09/06/PyTorch/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">PyTorchPyTorch的核心是两个主要特征：张量和自动求导张量（Tensor）：类似于numpy.nrray，但是np.nrray不能放入GPU计算，而Tensor可以
+自动求导（autograd）：创建一个张量，设置requires_grad=True来跟踪与它相关的计算
+x = torch.ones(2,2,requires_grad=True)  # 一会儿会对x进行求导
+print(x)
+y = x+2
+print(y.grad_fn)  #输出True 说明运算被追踪了
+z = y*y*3
+out = z.mean()
+
+out.backward()  #求梯度
+print(x</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-09-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/PyTorch/">PyTorch</a>&nbsp;
           &nbsp;
         
         
@@ -412,7 +380,7 @@ Label
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

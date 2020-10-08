@@ -128,7 +128,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    565 字
+                    725 字
                   </span>
                 
 
@@ -136,7 +136,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      2 分钟
+                      3 分钟
                   </span>
                 
 
@@ -257,6 +257,53 @@
 
 
 
+<h3 id="Python实现最小二乘法"><a href="#Python实现最小二乘法" class="headerlink" title="Python实现最小二乘法"></a>Python实现最小二乘法</h3><pre><code class="python">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import leastsq
+
+data = np.loadtxt(
+    &quot;foot_high.csv&quot;,
+    dtype = float,
+    usecols=(0,1),
+    skiprows=1,  #跳过前1行
+    encoding=&quot;utf8&quot;
+)
+
+&quot;&quot;&quot;
+数据如下
+脚长    身高
+37    160
+40    165
+42    178
+35    158
+43    183
+&quot;&quot;&quot;
+
+x = data[:,0]
+y = data[:,1]
+
+def func(p,x):
+    print(&quot;2&quot;,p)
+    a,b=p
+    y=a*x+b
+    return y
+
+def errors(p,x,y):
+    print(&quot;p:&quot;,p)
+    _y = func(p,x)
+    return y-_y
+
+
+res = leastsq(errors,np.array([1,1]),args=(x,y))
+_a,_b=res[0]
+print(&quot;a=&quot;,_a)
+print(&quot;b=&quot;,_b)
+
+print(x)
+print(y)
+plt.scatter(x,y,color=&#39;red&#39;)
+plt.plot(x,func([_a,_b],x),color=&quot;blue&quot;)
+plt.show()</code></pre>
 <h3 id="关于scipy下leastsq-的一个问题"><a href="#关于scipy下leastsq-的一个问题" class="headerlink" title="关于scipy下leastsq()的一个问题"></a>关于scipy下leastsq()的一个问题</h3><p>leastsq是scipy库下求通过最小二乘法求函数系数的一个函数</p>
 <pre><code class="python">scipy.optimize.leastsq(func,x0,args=())  #常用形式</code></pre>
 <p>func 是 指误差函数，如下</p>
@@ -287,6 +334,15 @@ def function(p,x):
     a,b=p
     y=a*x+b
     return y</code></pre>
+<p> <img src="https://s1.ax1x.com/2020/07/11/UlaR6P.png" srcset="/img/loading.gif" alt="image"></p>
+<p><img src="https://s1.ax1x.com/2020/07/11/Uldlct.png" srcset="/img/loading.gif" alt="image"></p>
+<p><img src="https://s1.ax1x.com/2020/07/11/UldBj0.png" srcset="/img/loading.gif" alt="image"></p>
+<p><img src="https://s1.ax1x.com/2020/07/11/UldIu6.png" srcset="/img/loading.gif" alt="image"></p>
+<h3 id="user-based"><a href="#user-based" class="headerlink" title="user-based"></a>user-based</h3><img src="https://s1.ax1x.com/2020/07/13/UJlbN9.png" srcset="/img/loading.gif">
+
+<p><img src="https://s1.ax1x.com/2020/07/13/UJ1BCR.png" srcset="/img/loading.gif" alt="image-20200713124724707"></p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJGXIe.png" srcset="/img/loading.gif" alt="image-20200713130658108"></p>
+<p><img src="https://s1.ax1x.com/2020/07/13/UJJgSA.png" srcset="/img/loading.gif" alt="image-20200713131320169"></p>
 
             </div>
             <hr>
