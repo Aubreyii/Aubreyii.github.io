@@ -5,25 +5,6 @@
   
   <entry>
     <title>Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0</title>
-    <link href="/2020/10/08/Unbuntu18-04%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85tensorflow-gpu-1-15-0/"/>
-    <url>/2020/10/08/Unbuntu18-04%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85tensorflow-gpu-1-15-0/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Ubuntu18-04安装tenforflow-gpu-1-14-0"><a href="#Ubuntu18-04安装tenforflow-gpu-1-14-0" class="headerlink" title="Ubuntu18.04安装tenforflow-gpu==1.14.0"></a>Ubuntu18.04安装tenforflow-gpu==1.14.0</h1><h2 id="我的环境"><a href="#我的环境" class="headerlink" title="我的环境"></a>我的环境</h2><ul><li>Ubuntu18.04</li><li>显卡NVIDA 1050Ti</li></ul><h2 id="1-安装显卡驱动"><a href="#1-安装显卡驱动" class="headerlink" title="1. 安装显卡驱动"></a>1. 安装显卡驱动</h2><p>新鲜装好的ubuntu是不带有显卡的，所以第一步是选择自己合适的显卡驱动</p><ol><li><strong>打开显示应用程序中的软件和更新</strong></li></ol><p><img src="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/mjj/%E6%A1%8C%E9%9D%A2/sendpix2.jpg" srcset="/img/loading.gif" alt="sendpix2"></p><p>我选择435，因为之前安装450体验并不好，带来了很多bug，例如调用GPU时报 kernal版本与CUDA要求版本错误（好像是这个）</p><ol start="2"><li><strong>然后点击应用更改</strong></li></ol><h2 id="2-安装cuda10-0"><a href="#2-安装cuda10-0" class="headerlink" title="2. 安装cuda10.0"></a>2. 安装cuda10.0</h2><p>为什么安装10.0呢？因为如下<img src="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/mjj/%E6%A1%8C%E9%9D%A2/sendpix5.jpg" srcset="/img/loading.gif" alt="sendpix5"></p><p>你可以在<a href="https://tensorflow.google.cn/install/source查看自己想要tf版本对应的cuda版本" target="_blank" rel="noopener">https://tensorflow.google.cn/install/source查看自己想要tf版本对应的cuda版本</a></p><ol><li><em>*下载cuda10.0</em></li></ol><p><a href="https://developer.nvidia.com/cuda-10.0-download-archive![sendpix6](/home/mjj/桌面/sendpix6.jpg)" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-10.0-download-archive![sendpix6](/home/mjj/桌面/sendpix6.jpg)</a></p><p>我的选择如上图，你也可以下载其他Type，但是据我了解runflie最好使</p><ol start="2"><li><strong>安装CUDA</strong></li></ol><p>你可以看到上图中Base Installer中有命令提示，可以根据他给的提示进行操作</p><pre><code>sudo sh cuda_10.0.130_410.48_linux.run</code></pre><p><img src="/2020/10/08/Unbuntu18-04从零开始安装tensorflow-gpu-1-15-0/mjj/%E6%A1%8C%E9%9D%A2/sendpix7.jpg" srcset="/img/loading.gif" alt="sendpix7"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>Machine Learning</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Unbuntu18.04从零开始安装tensorflow-gpu==1.15.0</title>
     <link href="/2020/10/08/Unbuntu18-04%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85tensorflow-gpu-1-14-0/"/>
     <url>/2020/10/08/Unbuntu18-04%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85tensorflow-gpu-1-14-0/</url>
     
