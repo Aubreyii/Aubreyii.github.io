@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="Aubreyii">
   <meta name="keywords" content>
-  <title>归档 - Deep Playing</title>
+  <title>过河卒 - Deep Playing</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -106,7 +106,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('https://s1.ax1x.com/2020/03/18/8wErUH.jpg') no-repeat center center;
+         style="background: url('https://s1.ax1x.com/2020/03/18/8wE0bD.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -115,6 +115,40 @@
               
             </span>
 
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期三, 三月 18日 2020, 10:49 上午
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    516 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      2 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
             
           </div>
 
@@ -130,48 +164,112 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 27 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/01/27/决策树/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">决策树</span>
-      <span style="float: right;">01-27</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>棋盘上 A<em>A</em> 点有一个过河卒，需要走到目标 B<em>B</em> 点。卒行走的规则：可以向下、或者向右。同时在棋盘上 C<em>C</em> 点有一个对方的马，该马所在的点和所有跳跃一步可达的点称为对方马的控制点。因此称之为“马拦过河卒”。</p>
+<p>棋盘用坐标表示，A<em>A</em> 点 (0, 0)(0,0)、B<em>B</em> 点 (n, m)(<em>n</em>,<em>m</em>)，同样马的位置坐标是需要给出的。</p>
+<p><img src="https://s1.ax1x.com/2020/03/18/8we5VO.png" srcset="/img/loading.gif" alt="img"></p>
+<p>现在要求你计算出卒从 A<em>A</em> 点能够到达 B<em>B</em> 点的路径的条数，假设马的位置是固定不动的，并不是卒走一步马走一步。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一行四个正整数，分别表示 B<em>B</em> 点坐标和马的坐标。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>一个整数，表示所有的路径条数。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><p><strong>输入 #1</strong>复制</p>
+<pre><code>6 6 3 3</code></pre><p><strong>输出 #1</strong>复制</p>
+<pre><code>6</code></pre><h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>对于 100% 的数据，1 ≤ n, m ≤ 20，0 ≤ 马的坐标 ≤20。</p>
+<h2 id="再给几组测试数据"><a href="#再给几组测试数据" class="headerlink" title="再给几组测试数据"></a>再给几组测试数据</h2><p><strong>输入 #1</strong>复制</p>
+<pre><code>12 20 5 7</code></pre><p><strong>输出 #1</strong>复制</p>
+<pre><code>24357120</code></pre><p><strong>输入 #1</strong>复制</p>
+<pre><code>20 20 10 10</code></pre><p><strong>输出 #1</strong>复制</p>
+<pre><code>21388094780</code></pre><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre><code class="c++">#include&lt;iostream&gt;
+using namespace std;
+long long fun(long long n,long long m,long long x,long long y){
+    long long a[21][21];
+
+    int dx[9] = {0,2,2,1,1,-2,-2,-1,-1};
+    int dy[9] = {0,1,-1,2,-2,1,-1,2,-2};
+
+    bool g1[21][21];
+    fill(g1[0],g1[0]+21*21,true);
+    int i,g,h;
+    for(i=0;i&lt;=8;i++){
+        int xx=x+dx[i],yy=y+dy[i];
+        if(xx&gt;=0&amp;&amp;xx&lt;=n&amp;&amp;yy&gt;=0&amp;&amp;yy&lt;=m){
+            g1[xx][yy]=false;
+        }
     }
-  </script>
+    fill(a[0],a[0]+21*21,0);
+    a[0][0]=1LL;
 
+    for(g=0; g&lt;=n; g++)
+    {
+        for(h=0;h&lt;=m;h++)
+        {
+            if(g1[g][h]){
+                if(g==0&amp;&amp;h&gt;=1){
+                    a[0][h]=a[0][h-1]; 
+                }
+                if(h==0&amp;&amp;g&gt;=1){
+                    a[g][0]=a[g-1][0]; 
+                }
+                if(g&gt;=1&amp;&amp;h&gt;=1){   
+                    a[g][h] = a[g-1][h]+a[g][h-1];
+                } 
+            }
+        }
+    }
+    return a[n][m];
 
-              </div>
+}
+int main(){
+
+    long long n,m,x,y;
+    cin&gt;&gt;n&gt;&gt;m&gt;&gt;x&gt;&gt;y;
+    cout&lt;&lt;fun(n,m,x,y)&lt;&lt;endl;
+
+    return 0;
+}</code></pre>
+
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
+
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -273,6 +371,57 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
 
@@ -301,7 +450,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "过河卒&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 40,

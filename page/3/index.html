@@ -145,93 +145,6 @@
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2020/03/12/DC小分子赛/" target="_self">
-          <img src="https://s1.ax1x.com/2020/07/11/UlC0yD.jpg" srcset="/img/loading.gif" alt="DC小分子赛"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/03/12/DC小分子赛/">
-        <p class="h4 index-header">DC小分子赛</p>
-      </a>
-
-      <a href="/2020/03/12/DC小分子赛/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">赛题任务根据小分子的属性特征，预测小分子在人体内清除率指标（即数据中的Label字段）。
-数据
-
-
-字段名
-类型
-说明
-
-
-
-ID
-整型
-样本编号
-
-
-Molecule_max_phase
-整型
-分子的最长位相
-
-
-Molecular weight
-浮点型
-分子量
-
-
-RO5_violations
-整型
-违反新药5规则（RO5）的数量
-
-
-AlogP
-浮点型
-由ACD软件计算化合物的脂分配系数（该数据来自ChemBL）
-
-
-Features
-向量
-小分子的矢量化表示
-
-
-Label
-枚举/浮点型
-单位时间内单位机体能将多少容积体液中的药物清除
-
-
-注：本比赛id列不能算做有效特征。
-评分标准评</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/12/为终端配置代理/" target="_self">
           <img src="https://s1.ax1x.com/2020/07/11/UlJq41.jpg" srcset="/img/loading.gif" alt="为终端配置代理"
                class="index-img img-fluid rounded index-thumbnails">
@@ -391,6 +304,72 @@ min_sum_hessian_in_leaf
       <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Machine-Learning/">Machine Learning</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/01/27/决策树/" target="_self">
+          <img src="/img/jiqi.jpg" srcset="/img/loading.gif" alt="决策树"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/01/27/决策树/">
+        <p class="h4 index-header">决策树</p>
+      </a>
+
+      <a href="/2020/01/27/决策树/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">决策树理解划分选择
+
+
+算法分类
+划分选择
+公式
+说明
+
+
+
+ID3（Iterative Dichotomiser）
+信息增益
+Gain(D,a)=Ent(D)-Σ(|D^v|/|D|)*Ent(D^v)
+信息增益越大，由属性a划分而来的集合D的纯度越高，则优先将属性a作为该结点的划分依据
+
+
+C4.5
+增益率
+Gain_ratio(D,a)=Gain(D,a)/IV(a)
+信息增益除以属性a的固有值，找出增益率最高的，属性a可取数目越多，固有值越大。需要注意的是，增益率准则对可取数目较少的属性有所偏好。
+
+
+CART
+基尼指数
+Gini(D)=1-Σpk^2
+Gini(D)反映了从数据集D种</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-27&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
