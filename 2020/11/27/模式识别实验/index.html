@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="Aubreyii">
   <meta name="keywords" content>
-  <title>PyTorch - Deep Playing</title>
+  <title>模式识别实验 - Deep Playing</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -119,7 +119,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期日, 九月 6日 2020, 7:49 晚上
+                  星期五, 十一月 27日 2020, 10:34 上午
                 </p>
               
 
@@ -128,7 +128,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.4k 字
+                    1.7k 字
                   </span>
                 
 
@@ -136,7 +136,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      5 分钟
+                      8 分钟
                   </span>
                 
 
@@ -175,195 +175,214 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h1><h2 id="PyTorch的核心是两个主要特征：张量和自动求导"><a href="#PyTorch的核心是两个主要特征：张量和自动求导" class="headerlink" title="PyTorch的核心是两个主要特征：张量和自动求导"></a>PyTorch的核心是两个主要特征：张量和自动求导</h2><h3 id="张量（Tensor）："><a href="#张量（Tensor）：" class="headerlink" title="张量（Tensor）："></a>张量（Tensor）：</h3><p>类似于numpy.nrray，但是np.nrray不能放入GPU计算，而Tensor可以</p>
-<h3 id="自动求导（autograd）："><a href="#自动求导（autograd）：" class="headerlink" title="自动求导（autograd）："></a>自动求导（autograd）：</h3><p>创建一个张量，设置requires_grad=True来跟踪与它相关的计算</p>
-<pre><code class="python">x = torch.ones(2,2,requires_grad=True)  # 一会儿会对x进行求导
-print(x)
-y = x+2
-print(y.grad_fn)  #输出True 说明运算被追踪了
-z = y*y*3
-out = z.mean()
+              <h1 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h1><h2 id="实验一"><a href="#实验一" class="headerlink" title="实验一"></a>实验一</h2><h3 id="源程序"><a href="#源程序" class="headerlink" title="源程序"></a>源程序</h3><pre><code class="matlab">% 首先载入数据txt格式，分为标签即种类标号和数据（属性:值）
+[diabetes_label, diabetes_inst] =libsvmread(&#39;diabetes_scale.txt&#39;);
+ data= [diabetes_inst(:,1), diabetes_inst(:,2)]; 
 
-out.backward()  #求梯度
-print(x.grad) #打印梯度 d(out)/dx</code></pre>
-<p>再看一个雅可比向量积的例子：</p>
-<pre><code>x = torch.randn(3,requires_grad=True)
+ %利用交叉耦合函数进行分组，80%的数据用来训练，剩下的数据进行预测
+ [train, test] =crossvalind(&#39;holdOut&#39;,diabetes_label,0.8);
 
-y = x*2
-</code></pre><p><strong>PyTorch实现神经网络</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
-import torch
+ train_diabetes = data(train,:);  %获取train对应的训练数据
+ train_diabetes_labels = diabetes_label(train,:);%获取train对应的标签
+ train_diabetes_labels = double(train_diabetes_labels );%将参数转为双精度浮点类型
 
-dtype = torch.float
-device = torch.device(&quot;cpu&quot;)
-# device = torch.device（“cuda：0”）＃取消注释以在GPU上运行
+ test_diabetes = data(test,:); %获取test对应的训练数据
+ test_diabetes_labels = diabetes_label(test,:);  %获取test对应的标签                   
+ test_diabetes_labels =double(test_diabetes_labels); %将参数转为双精度浮点类型
 
-# N是批量大小; D_in是输入维度;
-# H是隐藏的维度; D_out是输出维度。
-N, D_in, H, D_out = 64, 1000, 100, 10
+%训练
+ model = svmtrain(train_diabetes_labels,train_diabetes, &#39;-s 0 -t 2 -c 1 -g 2&#39;);
+%预测
+ [predict_label, accuracy, dec_values] =svmpredict(test_diabetes_labels, test_diabetes, model);</code></pre>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>Libsvm中用到的参数详解：</p>
+<p>- t 核函数类型：核函数设置类型（默认值为2）</p>
+<p>  0:线性核函数 u’v</p>
+<p>  1:多项式核函数(r *u’v + coef0)^degree</p>
+<p>  2:RBF 核函数 exp( -r|u - v|^2)</p>
+<p>  3:sigmiod核函数 tanh(r * u’v + coef0)</p>
+<p>- c cost:设置 C - SVC,epsilon - SVR 和 nu - SVR的参数（默认值为1）</p>
+<p>- g r(gama):核函数中的gama参数设置（针对多项式/sigmoid 核函数/RBF/，默认值为属性数目的倒数）</p>
+<p>- d degree:核函数中的 degree 参数设置（针对多项式核函数，默认值为3）</p>
+<h2 id="实验二"><a href="#实验二" class="headerlink" title="实验二"></a>实验二</h2><h3 id="源程序-1"><a href="#源程序-1" class="headerlink" title="源程序"></a>源程序</h3><p>KNN函数：</p>
+<pre><code class="matlab">function relustLabel = KNN(inx,data,labels,k)
+%% 
+%   inx 为输入测试数据，data为样本数据，labels为样本标签
+%%
 
-# 创建随机Tensors以保持输入和输出。
-# 设置requires_grad = False表示我们不需要计算渐变
-x = torch.randn(N, D_in, device=device, dtype=dtype)
-y = torch.randn(N, D_out, device=device, dtype=dtype)
+[datarow , ~] = size(data);%返回矩阵的大小
+%计算已知类别数据集合汇总的点与当前点的距离
+diffMat = repmat(inx,[datarow,1]) - data ;%将inx复制datarow*1块
+distanceMat = sqrt(sum(diffMat.^2,2));%距离度量使用欧式度量(P=2)
+%按照距离递增次序排序
+[B , IX] = sort(distanceMat,&#39;ascend&#39;);%IX为排序后备元素在原矩阵中的行位置或列位置的索引
+%确保k的值不会比B的长度大
+len = min(k,length(B));
+%选取与当前点距离最近的K个点
+%返回距离最近的前K个点中频率最高的类别作为当前点的预测分类
+relustLabel = mode(labels(IX(1:len)));%mode返回向量、数组或数据域中出现频率最多的数值。
+End</code></pre>
+<p>测试样例：</p>
+<pre><code class="matlab">tic
+[labels, inst] =libsvmread(&#39;breast-cancer_scale.txt&#39;);
+dataMat= [inst(:,1), inst(:,2)]; 
+len = size(dataMat,1);%返回的是矩阵A的行数
+k = 1;
+error = 0;
+% 设置测试数据比例
+Ratio = 0.1;
+numTest = floor(Ratio * len);%向小取整
+% 归一化处理
+maxV = max(dataMat);
+minV = min(dataMat);
+range = maxV-minV;
+newdataMat = (dataMat-repmat(minV,[len,1]))./(repmat(range,[len,1]));
 
-# 为权重创建随机Tensors。
-# 设置requires_grad = True表示我们想要计算渐变
-w1 = torch.randn(D_in, H, device=device, dtype=dtype, requires_grad=True)
-w2 = torch.randn(H, D_out, device=device, dtype=dtype, requires_grad=True)
+% 测试
+for i = 1:numTest
+    classifyresult = KNN(newdataMat(i,:),newdataMat(numTest:len,:),labels(numTest:len,:),k);
+    fprintf(&#39;测试结果为：%d  真实结果为：%d\n&#39;,[classifyresult labels(i)])
+    if(classifyresult~=labels(i))
+        error = error+1;
+    end
+end
+  fprintf(&#39;k值为：k=%d\n&#39;,k)
+  fprintf(&#39;测试数据比例为：%d%%\n&#39;,Ratio*100)
+  fprintf(&#39;准确率为：%f\n&#39;,1-error/(numTest))
+  fprintf(&#39;错误率为：%f\n&#39;,error/(numTest))
+  toc
+  disp([&#39;运行时间: &#39;,num2str(toc)]);
+end</code></pre>
+<h1 id="实验三"><a href="#实验三" class="headerlink" title="实验三"></a>实验三</h1><h3 id="源程序-2"><a href="#源程序-2" class="headerlink" title="源程序"></a>源程序</h3><p>K-means</p>
+<pre><code class="matlab">%% 构造随机数据 
+%第一类数据
+mu1=[0 0];  
+S1=[0.23 0;0 0.87]; %协方差
+data1=mvnrnd(mu1,S1,100);   %围绕mun1产生高斯分布数据
 
-learning_rate = 1e-6
-for t in range(500):
-    # 前向传播：使用tensors上的操作计算预测值y; 
-      # 由于w1和w2有requires_grad=True，涉及这些张量的操作将让PyTorch构建计算图，
-    # 从而允许自动计算梯度。由于我们不再手工实现反向传播，所以不需要保留中间值的引用。
-    y_pred = x.mm(w1).clamp(min=0).mm(w2)
+%第二类数据
+mu2=[1.25 1.25];
+S2=[0.23 0;0 0.87];
+data2=mvnrnd(mu2,S2,100);
 
-    # 使用Tensors上的操作计算和打印丢失。
-    # loss是一个形状为()的张量
-    # loss.item() 得到这个张量对应的python数值
-    loss = (y_pred - y).pow(2).sum()
-    print(t, loss.item())
+%第三个类数据
+mu3=[-1.25 1.25];
+S3=[0.23 0;0 0.87];
+data3=mvnrnd(mu3,S3,100);
 
-    # 使用autograd计算反向传播。这个调用将计算loss对所有requires_grad=True的tensor的梯度。
-    # 这次调用后，w1.grad和w2.grad将分别是loss对w1和w2的梯度张量。
-    loss.backward()
+%第四个类数据
+mu4=[1.5 1.5];
+S4=[0.23 0;0 0.87];
+data4 =mvnrnd(mu4,S4,100);
 
-    # 使用梯度下降更新权重。对于这一步，我们只想对w1和w2的值进行原地改变；不想为更新阶段构建计算图，
-    # 所以我们使用torch.no_grad()上下文管理器防止PyTorch为更新构建计算图
-    with torch.no_grad():
-        w1 -= learning_rate * w1.grad
-        w2 -= learning_rate * w2.grad
+%第5个类数据
+mu5=[0 4];
+S5=[0.23 0;0 0.87];
+data5 =mvnrnd(mu5,S5,100);
 
-        # 反向传播后手动将梯度设置为零
-        w1.grad.zero_()
-        w2.grad.zero_()</code></pre>
-<h3 id="nn模块"><a href="#nn模块" class="headerlink" title="nn模块"></a>nn模块</h3><p>nn包含了等价于层的模块</p>
-<p><strong>example：用nn实现两层网络</strong></p>
-<pre><code class="python"># -*- coding: utf-8 -*-
-import torch
+X=[data1;data2;data3;data4;data5]; 
+%显示数据
+figure;
+plot(X(:,1),X(:,2),&#39;+&#39;);
+title(&#39;原始数据&#39;);
 
-if __name__ == &#39;__main__&#39;:
-    # N是批大小；D是输入维度
-    # H是隐藏层维度；D_out是输出维度
-    N, D_in, H, D_out = 64, 1000, 100, 10
+%%K-means聚类
+tic;
+load X.mat;
 
-    # 创建输入和输出随机张量
-    x = torch.randn(N, D_in)  # 64*1000
-    y = torch.randn(N, D_out)  # 64*100
+[x,y]=size(X);
+opts = statset(&#39;Display&#39;,&#39;final&#39;);
+K=3; %将X划分为K类
+repN=50; %迭代次数
+%K-mean聚类
+[Idx,Ctrs,SumD,D] = kmeans(X,K,&#39;Replicates&#39;,repN,&#39;Options&#39;,opts);
+%Idx N*1的向量,存储的是每个点的聚类标号
+figure;
+%画出聚类为1的点。X(Idx==1,1),为第一类的样本的第一个坐标；X(Idx==1,2)为第二类的样本的第二个坐标
+plot(X(Idx==1,1),X(Idx==1,2),&#39;r.&#39;,&#39;MarkerSize&#39;,14)
+hold on
+plot(X(Idx==2,1),X(Idx==2,2),&#39;b.&#39;,&#39;MarkerSize&#39;,14)
+hold on
+plot(X(Idx==3,1),X(Idx==3,2),&#39;g.&#39;,&#39;MarkerSize&#39;,14)
 
-    # 使用nn包将我们的模型定义为一系列的层。
-    # nn.Sequential是包含其他模块的模块，并按顺序应用这些模块来产生其输出。
-    # 每个线性模块使用线性函数从输入计算输出，并保存其内部的权重和偏差张量。
-    # 在构造模型之后，我们使用.to()方法将其移动到所需的设备。
-    model = torch.nn.Sequential(
-        torch.nn.Linear(D_in, H),
-        torch.nn.ReLU(),
-        torch.nn.Linear(H, D_out),
-    )
+%绘出聚类中心点,kx表示是圆形
+plot(Ctrs(:,1),Ctrs(:,2),&#39;kx&#39;,&#39;MarkerSize&#39;,14,&#39;LineWidth&#39;,4)
+legend(&#39;Cluster 1&#39;,&#39;Cluster 2&#39;,&#39;Cluster 3&#39;,&#39;Centroids&#39;,&#39;Location&#39;,&#39;NW&#39;)
+grid on;
+%打印结果
+fprintf(&#39;划分成%d类的结果如下：\n&#39;,K)
+for i=1:K
+tm=find(Idx==i); %求第i类的对象
+tm=reshape(tm,1,length(tm)); %变成行向量
+fprintf(&#39;第%d类共%d个分别是%s\n&#39;,i,length(tm),int2str(tm)); %显示分类结果
+end
+toc
+disp([&#39;运行时间: &#39;,num2str(toc)]);</code></pre>
+<pre><code class="matlab">%在上述生成随机数据的基础上增加标签来检验正确率
+Y = ones(100,1);
+X=[data1 Y;data2 2*Y;data3 3*Y];
+save X;
 
-    # nn包还包含常用的损失函数的定义
-    # 使用MSE（平均平方误差）  设置 reduction = &#39;sum&#39; ，表示我们计算的是平方误差的“和”，而不是平均值
-    loss_fn = torch.nn.MSELoss(reduction=&#39;sum&#39;)
+%%K-means聚类
+clear;
+tic;
+load X.mat;
 
-    learning_rate = 1e-4
-    for t in range(500):
+[a,b]=size(X);
+r = floor(0.1 * a);%随机取百分之的数据
+data=X(randi(a,1,r),:);%从数据集的前x行抽取r行的随机样本
+X=data(:,1:2);
+Labels = data(:,3);
+[x,y]=size(X);
+opts = statset(&#39;Display&#39;,&#39;final&#39;);
+K=3; %将X划分为K类
+repN=50; %迭代次数
+%K-mean聚类
+[Idx,Ctrs,SumD,D] = kmeans(X,K,&#39;Replicates&#39;,repN,&#39;Options&#39;,opts);
+%Idx N*1的向量,存储的是每个点的聚类标号
+figure;
+%画出聚类为1的点。X(Idx==1,1),为第一类的样本的第一个坐标；X(Idx==1,2)为第二类的样本的第二个坐标
+plot(X(Idx==1,1),X(Idx==1,2),&#39;ro&#39;,&#39;MarkerSize&#39;,14)
+hold on
+plot(X(Idx==2,1),X(Idx==2,2),&#39;b.&#39;,&#39;MarkerSize&#39;,14)
+hold on
+plot(X(Idx==3,1),X(Idx==3,2),&#39;gx&#39;,&#39;MarkerSize&#39;,14)
+hold on
 
-        y_pred = model(x)
-        loss = loss_fn(y_pred, y)
-        print(t, loss)
-        print(t, loss.item())
+%绘出聚类中心点,kx表示是圆形
+plot(Ctrs(:,1),Ctrs(:,2),&#39;kx&#39;,&#39;MarkerSize&#39;,14,&#39;LineWidth&#39;,4)
+title(&#39;聚类样本个数比例为：10%&#39;);
 
-        # 反向传播之前清零梯度
-        # pytorch每次计算梯度是累加的
-        model.zero_grad()
-
-        loss.backward()
-
-        with torch.no_grad():
-            for param in model.parameters():
-                param -= learning_rate * param.grad
-
-
-</code></pre>
-<h3 id="optim"><a href="#optim" class="headerlink" title="optim"></a>optim</h3><p><code>torch.optim</code>是一个实现了各种优化算法的库。大部分常用的方法得到支持，并且接口具备足够的通用性，使得未来能够集成更加复杂的方法。</p>
-<p>到目前为止，我们已经通过手动改变包含可学习参数的张量来更新模型的权重。对于随机梯度下降(SGD/stochastic gradient descent)等简单的优化算法来说，这不是一个很大的负担，但在实践中，我们经常使用AdaGrad、RMSProp、Adam等更复杂的优化器来训练神经网络。</p>
-<pre><code class="python">import torch
-
-# N是批大小；D是输入维度
-# H是隐藏层维度；D_out是输出维度
-N, D_in, H, D_out = 64, 1000, 100, 10
-
-# 产生随机输入和输出张量
-x = torch.randn(N, D_in)
-y = torch.randn(N, D_out)
-
-# 使用nn包定义模型和损失函数
-model = torch.nn.Sequential(
-          torch.nn.Linear(D_in, H),
-          torch.nn.ReLU(),
-          torch.nn.Linear(H, D_out),
-        )
-loss_fn = torch.nn.MSELoss(reduction=&#39;sum&#39;)
-
-# 使用optim包定义优化器（Optimizer）。Optimizer将会为我们更新模型的权重。
-# 这里我们使用Adam优化方法；optim包还包含了许多别的优化算法。
-# Adam构造函数的第一个参数告诉优化器应该更新哪些张量。
-learning_rate = 1e-4
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-
-for t in range(500):
-
-    # 前向传播：通过像模型输入x计算预测的y
-    y_pred = model(x)
-
-    # 计算并打印loss
-    loss = loss_fn(y_pred, y)
-    print(t, loss.item())
-
-    # 在反向传播之前，使用optimizer将它要更新的所有张量的梯度清零(这些张量是模型可学习的权重)
-    optimizer.zero_grad()
-
-    # 反向传播：根据模型的参数计算loss的梯度
-    loss.backward()
-
-    # 调用Optimizer的step函数使它所有参数更新
-    optimizer.step()</code></pre>
-<h2 id="How-to-denote-string"><a href="#How-to-denote-string" class="headerlink" title="How to denote string"></a>How to denote string</h2><ul>
-<li>One-hot<ul>
-<li>[0,1,0,0,..]</li>
-</ul>
-</li>
-<li>Embedding<ul>
-<li>Word2vec</li>
-<li>glove</li>
-</ul>
-</li>
-</ul>
-<h2 id="Data-type"><a href="#Data-type" class="headerlink" title="Data type"></a>Data type</h2><table>
-<thead>
-<tr>
-<th>int</th>
-<th>torch.</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+legend(&#39;Cluster 1&#39;,&#39;Cluster 2&#39;,&#39;Cluster 3&#39;,&#39;Cluster 4&#39;,&#39;Cluster 5&#39;,&#39;Cluster 6&#39;,&#39;Centroids&#39;,&#39;Location&#39;,&#39;NW&#39;)
+grid on;
+%打印结果
+fprintf(&#39;划分成%d类的结果如下：\n&#39;,K)
+for i=1:K
+tm=find(Idx==i); %求第i类的对象
+tm=reshape(tm,1,length(tm)); %变成行向量
+fprintf(&#39;第%d类共%d个分别是%s\n&#39;,i,length(tm),int2str(tm)); %显示分类结果
+end
+toc
+disp([&#39;运行时间: &#39;,num2str(toc)]);
+right = [0,0,0,0,0];
+for i = 1:x
+    if(Idx(i)+Labels(i)==3 || Idx(i)+Labels(i)==6)
+        right(1) = right(1)+1;
+    end
+    if(Idx(i)+Labels(i)==2 || Idx(i)+Labels(i)==5)
+        right(2) = right(2)+1;
+    end
+    if(Idx(i)+Labels(i)==4)
+        right(3) = right(3)+1;
+    end
+    if(Idx(i)+Labels(i)==3 || Idx(i)+Labels(i)==4 || Idx(i)+Labels(i)==5)
+        right(4) = right(4)+1;
+    end
+    if(Idx(i)+Labels(i)==2 || Idx(i)+Labels(i)==4 || Idx(i)+Labels(i)==6)
+        right(5) = right(5)+1;
+    end
+end
+  fprintf(&#39;聚类样本个数比例为：%d%%\n&#39;,r/a*100);
+  fprintf(&#39;准确率为：%f\n&#39;,max(max(right))/x);</code></pre>
 
             </div>
             <hr>
@@ -373,7 +392,7 @@ for t in range(500):
                   <span>
                 <i class="iconfont icon-inbox"></i>
                     
-                      <a class="hover-with-bg" href="/categories/PyTorch/">PyTorch</a>
+                      <a class="hover-with-bg" href="/categories/模式识别/">模式识别</a>
                       &nbsp;
                     
                   </span>&nbsp;&nbsp;
@@ -586,7 +605,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "PyTorch&nbsp;",
+        "模式识别实验&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 40,
